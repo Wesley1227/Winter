@@ -30,6 +30,7 @@ if ($genero == 1) {
 include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
 
 <body>
+<?php $idDestinatario= $result['idUser'] ?>
   <?php if ($_GET['chat'] == 1) { ?>
     <div id="popupChat" style="display: block;">
       <button id="fecharChat" class="fecharChat">x</button>
@@ -66,7 +67,7 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
 
       <div class="botoes">
         <?php if ($_SESSION['idUser'] == $idUser || $_SESSION['idUser'] == 1) {
-        ?> <a href="criarAnuncio.php"><button class="custom-btn" id="editarAnuncio">Editar</button></a><a href="../Include_once/deleteAnuncio.php?idAnuncio=<?= $result['idAnuncio'] ?>"><button class="custom-btn" id="editarAnuncio" onclick="return confirm('Tem certeza que deseja excluir este anúncio?')">🗑️</button></a>
+        ?> <a href=""><button class="custom-btn" id="editarAnuncio">Editar</button></a><a href="../Include_once/deleteAnuncio.php?idAnuncio=<?= $result['idAnuncio'] ?>"><button class="custom-btn" id="editarAnuncio" onclick="return confirm('Tem certeza que deseja excluir este anúncio?')">🗑️</button></a>
         <?php } else { ?>
           <a href="" id="linkChat"><button class="custom-btn" id="editarAnuncio" title="Ainda em desenvolvimento">💭 Mensagem</button></a> <a href="#" id="link"><button class="custom-btn" id="editarAnuncio">📞</button></a>
 
@@ -74,7 +75,10 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
             📞<?php echo $resultIdUser['telemovel'] ?>
             <button id="fechar">x</button>
           </div> <!-- Quando clicar para ver o número de telemóvel, aparecerá um POP-UP -->
-        <?php } ?>
+        <?php }
+        if ($_SESSION['idUser'] == null) {
+          echo "Faça login primeiro.";
+        }?><!-- Quando o user não estiver logado, aparecerá essa mensagem -->
 
       </div>
     </div>

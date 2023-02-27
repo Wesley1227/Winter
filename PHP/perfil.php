@@ -18,6 +18,9 @@ include_once '../Include_once/head.php';
 
 <body>
     <div class="perfil">
+    <?php if($pessoa['fotoPerfil'] == null){
+            $pessoa['fotoPerfil'] = "semFotoPerfil.png";
+        }?>
         <img src="../uploads/<?= $pessoa['fotoPerfil'] ?>" />
         <div id="info">
             <?php if ($_SESSION['idUser'] == 1) { ?>

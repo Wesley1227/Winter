@@ -5,7 +5,7 @@ include_once('../Include_once/conexao.php');
 $user = $_GET['user'];
 $email = $_GET['email'];
 $senha = $_GET['senha'];
-$query = "INSERT INTO winter.user (user, email, senha) VALUES ('$user','$email','$senha')";
+$query = "INSERT INTO winter.user (user, email, senha, fotoPerfil) VALUES ('$user','$email','$senha','semFotoPerfil.png')";
 if (mysqli_query($mysqli, $query)) {
 } else {
   echo mysqli_error($mysqli);

@@ -27,10 +27,10 @@ if (!isset($_SESSION)) {
 <nav role='navigation' class="menu">
     <ul>
         <?php
-        $semLogin = "Conecta-se →";
+        $semLogin = "Conecta-se ➡️";
         if ($_SESSION['user'] == $semLogin) { ?>                  
         <?php } else { ?>
-            <li><a href="#" title="Mensagens">💭 </a></li>
+            <li><a href="../PHP/conta.php?idPag=1" title="Mensagens">💭 </a></li>
         <?php } ?>
 
         <!-- //////////////////// PERFIL \\\\\\\\\\\\\\\\\\ -->

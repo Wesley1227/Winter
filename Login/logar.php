@@ -1,11 +1,8 @@
-
 <?php
-
-// error_reporting(0);
 include_once('../Include_once/conexao.php');
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-$result = $con->query("SELECT * FROM user WHERE email='$email' AND senha='$senha'")->fetchAll();
+$result = $con->query("SELECT * FROM user WHERE email='$email' AND senha='$senha' OR user='$email' AND senha='$senha'")->fetchAll();
 foreach ($result as $user) :
   session_start();
   $_SESSION['idUser'] = $user['idUser'];

@@ -18,6 +18,9 @@ $titulo = $emoji . $pessoa['user'];
 $pagina = "Winter - " . $titulo;
 include_once '../Include_once/head.php';
 $idPag = $_GET['idPag'];
+if ($idPag == null) {
+    $idPag = 1;
+}
 
 include_once("../Include_once/Conta/menu.php");
 
@@ -33,7 +36,7 @@ include_once("../Include_once/Conta/menu.php");
 
     <?php
     if ($idPag == 1) {
-        echo "Mensagens - Página ainda em desenvolvimento";
+        include_once('../Include_once/Mensagens/chat.php');
     }
     if ($idPag == 2) {
         include_once('../Include_once/Conta/anuncios.php');
@@ -46,6 +49,6 @@ include_once("../Include_once/Conta/menu.php");
     } ?>
 
 </body>
-<?php include_once('../Include_once/footer.php'); ?>
+<!-- <?php include_once('../Include_once/footer.php'); ?> -->
 
 </html>

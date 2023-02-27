@@ -8,10 +8,11 @@ include_once '../Include_once/head.php'; ?>
         <div class="login">
             <div class="caixa">
                 <h1>Login</h1>
-                <input type="text" name="email" placeholder="Email" required />
+                <input type="text" name="email" placeholder="Email ou Nome de usuário" required />
                 <input type="password" name="senha" placeholder="Senha" />
-                <button type="submit">Logar</button>
-                <p>Não tem conta? <a href="registro.php"><span>Registra-se</span></p></a>
+                <button type="submit">Logar</button><br>
+                <p>Não tem conta? <a href="registro.php"><span>Registra-se</span></p></a><br><br>
+                <p>Esqueceu sua senha? <a href=""><span>Temos pena</span></p></a>
             </div>
         </div>
     </form>

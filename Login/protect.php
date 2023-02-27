@@ -5,6 +5,11 @@ if(!isset($_SESSION)) {
 }
 
 if(!isset($_SESSION['idUser'])) {
-    header("location: ../Login/login.php");
+
+header("Location: ../Login/login.php");
+    // error_reporting (0);
+    // echo "Faça login primeiro!";
+    // header("Location: ".$_SERVER['HTTP_REFERER']."&&chat=1");
+    // include_once ('../Login/login.php');
 }
 ?>

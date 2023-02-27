@@ -7,11 +7,6 @@
     --scrollbackground: #141e27;
 }
 
-
-
-
-
-
 /* /////////////////////////// HEADDER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 #logo {
     z-index: 3;
@@ -22,6 +17,7 @@
 }
 
 .header {
+    z-index: 3;
     color: #000000;
     background-color: brown;
     padding: auto;
@@ -39,7 +35,7 @@
 }
 
 .menu ul {
-    z-index: 2;
+    z-index: 3;
     border-radius: 10px;
     margin-top: -70px;
     float: right;
@@ -127,13 +123,6 @@
     position: absolute;
 }
 
-#config {
-    transition: all .2s ease-in-out;
-}
-
-#config:hover {
-    transform: rotate(360deg);
-}
 
 
 /* Mobile */
@@ -203,6 +192,7 @@ a.pointer {
 /* ////////////////////////////////////////////////////// Página - "INDEX" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .title {
+    transition: all 0.2s ease;
     margin-top: -20px;
     color: #fff;
     display: grid;
@@ -216,7 +206,6 @@ a.pointer {
     background-color: brown;
     width: 55%;
     position: relative;
-    z-index: 1;
     border-radius: 0px 0px 20px 20px;
 }
 
@@ -246,6 +235,7 @@ a.pointer {
     font-size: 30px;
     margin-top: 1.5%;
     margin-left: 31%;
+    transition: all 0.2s ease;
 }
 
 @media screen and (max-width: 700px) {
@@ -358,7 +348,7 @@ form.search-container {
 
 /* Scrollbar/slider na horizontal */
 .slider {
-    width: 85%;
+    width: 90%;
     margin: 0px auto;
 }
 
@@ -369,9 +359,10 @@ form.search-container {
     scroll-snap-type: x mandatory;
     display: flex;
     gap: 25px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 39px;
+    margin-top: -10px;
     scrollbar-color: var(--scrollcolor) var(--scrollbackground);
 }
 
@@ -392,11 +383,10 @@ form.search-container {
     background: var(--scrollbackground);
 }
 
-
 .PesquisaRapida {
     display: grid;
-    width: 85%;
-    height: 25vh;
+    width: 90%;
+    height: 32vh;
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
@@ -534,7 +524,7 @@ select#marca.dropdown {
 
 .anuncios {
     display: grid;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
@@ -544,6 +534,7 @@ select#marca.dropdown {
     align-items: center;
     overflow: hidden;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    transition: all 0.2s ease;
 }
 
 .itemAnuncio {
@@ -561,7 +552,7 @@ select#marca.dropdown {
 }
 
 .itemAnuncio:hover {
-    transform: scale(1.1);
+    transform: scale(1.04);
     width: 320px;
     height: 295px;
 }
@@ -663,8 +654,8 @@ img.itemImagem {
 .colunas {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    padding: 20px;
-    height: 79vh;
+    padding: 15px;
+    height: 75vh;
     border-radius: 20px;
 }
 
@@ -736,13 +727,15 @@ button#editarAnuncio.custom-btn {
 
 #popup {
     position: absolute;
-    background-color: white;
+    background-color: rgb(70, 70, 70);
     width: 15%;
     height: 40px;
-    padding: 10px auto;
+    padding: 20px auto;
     text-align: center;
     border-radius: 15px;
     z-index: 3;
+    color: white;
+    font-size: 20px;
 }
 
 #fechar {
@@ -846,22 +839,16 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 }
 
 /*//////////////////////////////////// Página "Login" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
-#formLogin {
-    position: relative;
-    z-index: 1;
-    margin-top: 10px;
-    margin-bottom: 100px;
-}
-
 .login {
-    width: 350px;
-    height: 530px;
+    width: 40%;
+    height: 80vh;
     display: block;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: var(--boxShadow);
+    transition: all 0.2s ease;
 }
 
 .caixa {
@@ -877,14 +864,13 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 
 .caixa h1 {
     text-align: center;
-
     font-size: 30px;
 }
 
 .caixa input {
     border-radius: 15px;
     display: block;
-    width: 300px;
+    width: 80%;
     margin: 9% auto;
     padding: 15px;
     background: rgba(0, 0, 0, 0.2);
@@ -937,8 +923,18 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 .caixa p span:hover {
     color: #fff;
 }
-
-
+/* Ecra menor */
+@media screen and (max-width: 900px) {
+    .login {
+        width: 60%;
+    }
+}
+/* MOBILE */
+@media screen and (max-width: 600px) {
+    .login {
+        width: 95%;
+    }
+}
 
 
 /* ////////////////////////////////////////////////// Página "Conta" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -999,11 +995,11 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 }
 
 input#search-bar.inputDados {
-    margin-top: 2.5vh;
+    margin-top: 2vh;
 }
 
 input#search-bar.dadosEmail {
-    margin-top: 3vh;
+    margin-top: 2vh;
     width: 35%;
     background-color: rgb(216, 213, 213);
 }
@@ -1027,11 +1023,12 @@ input#search-bar.dadosTelemovel {
 
 input#search-bar.nomeApelido {
     width: 30%;
+    margin-top: -10px;
 }
 
 input#search-bar.dadosNif {
     width: 25%;
-    margin-top: 3vh;
+    margin-top: 2vh;
 }
 
 input#search-bar.dadosUser {
@@ -1058,7 +1055,6 @@ input#search-bar.inputDados {
 
 #fotoPerfil input[type="file"] {
     padding: 10px 0;
-    height: 36px;
     width: 100%;
     cursor: pointer;
 }
@@ -1067,25 +1063,31 @@ input#search-bar.inputDados {
     margin: 20px auto;
     border-radius: 100%;
     display: inline-block;
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
     object-position: 50% 50%;
     border: 3px solid #000000;
     margin-right: 15px;
     vertical-align: middle;
+    margin-top: -10px;
 }
 
 /* Mobile */
 @media screen and (max-width: 700px) {
 
     .gridDados {
-        display: block;
+        display: inline-block;
+        width: 100%;
     }
 
     #dadosPrivados {
         display: block;
         height: 60vh;
+    }
+
+    h1 {
+        margin-bottom: 30px;
     }
 
     #dadosPublicos {
@@ -1094,7 +1096,15 @@ input#search-bar.inputDados {
     }
 
     input#search-bar.nomeApelido {
-        width: 32%;
+        width: 25%;
+    }
+
+    input#search-bar.dadosEmail {
+        width: 45%;
+    }
+
+    #dadosGenero {
+        width: 30%;
     }
 
     input#search-bar.dadosNif {
@@ -1162,8 +1172,7 @@ input#search-bar.inputDados {
     float: left;
     border: 2px solid #000000;
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
-    box-shadow: 18px 18px 36px #6e6e6e,
-        -18px -18px 36px #ffffff;
+    box-shadow: 18px 18px 36px #6e6e6e, -18px -18px 36px #ffffff;
 }
 
 div#info {
@@ -1200,17 +1209,16 @@ div#info {
     position: absolute;
     display: flex;
     z-index: 2;
-    top: 35%;
+    top: 50%;
     left: 75%;
     transform: translate(-50%, -50%);
 }
 
 #chat {
-    background-color: white;
+    background-color: gray;
     border-radius: 15px 7px 0px 0px;
     width: 395px;
     height: 450px;
-    padding-left: 10px;
     padding-top: 20px;
     overflow: auto;
     display: flex;
@@ -1232,27 +1240,32 @@ div#info {
     }
 }
 
+#load {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
 
 #enviarMensagem {
     height: 50px;
-    width: 400px;
-    background-color: gray;
-    padding-left: 5px;
+    width: 100%;
+    background-color: rgb(68, 68, 68);
     border-radius: 0px 0px 15px 15px;
 }
 
 #chat::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
     /* Tamanho total do scrollbar */
 }
 
 #chat::-webkit-scrollbar-track {
-    background-color: gray;
+    background-color: transparent;
     /* Cor do tamanho total */
 }
 
 #chat::-webkit-scrollbar-thumb {
     background: brown;
+    border-radius: 10px;
 }
 
 #search-bar.mensagem {
@@ -1260,7 +1273,6 @@ div#info {
     width: 70%;
     border-radius: 15px;
 }
-
 
 .fecharChat {
     position: absolute;
@@ -1274,13 +1286,157 @@ div#info {
     cursor: pointer;
 }
 
+/* ////////////////////////////////////////////////// Página "mensagens" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+.mensagens {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 38% 60%;
+    gap: 2%;
+    margin: 0 auto;
+}
 
+#pessoas {
+    /* Onde aparece od anuncios */
+    z-index: 1;
+    height: 74vh;
+    background-color: rgb(77, 75, 75);
+    width: 100%;
+    overflow: auto;
+    color: white;
+    border-radius: 15px;
+    font-size: 20px;
+}
 
+#fotoChat.miniFotoPerfil {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    transition: all 0.4s ease;
+}
 
+img#fotoChat.miniFotoPerfil:hover {
+    transform: scale(1.5);
+    border-radius: 15px;
+    border: 1px solid rgb(172, 0, 0);
+    margin-right: 20px;
+    width: 55px;
+}
 
+#anuncio {
+    /* Os anúncios na esquerda, cada um*/
+    background-color: white;
+    color: black;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 90%;
+    border-radius: 25px;
+    transition: all 0.2s ease;
+    box-shadow: var(--boxShadow);
+}
 
+#anuncio:hover {
+    border-radius: 20px;
+    font-size: 25px;
+    width: 93%;
+}
 
+#preco {
+    float: right;
+    display: flex;
+    justify-content: right;
+    margin-left: auto;
+    font-weight: bold;
+    padding-right: 10px;
+}
 
+#escolhe1 {
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 15%;
+}
+
+#chat.mensagem {
+    /* Onde aparecerá o chat */
+    height: 64vh;
+    background-color: rgb(77, 75, 75);
+    width: 100%;
+    color: white;
+    border-radius: 15px 15px 0px 0px;
+    padding-left: 10px;
+    display: flex;
+    grid-template-columns: 45% 45%;
+    flex-direction: column-reverse;
+    background: linear-gradient(145deg, #696767, #585656);
+    box-shadow: 26px 26px 51px #444242, -26px -26px 51px #807e7e;
+    overflow-x: hidden;
+}
+
+#fotoPerfilMensagem {
+    position: relative;
+    margin: 0 auto;
+}
+
+#mensagem {
+    background-color: white;
+    color: black;
+    border-radius: 25px 15px 25px 0px;
+    margin-right: 5px;
+    width: 50%;
+    padding: 10px;
+    box-shadow: var(--boxShadow);
+}
+
+#enviarMensagem.mensagem {
+    padding-left: 10px;
+    width: 100%;
+}
+
+#pessoas::-webkit-scrollbar {
+    width: 10px;
+    /* Tamanho total do scrollbar */
+}
+
+#pessoas::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Cor do tamanho total */
+}
+
+#pessoas::-webkit-scrollbar-thumb {
+    background: brown;
+    border-radius: 10px;
+}
+
+/* Tela menor */
+@media screen and (max-width: 800px) {
+    .mensagens {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+    .mensagens {
+        display: block;
+        width: 95%;
+    }
+
+    #pessoas {
+        height: 25vh;
+        margin-bottom: 20px;
+    }
+
+    #chat.mensagem {
+        height: 40vh;
+    }
+
+}
 
 /* /////////////////////////// FOOTER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .footer {
@@ -1292,11 +1448,13 @@ div#info {
     background-color: brown;
     overflow: hidden;
     box-shadow: var(--boxShadow);
+    transition: all 0.2s ease;
 }
 
 .logoFooter {
     height: 50%;
     width: 140px;
+    transition: all 0.2s ease;
 }
 
 .footer .col {
