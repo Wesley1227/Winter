@@ -6,7 +6,7 @@ $idUser = $_SESSION['idUser'];
 $mensagem = $_POST['mensagem'];
 $idAnuncio = $_GET['idAnuncio'];
 $idDestinatario = $_GET['idDestinatario'];
-if (!empty($nome) && !empty($mensagem)) {
+if (!empty($idUser) && !empty($mensagem)) {
     $query = "INSERT INTO winter.chat SET idUser = '$idUser', idDestinatario = '$idDestinatario', idAnuncio = '$idAnuncio', nome='$nome', mensagem='$mensagem'";
     if (mysqli_query($mysqli, $query)) {
         //  header("Location: ../Chat/chat.php");

@@ -16,7 +16,7 @@ if (!empty($nome) && !empty($mensagem)) {
     $query = "INSERT INTO winter.chat SET " . $insert;
     if (mysqli_query($mysqli, $query)) {
         //  header("Location: ../Chat/chat.php");
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "&&chat=1");
+        header("Location: " . $_SERVER['HTTP_REFERER'] . "");
     } else {
         echo mysqli_error($mysqli);
     }

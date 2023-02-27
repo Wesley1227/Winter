@@ -4,18 +4,18 @@
             <h1>Dados privados</h1>
             Nome:<input type="text" name="nome" placeholder="<?php echo $pessoa['nome'] ?>" class="nomeApelido" id="search-bar">
             Apelido:<input type="text" name="apelido" placeholder="<?php echo $pessoa['apelido']; ?>" class="nomeApelido" id="search-bar"><br>
-            Email:<input disabled type="text" name="email" placeholder="<?php echo $pessoa['email']; ?>" class="dadosEmail" id="search-bar">
+            NIF:<input type="text" name="nif" maxlength="9" placeholder="<?php echo $pessoa['nif']; ?>" class="dadosNif" id="search-bar">
 
-            <select name="genero" class="dropdown-select" id="dadosGenero" >
+
+            <select name="genero" class="dropdown-select" id="">
                 <option value="">Género</option>
                 <option value="1">Masculino</option>
                 <option value="2">Feminimo</option>
                 <option value="3">Outro</option>
             </select><br>
-
-            NIF:<input type="text" name="nif" maxlength="9" placeholder="<?php echo $pessoa['nif']; ?>" class="inputDados" id="search-bar"><br>
+            Email:<input disabled type="text" name="email" placeholder="<?php echo $pessoa['email']; ?>" class="dadosEmail" id="search-bar"><br>
             Morada:<input type="text" name="morada" placeholder="<?php echo $pessoa['morada']; ?>" class="inputDados" id="search-bar"><br>
-            Código postal:<input type="text" maxlength="8" name="cod_postal" placeholder="<?php echo $pessoa['cod_postal'] ?>" class="dadosNif" id="search-bar">
+            Código postal:<input type="text" maxlength="8" name="cod_postal" placeholder="<?php echo $pessoa['cod_postal'] ?>" class="dadosCodPostal" id="search-bar">
             <input type="text" name="localidade" placeholder="<?php echo $pessoa['localidade'] ?>" class="nomeApelido" id="search-bar"><br><br>
 
             Tipo de negócio: <br>
@@ -33,7 +33,7 @@
             <?php if ($_SESSION['fotoPerfil'] == null) {
                 $_SESSION['fotoPerfil'] = "semFotoPerfil.png";
             } ?>
-            <img src="../uploads/<?= $_SESSION['fotoPerfil'] ?>"  class="upload-img" /><br>
+            <img src="../uploads/<?= $_SESSION['fotoPerfil'] ?>" class="upload-img" /><br>
             <button class="custom-btn" id="fotoPerfil">
                 <input type="file" name="fotoPerfil" />
             </button><br>

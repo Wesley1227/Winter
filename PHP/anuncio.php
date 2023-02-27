@@ -23,10 +23,6 @@ if ($genero == 1) {
 } else {
   $emoji = "👤";
 }
-?>
-
-<?php
-
 include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
 
 <body>
@@ -35,7 +31,7 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
     <div id="popupChat" style="display: block;">
       <button id="fecharChat" class="fecharChat">x</button>
       <?php include_once('../Chat/chat.php'); ?>
-    </div> <!-- POP-UP CHAT -->
+    </div> <!-- POP-UP CHAT novamente -->
   <?php } ?>
   
   <div id="popupChat" style="display: none;">

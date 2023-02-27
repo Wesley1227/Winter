@@ -152,6 +152,11 @@
     }
 }
 
+/* //////////////////////////// OUTROS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#provas {
+    cursor: pointer;
+}
+
 /* ////////////////////////////////////////////////////// BODY \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 body {
@@ -306,7 +311,7 @@ a.pointer {
 }
 
 /* ECRÃ Mobile  */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
     #anunciar {
         width: 35%;
     }
@@ -332,6 +337,15 @@ form.search-container {
     margin-top: 1%;
     font-size: 1rem;
     border: 3px solid #D0CFCE;
+    transition: all 0.4s ease;
+}
+
+
+#search-bar:focus {
+    border: 3px solid brown;
+
+    color: #000000;
+    border-radius: 8px;
 }
 
 @media screen and (max-width: 500px) {
@@ -340,11 +354,6 @@ form.search-container {
     }
 }
 
-#search-bar:focus {
-    border: 3px solid brown;
-    transition: 0.35s ease;
-    color: #000000;
-}
 
 /* Scrollbar/slider na horizontal */
 .slider {
@@ -410,6 +419,7 @@ form.search-container {
 .PesquisaRapida img:hover {
     border-radius: 12px;
     transform: scale(1.1);
+    border: 3px solid black;
 }
 
 @media screen and (max-width: 1000px) {
@@ -640,7 +650,7 @@ img.itemImagem {
     margin-bottom: 20%;
 }
 
-/*//////////////////////////// PÁGINA "Anúncio" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/*//////////////////////////// PÁGINA "Anuncio" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .anuncio {
     margin: 0 auto;
@@ -649,6 +659,7 @@ img.itemImagem {
     grid-template-columns: 70% 28%;
     overflow: hidden;
     gap: 2%;
+    margin-bottom: -10px;
 }
 
 .colunas {
@@ -859,7 +870,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
     color: #fff;
     background: rgba(0, 0, 0, 0.13);
     padding: 30px 0px;
-
+    text-align: center;
 }
 
 .caixa h1 {
@@ -923,12 +934,14 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 .caixa p span:hover {
     color: #fff;
 }
+
 /* Ecra menor */
 @media screen and (max-width: 900px) {
     .login {
         width: 60%;
     }
 }
+
 /* MOBILE */
 @media screen and (max-width: 600px) {
     .login {
@@ -1000,7 +1013,7 @@ input#search-bar.inputDados {
 
 input#search-bar.dadosEmail {
     margin-top: 2vh;
-    width: 35%;
+    width: 60%;
     background-color: rgb(216, 213, 213);
 }
 
@@ -1028,6 +1041,11 @@ input#search-bar.nomeApelido {
 
 input#search-bar.dadosNif {
     width: 25%;
+    margin-top: 2vh;
+}
+
+input#search-bar.dadosCodPostal {
+    width: 15%;
     margin-top: 2vh;
 }
 
@@ -1121,6 +1139,10 @@ input#search-bar.inputDados {
         height: 180px;
         width: 180px;
     }
+    .itemAnuncio:hover {
+        width: 220px;
+        height: 190px;
+    }
 
     img.itemImagem {
         display: block;
@@ -1205,20 +1227,37 @@ div#info {
 }
 
 /* ////////////////////////////////////////////////// Página "Chat" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+.erro404 {
+    background-color: white;
+    width: 90%;
+    height: 150px;
+    display: flex;
+    margin: 0 auto;
+    font-size: 50px;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 50%;
+}
+
+#erro404 {
+    width: 100px;
+}
+
 #popupChat {
     position: absolute;
     display: flex;
+    right: 10px;
     z-index: 2;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
+    width: 50vh;
+    height: 55vh;
 }
+
 
 #chat {
     background-color: gray;
     border-radius: 15px 7px 0px 0px;
-    width: 395px;
-    height: 450px;
+    width: 100%;
+    height: 100%;
     padding-top: 20px;
     overflow: auto;
     display: flex;
@@ -1284,6 +1323,14 @@ div#info {
     background-color: brown;
     color: white;
     cursor: pointer;
+}
+
+/* MOBILE */
+@media screen and (max-width: 900px) {
+    #popupChat {
+        top: 60%;
+        width: 40vh;
+    }
 }
 
 /* ////////////////////////////////////////////////// Página "mensagens" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -1391,6 +1438,12 @@ img#fotoChat.miniFotoPerfil:hover {
     width: 50%;
     padding: 10px;
     box-shadow: var(--boxShadow);
+}
+
+#apagarMensagem {
+    float: right;
+    cursor: pointer;
+    border: 0px;
 }
 
 #enviarMensagem.mensagem {

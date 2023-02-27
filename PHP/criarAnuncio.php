@@ -28,7 +28,7 @@ include_once '../Include_once/head.php';
 
             <select name="subCategoria" id="subCategoria" onchange="FetchSubSubCategoria(this.value)" class="dropdown-select">
                 <option value="">Subcategoria</option>
-            </select> <br>
+            </select> 
 
             <select name="subSubCategoria" id="subSubCategoria" class="dropdown-select">
                 <option value="">Sub-Subcategoria</option>
@@ -43,7 +43,7 @@ include_once '../Include_once/head.php';
                         echo '<option value=' . $row['marca'] . '>' . $row['marca'] . '</option>';
                     }
                 } ?>
-            </select> <br>
+            </select> 
 
             <select name="estadoProduto" class="dropdown-select">
                 <option value="">Estado do produto</option>
@@ -60,7 +60,7 @@ include_once '../Include_once/head.php';
                 <option value="2">Trocar</option>
                 <option value="3">Doar</option>
                 <option value="4">Comprar</option>
-            </select> <br>
+            </select> 
 
             <div id="opcao1" style="display: none;">
                 <input type="text" for="preco" name="preco" class="preco" id="search-bar" placeholder="Preço">
