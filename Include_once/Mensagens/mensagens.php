@@ -45,7 +45,7 @@ foreach ($result as $chat) {
                 <a href="../Include_once/Mensagens/deleteMensagem.php?idChat=<?= $chat['idChat'] ?>"><button id="apagarMensagem" style="background: none;" onclick="return confirm('Tem certeza que deseja excluir esta mensagem?')">🗑️</button></a>
             </div>
             <div style="<?php echo $denuncia ?>;">
-                <a href="../PHP/denunciar.php?idChat=<?= $chat['idChat']?>&&idDenunciado=<?=$chat['idUser']?>"><button id="apagarMensagem" style="background: none;" onclick="return confirm('Tem certeza que deseja denúnciar esta mensagem?')">⚠️</button></a>
+                <a href="../PHP/denuncia.php?idChat=<?= $chat['idChat']?>&&idDenunciado=<?=$chat['idUser']?>"><button id="apagarMensagem" style="background: none;" onclick="return confirm('Tem certeza que deseja denúnciar esta mensagem?')">⚠️</button></a>
             </div>
         </div>
         <br>

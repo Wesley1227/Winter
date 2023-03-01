@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Fev-2023 às 23:33
+-- Tempo de geração: 01-Mar-2023 às 10:52
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -50,9 +50,9 @@ CREATE TABLE `anuncios` (
 --
 
 INSERT INTO `anuncios` (`idAnuncio`, `titulo`, `descricao`, `preco`, `localizacao`, `visualizacoes`, `idUser`, `idCategoria`, `estadoProduto`, `marca`, `intAnuncio`, `subCategoria`, `subSubCategoria`, `imagem`, `dataCriacao`) VALUES
-(1, 'Título do anúncio', 'Descrição', 123, 'Localização', 1893, 0, '', 'Imaculado', '[value-10]', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(2, 'teste 1', '', 0, '', 1895, 0, 'Informática', '', '', '', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(3, 'teste 2', 'pao', 125, '', 1882, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(1, 'Título do anúncio', 'Descrição', 123, 'Localização', 1894, 0, '', 'Imaculado', '[value-10]', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(2, 'teste 1', '', 0, '', 1896, 0, 'Informática', '', '', '', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(3, 'teste 2', 'pao', 125, '', 1883, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (4, 'teste 3', 'açkud', 126, '', 1634, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (5, 'teste 4', '', 0, '', 679, 0, 'Veículos', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (6, 'teste 5', '', 0, '', 679, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
@@ -69,23 +69,23 @@ INSERT INTO `anuncios` (`idAnuncio`, `titulo`, `descricao`, `preco`, `localizaca
 (31, 'teste 15', 'qwdflkjqwd', 230, '', 681, 0, 'Mobilidade', 'Semi-novo', 'Oneplus', 'compra', '7', '3', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (32, 'teste 16', '', 0, '', 675, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (33, 'teste 17', '', 0, '', 675, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(36, 'teste 20', '', 0, '', 2012, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(37, 'teste 21', '', 0, '', 2021, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(38, 'teste 22', '', 0, '', 2004, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(42, 'teste 25', '', 0, '', 2004, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(43, 'Lucas á parmegiana', '', 0, '', 1846, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(44, 'Vendo Lucas', 'Ele não presta', 99, '', 1845, 0, 'Informática', 'Estragado', '', 'compra', '9', '19', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(46, 'Produtos usados', 'Vendo essas tralhas pois estão sem uso a muito tempo e preciso do espaço.\nTexto aleatório a seguir porque sim: \r\nPão (do latim \"pane\")[1] é um alimento obtido pela cocção de uma massa de consistência elástica, elaborada basicamente com farinha de cereal (com proteínas formadores de glúten, geralmente de trigo), água, sal/açúcar.[2] A evidência de ocorrência mais antiga de pão na Europa data de há 30 mil anos.\n\nA esta mistura básica podem acrescentar-se vários ingredientes, desde gordura a especiarias, passando por carne (geralmente curada), frutas secas ou frutas cristalizadas, etc. O pão comercial por outro lado, geralmente contém aditivos para melhorar o sabor, textura, cor, vida de prateleira, nutrição e facilidade de fabricação.\n\nBasicamente existem tipos de pão: levedado, com adição de levedura/fermento biológico à massa, produzindo pães mais macios, e; ázimo, não fermentado,[3] que produz pães geralmente achatados e consistentes.', 450, 'Amadora', 1830, 1, 'Informática', 'Usado', 'Ferrari', 'compra', '9', '15', 'IMG-63c7e658c490a4.55154845.jpg', '2023-02-15 12:46:31'),
-(49, 'pao', 'teste', 0, '', 1859, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(50, 'pao', 'teste 47', 0, '', 1859, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(51, 'teste 48', '', 0, '', 1899, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(54, 'teste 49', 'Teste de user', 49, '', 2103, 1, 'Informática', '', 'Alcatel', 'doação', '1', '2', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(58, 'teste 52', 'Testar se criador do anuncio consegue ver os anuncios dele', 0, '', 2274, 7, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(73, 'Teclado mecânico Mars Gaming 60%', 'Teclado Mecânico Mars Gaming MKMINI RGB 60% PT Outemu Red · Peso: 400g · Dimensões: 292x102x37mm · Design: 60% mini · Material de teclado: ABS · Cor: Preto', 45, 'Cacem', 1934, 1, 'Informática', 'Novo', '', '', '23', '27', 'IMG-63ef9bf10f9e57.92921091.png', '2023-02-17 15:23:29'),
-(76, 'Portátil HP ', '240gb\r\nPosso aceitar troca por telemóveis', 500, 'Sete Rios', 1656, 7, 'Informática', 'Semi-novo', 'HP', '', '1', '5', 'IMG-63efe02e87c934.57813910.jpg', '2023-02-17 20:14:38'),
-(77, 'Placa Gráfica ', '', 120, 'Amadora', 1647, 1, 'Informática', 'Novo', 'Outro', '', '9', '12', 'IMG-63f0058e095d40.27505008.jpg', '2023-02-17 22:54:06'),
-(79, 'iPhone 8 64gb', '', 150, 'Sintra', 530, 7, 'Mobilidade', 'Semi-novo', 'Apple', '', '7', '3', 'IMG-63f2a127116744.42147163.webp', '2023-02-19 22:22:31'),
-(87, 'Setup gaming completo', 'Vendo setup gaming completo com tudo incluso e no precinho!', 2000, 'Lisboa', 261, 83, 'Informática', 'Semi-novo', 'Asus', '', '1', '28', 'IMG-63f4f1862b8731.50118216.webp', '2023-02-21 16:29:58');
+(36, 'teste 20', '', 0, '', 2016, 83, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(37, 'teste 21', '', 0, '', 2022, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(38, 'teste 22', '', 0, '', 2005, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(42, 'teste 25', '', 0, '', 2005, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(43, 'Lucas á parmegiana', '', 0, '', 1847, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(44, 'Vendo Lucas', 'Ele não presta', 99, '', 1846, 0, 'Informática', 'Estragado', '', 'compra', '9', '19', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(46, 'Produtos usados', 'Vendo essas tralhas pois estão sem uso a muito tempo e preciso do espaço.\nTexto aleatório a seguir porque sim: \r\nPão (do latim \"pane\")[1] é um alimento obtido pela cocção de uma massa de consistência elástica, elaborada basicamente com farinha de cereal (com proteínas formadores de glúten, geralmente de trigo), água, sal/açúcar.[2] A evidência de ocorrência mais antiga de pão na Europa data de há 30 mil anos.\n\nA esta mistura básica podem acrescentar-se vários ingredientes, desde gordura a especiarias, passando por carne (geralmente curada), frutas secas ou frutas cristalizadas, etc. O pão comercial por outro lado, geralmente contém aditivos para melhorar o sabor, textura, cor, vida de prateleira, nutrição e facilidade de fabricação.\n\nBasicamente existem tipos de pão: levedado, com adição de levedura/fermento biológico à massa, produzindo pães mais macios, e; ázimo, não fermentado,[3] que produz pães geralmente achatados e consistentes.', 450, 'Amadora', 1831, 1, 'Informática', 'Usado', 'Ferrari', 'compra', '9', '15', 'IMG-63c7e658c490a4.55154845.jpg', '2023-02-15 12:46:31'),
+(49, 'pao', 'teste', 0, '', 1860, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(50, 'pao', 'teste 47', 0, '', 1860, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(51, 'teste 48', '', 0, '', 1900, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(54, 'teste 49', 'Teste de user', 49, '', 2104, 1, 'Informática', '', 'Alcatel', 'doação', '1', '2', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(58, 'teste 52', 'Testar se criador do anuncio consegue ver os anuncios dele', 0, '', 2275, 7, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(73, 'Teclado mecânico Mars Gaming 60%', 'Teclado Mecânico Mars Gaming MKMINI RGB 60% PT Outemu Red · Peso: 400g · Dimensões: 292x102x37mm · Design: 60% mini · Material de teclado: ABS · Cor: Preto', 45, 'Cacem', 1935, 1, 'Informática', 'Novo', '', '', '23', '27', 'IMG-63ef9bf10f9e57.92921091.png', '2023-02-17 15:23:29'),
+(76, 'Portátil HP ', '240gb\r\nPosso aceitar troca por telemóveis', 500, 'Sete Rios', 1657, 7, 'Informática', 'Semi-novo', 'HP', '', '1', '5', 'IMG-63efe02e87c934.57813910.jpg', '2023-02-17 20:14:38'),
+(77, 'Placa Gráfica ', '', 120, 'Amadora', 1648, 1, 'Informática', 'Novo', 'Outro', '', '9', '12', 'IMG-63f0058e095d40.27505008.jpg', '2023-02-17 22:54:06'),
+(79, 'iPhone 8 64gb', '', 150, 'Sintra', 531, 7, 'Mobilidade', 'Semi-novo', 'Apple', '', '7', '3', 'IMG-63f2a127116744.42147163.webp', '2023-02-19 22:22:31'),
+(87, 'Setup gaming completo', 'Vendo setup gaming completo com tudo incluso e no precinho!', 2000, 'Lisboa', 271, 83, 'Informática', 'Semi-novo', 'Asus', '', '1', '28', 'IMG-63f4f1862b8731.50118216.webp', '2023-02-21 16:29:58');
 
 -- --------------------------------------------------------
 
@@ -187,8 +187,16 @@ CREATE TABLE `denuncias` (
   `motivo` varchar(255) NOT NULL,
   `idAnuncio` int(11) NOT NULL,
   `idChat` int(11) NOT NULL,
-  `tipoDenuncia` varchar(255) NOT NULL
+  `tipoDenuncia` varchar(255) NOT NULL,
+  `print` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `denuncias`
+--
+
+INSERT INTO `denuncias` (`idDenuncia`, `idUser`, `idDenunciado`, `motivo`, `idAnuncio`, `idChat`, `tipoDenuncia`, `print`) VALUES
+(1, 83, 84, 'KKKKKKKKKKKKKKKKK', 0, 429, 'Mensagem', 0);
 
 -- --------------------------------------------------------
 
@@ -446,7 +454,7 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT de tabela `denuncias`
 --
 ALTER TABLE `denuncias`
-  MODIFY `idDenuncia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDenuncia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `imagens`

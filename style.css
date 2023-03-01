@@ -413,7 +413,7 @@ form.search-container {
     border-radius: 25px;
     height: 190px;
     width: 200px;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .PesquisaRapida img:hover {
@@ -1139,6 +1139,7 @@ input#search-bar.inputDados {
         height: 180px;
         width: 180px;
     }
+
     .itemAnuncio:hover {
         width: 220px;
         height: 190px;
@@ -1490,6 +1491,25 @@ img#fotoChat.miniFotoPerfil:hover {
     }
 
 }
+
+/*//////////////////////////// PÁGINA "Denuncia" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#mensagem.chatDenunciado {
+    margin: 0 auto;
+    text-align: left;
+    width: 80%;
+    margin-bottom: -35px;
+}
+
+#provas {
+    margin-bottom: 0px;
+}
+
+
+
+
+
+
+
 
 /* /////////////////////////// FOOTER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .footer {
