@@ -1129,6 +1129,10 @@ input#search-bar.inputDados {
         width: 28%;
     }
 
+    input#search-bar.dadosCodPostal {
+        width: 20%;
+    }
+
     .anuncios {
         width: 100%;
         grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
@@ -1350,9 +1354,16 @@ div#info {
     background-color: rgb(77, 75, 75);
     width: 100%;
     overflow: auto;
+    overflow-x: hidden;
     color: white;
     border-radius: 15px;
     font-size: 20px;
+}
+
+#anunciante {
+    margin-top: 30px;
+    margin-left: -100px;
+    position: relative;
 }
 
 #fotoChat.miniFotoPerfil {
@@ -1375,7 +1386,8 @@ img#fotoChat.miniFotoPerfil:hover {
     /* Os anúncios na esquerda, cada um*/
     background-color: white;
     color: black;
-    height: 65px;
+    height: auto;
+    min-height: 65px;
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -1502,6 +1514,25 @@ img#fotoChat.miniFotoPerfil:hover {
 
 #provas {
     margin-bottom: 0px;
+}
+
+/* Pag Admin */
+.denuncias {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#denuncia {
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    width: 100%;
+    height: 90px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: var(--boxShadow);
+    border: 1px solid;
 }
 
 

@@ -1,4 +1,4 @@
-A segunda entrga consiste no avanço no trabalho que foi feito desde a primeria entrega.
+A segunda entrega consiste no avanço no trabalho que foi feito desde a primeria entrega.
 
 Conta ADMIN:
 Admin (email/user: amin // Senha: 1227)
@@ -18,6 +18,8 @@ Por não ter uma base de dados remota para ficheirops, optei por essa fuincional
 *Pasta Include_once* - Nela contém ficheiros .php pastas, pasta expecifica para guardar código que depois será chamado com Include_once, assim nao precisar encher ficheiros com o mesmo código, basta criar uma vez e chamar quantas vezes eu quiser, como por exemplo o footer do site, basta inserir "<?php include_once '../Include_once/footer.php'; ?>". Assim ficando mais organizao e leve.
 
 Entre váaarias alterações, como pesquisa, anuncios, perfil, dados, criar anuncio, etc...
+
+Diego esteve aqui
 
 
 

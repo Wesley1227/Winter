@@ -12,7 +12,5 @@ if (!isset($_SESSION['idUser'])) {
        <a href="../Login/login.php"> <button class="custom-btn" id="erro404">Faça login primeiro!</button></a>
     </div>
 <?php }
-//echo "Faça login primeiro!";
-    // header("Location: ../Login/login.php");
-    // header("Location: ".$_SERVER['HTTP_REFERER']."&&chat=1");
-    // include_once ('../Login/login.php');
+
+    //  header("Location: ".$_SERVER['HTTP_REFERER']."");

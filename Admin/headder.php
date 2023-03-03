@@ -9,6 +9,6 @@
     <ul class="menu-dropdown">
         <li><a href="../Admin/admin.php">Config</a></li>
         <li><a href="../Admin/testes.php">Testes</a></li>
-        <li><a href="../Admin/testes.php">Denúncias</a></li>
+        <li><a href="../Admin/denuncias.php">Denúncias</a></li>
     </ul>
 </li>

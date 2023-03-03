@@ -25,13 +25,14 @@ foreach ($result as $chat) {
             $style =  "margin-left: auto; border-radius:  15px 25px 0px 20px; background-color:brown; color:white;";
             $perfil = $idUser;
             $lixo = "";
-            $denuncia= "display:none;";
-        } else {
+            $denuncia = "display:none;";
+        } 
+        else {
             $fotoPefil = $conta['fotoPerfil'];
             $style =  "";
             $perfil = $conta['idUser'];
             $lixo = "display:none;";
-            $denuncia= "margin-top: -15px;";
+            $denuncia = "margin-top: -15px;";
         }
         if ($fotoPefil == null) {
             $fotoPefil = "semFotoPerfil.png";
@@ -45,15 +46,9 @@ foreach ($result as $chat) {
                 <a href="../Include_once/Mensagens/deleteMensagem.php?idChat=<?= $chat['idChat'] ?>"><button id="apagarMensagem" style="background: none;" onclick="return confirm('Tem certeza que deseja excluir esta mensagem?')">🗑️</button></a>
             </div>
             <div style="<?php echo $denuncia ?>;">
-                <a href="../PHP/denuncia.php?idChat=<?= $chat['idChat']?>&&idDenunciado=<?=$chat['idUser']?>"><button id="apagarMensagem" style="background: none;" onclick="return confirm('Tem certeza que deseja denúnciar esta mensagem?')">⚠️</button></a>
+                <a href="../PHP/denuncia.php?idChat=<?= $chat['idChat'] ?>&&idDenunciado=<?= $chat['idUser'] ?>"><button id="apagarMensagem" style="background: none;" onclick="return confirm('Tem certeza que deseja denúnciar esta mensagem?')">⚠️</button></a>
             </div>
         </div>
         <br>
 <?php }
 } ?>
-<!--  <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio ?>"</a>>
-
-
-
-
--->

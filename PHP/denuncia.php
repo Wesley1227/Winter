@@ -31,7 +31,7 @@ if ($idAnuncio != null) {
 if ($idPerfil != null) {
     $tipoDenuncia = "Perfil";
 }
-9
+
 ?>
 
 <Body>

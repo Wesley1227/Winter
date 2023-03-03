@@ -49,10 +49,3 @@ Tecnologia:
 <option value="Steel">Redragon</option>
  
 <option value="Outros">Outros</option>
-
-
-
-
-
-
-
