@@ -1479,6 +1479,24 @@ img#fotoChat.miniFotoPerfil:hover {
     border-radius: 10px;
 }
 
+#enviar {
+    width: 20%;
+    height: 40px;
+    border-radius: 15px;
+    background-color: brown;
+    color: white;
+    box-shadow: var(--boxShadow);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 1%;
+}
+
+#enviar:hover {
+    background-color: rgb(48, 48, 48);
+    width: 21%;
+}
+
 /* Tela menor */
 @media screen and (max-width: 800px) {
     .mensagens {
@@ -1487,7 +1505,7 @@ img#fotoChat.miniFotoPerfil:hover {
 }
 
 /* MOBILE */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .mensagens {
         display: block;
         width: 95%;
@@ -1534,6 +1552,41 @@ img#fotoChat.miniFotoPerfil:hover {
     box-shadow: var(--boxShadow);
     border: 1px solid;
 }
+
+/* ////////////////////////////////////////////////// Página "Historico" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.menuHistorico {
+    width: 85%;
+    display: grid;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    grid-template-columns: 33% 33% 33%;
+    margin: 0 auto;
+    gap: 1%;
+    margin-bottom: 10px;
+}
+
+/* ////////////////////////////////////////////////// Página "Favoritos" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.menuFavoritos {
+    width: 85%;
+    display: grid;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    grid-template-columns: 49% 49%;
+    margin: 0 auto;
+    gap: 2%;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
 
 
 

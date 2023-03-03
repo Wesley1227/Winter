@@ -2,11 +2,11 @@
     <div id="pessoas">
         <?php
         $idUser = $_SESSION['idUser'];
-        $query = "SELECT DISTINCT idAnuncio FROM chat WHERE idUser = '$idUser'";
-        $resultado = $mysqli->query($query);
-        $result = mysqli_fetch_assoc($resultado);
-        foreach ($result as $pesquisaIDanuncio) {
-        } // Pesquisa os anúncios que o user enviou mensagem
+        // $query = "SELECT DISTINCT idAnuncio FROM chat WHERE idUser = '$idUser'";
+        // $resultado = $mysqli->query($query);
+        // $result = mysqli_fetch_assoc($resultado);
+        // foreach ($result as $pesquisaIDanuncio) {
+        // } // Pesquisa os anúncios que o user enviou mensagem
 
         $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario FROM chat WHERE idDestinatario='$idUser' ORDER BY dataEnvio DESC";
         $resultado2 = $mysqli->query($query2);
@@ -33,10 +33,11 @@
         ?>
 
             <div onclick="window.location.href='?idAnuncio=<?= $idAnuncio2 ?>&&idUser=<?= $chat2['idUser'] ?>'">
-                <?php //&&idUser=<?= $chat2['idUser'] ?' 
+                <?php //?' 
                 $idAnuncio = $_GET['idAnuncio'];
-                if ($idAnuncio == $idAnuncio2) {
-                    $style = "width: 95%; ";
+                $idUserGET = $_GET['idUser'];
+                if ($idAnuncio == $idAnuncio2  && $idUserGET == $chat2['idUser']) {
+                    $style = "width: 92%; background-color: #FFE4E1; border: 2px solid rgb(172, 0, 0); color: black; border-radius: 25px 40px 0px 25px";
                 } else {
                     $style = "";
                 }
@@ -52,33 +53,11 @@
                     <div id="preco"><?php echo $resultAnuncio2['preco'] . "€" ?></div>
                 </div>
             </div>
-        <?php }
+        <?php } ?>
 
 
 
-        foreach ($resultado as $chat) { // Anuncios de outras pessoas
 
-            $idAnuncio = $chat['idAnuncio'];
-            $queryAnuncio = "SELECT * FROM anuncios WHERE idAnuncio='$idAnuncio' ";
-            $resultadoAnuncio = $mysqli->query($queryAnuncio);
-            $resultAnuncio = mysqli_fetch_assoc($resultadoAnuncio); ?>
-            <div onclick="window.location.href='?idAnuncio=<?= $idAnuncio ?>'">
-
-                <?php
-                if ($resultAnuncio['idUser'] == $idUser) {
-                    $none = "display: none;";
-                } ?><!-- Caso anúncio for do User, não lista-lo -->
-
-                <div id="anuncio" style="<?php echo $none ?>">
-                    <?php echo $idAnuncio;  ?>
-                    <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio ?>"><img src="../uploads/<?= $resultAnuncio['imagem'] ?>" class="miniFotoPerfil" id="fotoChat" /></a>
-                    <?php echo $resultAnuncio['titulo'] ?>
-                    <div id="preco"><?php echo $resultAnuncio['preco'] . "€" ?></div>
-                </div>
-
-            </div>
-        <?php
-        } ?>
 
     </div>
     <div>
@@ -111,4 +90,19 @@
     setInterval(function() {
         ajax();
     }, 500);
+
+
+
+
+    function atualizarDiv() {
+        var minhaDiv = document.getElementById("pessoas");
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                minhaDiv.innerHTML = xhr.responseText;
+            }
+        };
+        xhr.open("GET", "atualizar.php", true);
+        xhr.send();
+    }
 </script>

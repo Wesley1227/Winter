@@ -1,0 +1,29 @@
+foreach ($resultado as $chat) { // Anuncios de outras pessoas
+
+$idAnuncio = $chat['idAnuncio'];
+$idAnuncio3 = $_GET['idAnuncio'];
+$queryAnuncio = "SELECT * FROM anuncios WHERE idAnuncio='$idAnuncio' ";
+$resultadoAnuncio = $mysqli->query($queryAnuncio);
+$resultAnuncio = mysqli_fetch_assoc($resultadoAnuncio); ?>
+<div onclick="window.location.href='?idAnuncio=<?= $idAnuncio ?>'">
+
+    <?php
+    if ($resultAnuncio['idUser'] == $idUser) {
+        $none = "display: none;";
+    }
+    if ($idAnuncio == $idAnuncio3) {
+        $style = "width: 94%; background-color: #FFE4E1; border: 2px solid rgb(172, 0, 0); border-radius: 25px 0px 40px 25px";
+    } else {
+        $style = "";
+    } ?><!-- Caso anúncio for do User, não lista-lo -->
+
+    <div id="anuncio" style="<?php echo $none . " " . $style ?>">
+        <?php echo $idAnuncio;  ?>
+        <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio ?>"><img src="../uploads/<?= $resultAnuncio['imagem'] ?>" class="miniFotoPerfil" id="fotoChat" /></a>
+        <?php echo $resultAnuncio['titulo'] ?>
+        <div id="preco"><?php echo $resultAnuncio['preco'] . "€" ?></div>
+    </div>
+
+</div>
+<?php
+} ?>
