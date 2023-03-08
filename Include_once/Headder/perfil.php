@@ -12,6 +12,6 @@
         <li><a href="../PHP/conta.php?idPag=2">Anúncios</a></li>
         <li><a href="../PHP/conta.php?idPag=3">Avaliações</a></li>
         <li><a href="../PHP/conta.php?idPag=4">Dados</a></li>
-        <li><a href="">CV</a></li>
+        <!-- <li><a href="">CV</a></li> -->
     </ul>
 </li>

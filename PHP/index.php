@@ -8,7 +8,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
 <Body>
 
-  <?php if ($_SESSION['user'] == "Sem login →") { ?>
+  <?php if ($_SESSION['idUser'] == null) { ?>
     <form action=""><button class="custom-btn" id="instalarApp" title="APP ainda em desenvolvimento">Instale nossa app</button></form><br>
   <?php } else { ?>
     <form action="../PHP/criarAnuncio.php"><button class="custom-btn" id="criarAnuncio">Criar anúncio</button></form><br>
@@ -20,7 +20,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
   <a href="" id="link"><button id="i">i</button></a>
   <div id="popup" class="popupIndex" style="display: none;">
-    Anúncios com imagem e terem sido um dos últimos 15 adicionados.
+    Últimos 15 anúncios com imagem adicionados.
     <a href=""><button id="fechar">x</button></a>
   </div>
 
@@ -35,6 +35,9 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
               <div class="itemInfo">
                 <h2><?php echo $item['titulo'] ?></h2>
                 <h3><?php echo $item['preco'] ?>€</h3>
+                <?php if ($item['localizacao'] == null) {
+                  $item['localizacao'] = "Localização";
+                } ?>
                 <h4>📍<?php echo $item['localizacao'] ?></h4>
               </div>
             </div>
@@ -51,7 +54,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
     <a href=""><img src="../img/2.png"></a>
     <a href=""><img src="../img/3.png"></a>
     <a href=""><img src="../img/4.png"></a>
-    <a href=""><img src="../img/5.png"></a>
+    <a href="forum.php"><img src="../img/5.png"></a>
   </div>
 
   <br><br>

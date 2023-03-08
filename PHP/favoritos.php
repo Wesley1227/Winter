@@ -2,11 +2,17 @@
 include_once '../Include_once/conexao.php';
 $titulo = "Favoritos";
 $pagina = "Winter - " . $titulo;
-include_once '../Include_once/head.php';
+$logo = "../img/1.png";
+
 $idPag = $_GET['idPag'];
 if ($idPag == null) {
     $idPag = 1;
 }
+if ($idPag == 2) {
+    $logo = "../img/logo.png";
+}
+include_once '../Include_once/head.php';
+
 ?>
 
 <body>
@@ -19,6 +25,7 @@ if ($idPag == null) {
         include_once('../Include_once/favoritos/anuncios.php');
     }
     if ($idPag == 2) {
+        
         include_once('../Include_once/favoritos/pesquisas.php');
     }
     ?>

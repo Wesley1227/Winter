@@ -5,15 +5,14 @@ include_once '../Include_once/head.php';
 ?>
 
 <body>
-    <?php include_once '../Include_once/barraPesquisa.php'; ?>
-
+    <?php include_once '../Include_once/menuSlide.php'; ?>
     <?php
     $pagina = 1;
     if (isset($_GET['pagina']))
         $pagina = filter_input(INPUT_GET, "pagina", FILTER_VALIDATE_INT);
     if (!$pagina)
         $pagina = 1;
-    $limite = 20;
+    $limite = 12;
     $inicio = ($pagina * $limite) - $limite;
     $inicio = ceil($inicio);
     $result = $con->query("SELECT * FROM anuncios ORDER BY dataCriacao DESC LIMIT $inicio, $limite")->fetchAll(); /* ORDER BY dataCriacao DESC */
@@ -26,6 +25,7 @@ include_once '../Include_once/head.php';
     <?php include_once '../Include_once/anuncios.php';
     include_once '../Include_once/paginacaoAnuncios.php'; //Botões da paginação da pag. Anuncios.php 
     ?>
+    </div>
 
 </body>
 <?php include_once '../Include_once/footer.php'; ?>

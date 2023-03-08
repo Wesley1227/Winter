@@ -3,8 +3,8 @@ include('../login/protect.php');
 $email = $_SESSION['email'];
 $id = $_SESSION['idUser'];
 $result = $con->query("SELECT * FROM user WHERE idUser ='$id'")->fetchAll();
-foreach ($result as $pessoa) :
-endforeach;
+foreach ($result as $pessoa) {
+}
 $emoji = "";
 if ($pessoa['genero'] == 1) {
     $emoji = "👨";
@@ -16,6 +16,14 @@ if ($pessoa['genero'] == 1) {
 
 $titulo = $emoji . $pessoa['user'];
 $pagina = "Winter - " . $titulo;
+$logo = "../img/logo.png";
+
+error_reporting(0);
+$idAnuncio = $_GET['idAnuncio'];
+if ($idAnuncio != null) {
+    $logo = "../img/1.png";
+}
+
 include_once '../Include_once/head.php';
 $idPag = $_GET['idPag'];
 if ($idPag == null) {

@@ -28,11 +28,11 @@ include_once '../Include_once/head.php';
 
             <select name="subCategoria" id="subCategoria" onchange="FetchSubSubCategoria(this.value)" class="dropdown-select">
                 <option value="">Subcategoria</option>
-            </select> 
+            </select>
 
             <select name="subSubCategoria" id="subSubCategoria" class="dropdown-select">
                 <option value="">Sub-Subcategoria</option>
-            </select>
+            </select><br>
 
             <select name="marca" id="marca" class="dropdown-select">
                 <option value="">Marca</option>
@@ -43,7 +43,7 @@ include_once '../Include_once/head.php';
                         echo '<option value=' . $row['marca'] . '>' . $row['marca'] . '</option>';
                     }
                 } ?>
-            </select> 
+            </select>
 
             <select name="estadoProduto" class="dropdown-select">
                 <option value="">Estado do produto</option>
@@ -60,20 +60,30 @@ include_once '../Include_once/head.php';
                 <option value="2">Trocar</option>
                 <option value="3">Doar</option>
                 <option value="4">Comprar</option>
-            </select> 
+            </select>
 
             <div id="opcao1" style="display: none;">
                 <input type="text" for="preco" name="preco" class="preco" id="search-bar" placeholder="Preço">
             </div><!-- Transforma o "Preço" em POP-UP -->
 
-            <input type="text" name="localizacao" class="localizacao" id="search-bar" minlength="2" placeholder="Localização:"><br>
+            <input type="text" name="localizacao" class="localizacao" id="search-bar" minlength="2" placeholder="Localização:">
 
-            <input type="file" name="imagem">
+            <?php $idUser = $_SESSION['idUser'];
+            $registros = $con->query("SELECT COUNT(idUser) count FROM anuncios WHERE idUser= $idUser")->fetch()["count"];
+            ?> Tens <?php echo $registros ?> anúncios ativos!
 
+            <br><input type="file" name="imagem">
 
-            <button type="submit" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
+            <?php if ($registros < 15) {
+                $style = "";
+            } else {
+                $style = "display: none";
+                echo "<script>alert('Atingiu o limite de 15 anúncios!');</script>";
+            }
+            ?>
+            <button type="submit" style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
         </div>
-    </form><br><br><br>
+    </form>
 
 </body>
 <?php include_once '../Include_once/footer.php'; ?>

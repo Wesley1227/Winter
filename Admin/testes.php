@@ -15,6 +15,7 @@ include_once '../Include_once/head.php';
 
 
 
+        aaa
 
 
 
@@ -25,8 +26,7 @@ include_once '../Include_once/head.php';
 
 
 
-
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>
 <?php include_once '../Include_once/footer.php'; ?>

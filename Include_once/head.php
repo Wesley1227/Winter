@@ -1,4 +1,9 @@
-<?php include_once '../Include_once/conexao.php'; ?>
+<?php include_once '../Include_once/conexao.php';
+error_reporting(0);
+if ($logo == null) {
+    $logo = "../img/1.png";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +19,8 @@
 </head>
 
 <div class="header">
-    <a href="../PHP/index.php"><img src="../img/1.png" alt="" id="logo"></a>
+    <a href="../PHP/index.php"><img src=<?php echo $logo ?> alt="" id="logo"></a>
+
     <h1 class="title" id="titulo"><?php echo $titulo ?></h1>
 </div>
 
@@ -28,6 +34,7 @@ if (!isset($_SESSION)) {
     <ul>
         <?php
         $semLogin = "Conecta-se ➡️";
+        error_reporting(0);
         if ($_SESSION['user'] == $semLogin) { ?>                  
         <?php } else { ?>
             <li><a href="../PHP/conta.php?idPag=1" title="Mensagens">💭 </a></li>
@@ -86,4 +93,3 @@ if (!isset($_SESSION)) {
     </ul>
 </nav><br><br>
 <a href="javascript:history.back()" id="voltar">⬅️</a>
-

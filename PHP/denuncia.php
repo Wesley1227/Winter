@@ -1,6 +1,7 @@
 <?php include_once '../Include_once/conexao.php';
 $titulo = "Denúncia";
 $pagina = "Winter - " . $titulo;
+$logo = "../img/logo.png";
 include_once '../Include_once/head.php';
 $idUser = $_SESSION['idUser'];
 

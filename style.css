@@ -9,7 +9,7 @@
 
 /* /////////////////////////// HEADDER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 #logo {
-    z-index: 3;
+    z-index: 4;
     margin-top: 15px;
     position: relative;
     height: 85%;
@@ -192,6 +192,10 @@ a.pointer {
     outline: 0;
     font-family: sans-serif
 }
+html {
+    scroll-behavior: smooth;
+  }
+  
 
 
 /* ////////////////////////////////////////////////////// Página - "INDEX" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -362,15 +366,14 @@ form.search-container {
 }
 
 .sliderConteudos {
-    border-radius: 10px;
     overflow-x: scroll;
     -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: x mandatory;
     display: flex;
     gap: 25px;
+    border-radius: 10px;
     padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 39px;
+    padding-right: 10px;
     margin-top: -10px;
     scrollbar-color: var(--scrollcolor) var(--scrollbackground);
 }
@@ -385,11 +388,6 @@ form.search-container {
 .sliderConteudos::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background: var(--scrollcolor);
-}
-
-.sliderConteudos::-webkit-scrollbar-track {
-    border-radius: 20px;
-    background: var(--scrollbackground);
 }
 
 .PesquisaRapida {
@@ -425,7 +423,7 @@ form.search-container {
 @media screen and (max-width: 1000px) {
     .PesquisaRapida {
         width: 95%;
-        height: 100%;
+        height: 23vh;
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 
@@ -439,6 +437,13 @@ form.search-container {
     }
 }
 
+@media screen and (max-width: 650px) {
+    .PesquisaRapida {
+        width: 95%;
+        height: 45vh;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
 
 /* ///////////////////////////////////////////////////// Página - "criar anúncio" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
@@ -524,32 +529,163 @@ select#marca.dropdown {
 }
 
 /* ///////////////////////////////////////////////////// PÁGINA "Anúncios" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+/* side menu */
+a#menuFechado.wui-side-menu-trigger {
+    margin-left: 50px;
+   font-size: 30px;
+}
+
+.wui-side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    backface-visibility: hidden;
+    z-index: 1;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: webkit-transform 220ms ease-in-out;
+    transition: transform 220ms ease-in-out;
+    text-align: center;
+}
+
+.wui-side-menu.open {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.wui-side-menu .wui-side-menu-items {
+    overflow-y: auto;
+    height: calc(100% - 50px);
+}
+
+/* Página do site*/
+.wui-content {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease-out;
+    padding: 0 10px;
+}
+
+ul.wui-side-menu-items {
+    padding-left: 0;
+}
+
+.wui-side-menu {
+    background-color: brown;
+    color: #ddd;
+}
+
+.wui-side-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.wui-content a {
+    /* icone hamburger fechado */
+    color: #ffffff;
+}
+
+.fa.fa-bars {
+    /* Menu aberto */
+    margin-top: 120px;
+}
+
+
+#search-bar.menu {
+    width: 80%;
+    color: white;
+    margin-bottom: 10px;
+
+}
+
+#filtrar.custom-btn {
+    width: 90%;
+    font-size: 20px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+}
+
+#selectCategorias.dropdown-select {
+    margin-top: 20px;
+    width: 90%;
+    text-align: center;
+}
+
+
+
+/* MOBILE */
+@media only screen and (max-width:600px) {
+    .wui-side-menu {
+        width: 180px;
+    }
+}
+
+@media only screen and (min-width:600px) {
+    .wui-side-menu .wui-side-menu-pin-trigger {
+        display: inline-block;
+    }
+
+    .wui-side-menu.open {
+        box-shadow: initial;
+    }
+
+    .wui-side-menu.open~.wui-overlay {
+        display: none;
+    }
+
+    .wui-side-menu.open~.wui-content .wui-side-menu-trigger {
+        margin-top: 50px;
+        display: none;
+    }
+
+    .wui-side-menu.open:not(.pinned)~.wui-overlay {
+        display: block;
+    }
+
+    .wui-side-menu.open:not(.pinned) {
+        box-shadow: 2px 0 16px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .wui-side-menu.open.pinned~.wui-content {
+        left: 220px;
+        margin-top: 150px;
+    }
+}
+
+/* FIM DO MENU SLIDE */
+
+
 #regisros {
     position: absolute;
-    margin-top: -3%;
-    margin-left: 10%;
+    margin-top: -5%;
+    right: 10%;
     color: white;
     font-size: larger;
 }
 
 .anuncios {
     display: grid;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-evenly;
     justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    overflow: hidden;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     transition: all 0.2s ease;
+    gap: 20px;
+    /* row-gap: 10px; */
 }
 
 .itemAnuncio {
-    margin-top: 15px;
-    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -557,36 +693,27 @@ select#marca.dropdown {
     border-radius: 20px;
     overflow: hidden;
     background-color: white;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
     box-shadow: var(--boxShadow);
 }
 
 .itemAnuncio:hover {
-    transform: scale(1.04);
-    width: 320px;
-    height: 295px;
+    width: 350px;
+    border-radius: 15px;
 }
 
 img.itemImagem {
-    display: block;
-    width: 100%;
     height: 250px;
     -o-object-fit: cover;
     object-fit: cover;
     position: relative;
-    top: 0;
-    left: 0;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 20px 20px;    
 }
-
-/* img.itemImagem:hover {
-    transform: scale(0.7);
-} */
-
 
 .itemInfo {
     padding: 1rem;
-    background-color: #fff;
+    background-color: white;
+    transition: all .2s ease-in-out;
 }
 
 .itemInfo h2 {
@@ -1092,7 +1219,7 @@ input#search-bar.inputDados {
 }
 
 /* Mobile */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 950px) {
 
     .gridDados {
         display: inline-block;
@@ -1135,7 +1262,8 @@ input#search-bar.inputDados {
 
     .anuncios {
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
+             
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 10px;
     }
 
@@ -1366,6 +1494,14 @@ div#info {
     position: relative;
 }
 
+.alertChat {
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    margin-right: 10px;
+    box-shadow: var(--boxShadow);
+}
+
 #fotoChat.miniFotoPerfil {
     position: relative;
     width: 45px;
@@ -1580,6 +1716,52 @@ img#fotoChat.miniFotoPerfil:hover {
 }
 
 
+/* /////////////////////////// FORUM \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+.forum {
+    width: 95%;
+    height: 80vh;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 68% 30%;
+    gap: 2%;
+}
+
+.foruns {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: var(--boxShadow);
+    height: 100%;
+}
+
+#pesquisa {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: var(--boxShadow);
+}
+
+#search-bar.pesquisaForum {
+    width: 90%;
+}
+
+#pesquisaForum.custom-btn {
+    margin-top: 10px;
+    width: 80%;
+}
+
+@media screen and (max-width: 700px) {
+    .forum {
+        display: block;
+        height: 75vh;
+    }
+
+    .foruns {
+        height: 55vh;
+        margin-bottom: 10px;
+    }
+}
+
 
 
 
@@ -1667,13 +1849,6 @@ img#fotoChat.miniFotoPerfil:hover {
 
 .clearfix {
     clear: both;
-}
-
-@media only screen and (min-width: 1280px) {
-    .contain {
-        width: 1280px;
-        margin: 0 auto;
-    }
 }
 
 @media only screen and (max-width: 1139px) {

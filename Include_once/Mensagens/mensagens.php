@@ -13,8 +13,8 @@ if ($idUser2 == null) {
 $result = $con->query($pesquisa)->fetchAll();
 if ($idAnuncio == null) { ?>
     <div id="escolhe1">👈🧑‍🦱 <br> Escolhe um</div>
-    <?php }
 
+    <?php }
 foreach ($result as $chat) {
     $user = $chat['nome'];
     $result2 = $con->query("SELECT * FROM user WHERE user='$user'")->fetchAll();
@@ -26,8 +26,7 @@ foreach ($result as $chat) {
             $perfil = $idUser;
             $lixo = "";
             $denuncia = "display:none;";
-        } 
-        else {
+        } else {
             $fotoPefil = $conta['fotoPerfil'];
             $style =  "";
             $perfil = $conta['idUser'];
@@ -52,3 +51,8 @@ foreach ($result as $chat) {
         <br>
 <?php }
 } ?>
+<div class="alertChat">
+-Tenha sempre respeito. <br>
+-Não partilhe informações pessoais que podem ocasionar em scam. <br>
+-Não partilhe sua localização até que a Winter peça.<br>
+</div>

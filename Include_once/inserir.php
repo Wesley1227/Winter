@@ -1,6 +1,7 @@
 <?php
 include_once '../Include_once/conexao.php';
 include_once '../Login/protect.php';
+$idUser = $_SESSION['idUser'];
 
 $registo = mysqli_fetch_assoc($resultado);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $descricao = $_POST['descricao'];
    $preco = $_POST['preco'];
    $marca = $_POST['marca'];
-   $vendedor = $_SESSION['idUser'];
+
    $img_name = $_FILES['imagem']['name'];
    $img_size = $_FILES['imagem']['size'];
    $tmp_name = $_FILES['imagem']['tmp_name'];
@@ -42,12 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $new_img_name = "semImagem.jpg";
    }
 
-   $sql = "INSERT INTO winter.anuncios 
+   $registros = $con->query("SELECT COUNT(idUser) count FROM anuncios WHERE idUser= $idUser")->fetch()["count"];
+   if ($registros < 15) {
+      $sql = "INSERT INTO winter.anuncios 
         (titulo,localizacao,idCategoria,estadoProduto,intAnuncio,descricao,preco,subCategoria,subSubCategoria,marca,imagem,idUser)
-        VALUES ('$titulo','$localizacao','$categoria','$estadoProduto','$intensaoAnuncio','$descricao','$preco','$subCategoria','$subSubCategoria','$marca','$new_img_name','$vendedor')";
-
+        VALUES ('$titulo','$localizacao','$categoria','$estadoProduto','$intensaoAnuncio','$descricao','$preco','$subCategoria','$subSubCategoria','$marca','$new_img_name','$idUser')";
+   }
+   else{
+      header("Location: " . $_SERVER['HTTP_REFERER'] . "");
+   }
    if (mysqli_query($mysqli, $sql)) {
-      $resultID = $con->query("SELECT * FROM anuncios WHERE titulo = '$titulo' AND idUser = '$vendedor'")->fetchAll();
+      $resultID = $con->query("SELECT * FROM anuncios WHERE titulo = '$titulo' AND idUser = '$idUser'")->fetchAll();
       foreach ($resultID as $user) :
          $idAnuncio = $user['idAnuncio'];
       endforeach;

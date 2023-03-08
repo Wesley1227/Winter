@@ -1,7 +1,7 @@
 <?php
-include_once '../Include_once/conexao.php';
 $titulo = "Sobre";
 $pagina = "Winter - " . $titulo;
+$logo = "../img/logo.png";
 include_once '../Include_once/head.php';
 ?>
 

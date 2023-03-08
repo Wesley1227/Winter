@@ -1,12 +1,19 @@
 <?php
 include_once '../Include_once/conexao.php';
+include_once '../Login/protect.php';
 $titulo = "Histórico";
 $pagina = "Winter - " . $titulo;
-include_once '../Include_once/head.php';
+
+error_reporting(0);
 $idPag = $_GET['idPag'];
-if($idPag == null){
+if ($idPag == null) {
     $idPag = 1;
 }
+if ($idPag != 1) {
+    $logo = "../img/logo.png";
+}
+include_once '../Include_once/head.php';
+
 ?>
 
 <body>
@@ -17,18 +24,18 @@ if($idPag == null){
     </div>
     <?php
     if ($idPag == 1) {
-        echo "Anúncios - Página ainda em desenvolvimento";
+        include_once('../Include_once/Historico/anuncios.php');
     }
     if ($idPag == 2) {
-        echo "Pesquisas - Página ainda em desenvolvimento";
+        include_once('../Include_once/Historico/pesquisas.php');
     }
     if ($idPag == 3) {
-        echo "Mensagens - Página ainda em desenvolvimento";
-    } 
+        include_once('../Include_once/Historico/mensagens.php');
+    }
     //include_once('../Include_once/Conta/anuncios.php');
     ?>
 
-    
+
 
 
 
