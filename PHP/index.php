@@ -21,7 +21,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
   <a href="" id="link"><button id="i">i</button></a>
   <div id="popup" class="popupIndex" style="display: none;">
     Últimos 15 anúncios com imagem adicionados.
-    <a href=""><button id="fechar">x</button></a>
+    <a href="#"><button id="fechar">x</button></a>
   </div>
 
   <div class="slider" x-data="{start: true, end: false}">
@@ -51,19 +51,19 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
   <div class="PesquisaRapida">
     <!-- <a href=""><img src="../img/1.png"></a> -->
-    <a href=""><img src="../img/2.png"></a>
-    <a href=""><img src="../img/3.png"></a>
-    <a href=""><img src="../img/4.png"></a>
+    <a href="#"><img src="../img/2.png"></a>
+    <a href="#"><img src="../img/3.png"></a>
+    <a href="#"><img src="../img/4.png"></a>
     <a href="forum.php"><img src="../img/5.png"></a>
   </div>
 
   <br><br>
   <h1 class="title" id="destaques">Pesquisa rápida</h1><br>
   <div class="PesquisaRapida" id="pesquisa">
-    <a href=""><img src="../img/telemoveisAte300.jpg"></a>
-    <a href=""><img src="../img/ComputadoresTorre.png"></a>
-    <a href=""><img src="../img/ImoveisAte.png"></a>
-    <a href=""><img src="../img/VeiculosCarros.png"></a>
+    <a href="#"><img src="../img/telemoveisAte300.jpg"></a>
+    <a href="#"><img src="../img/ComputadoresTorre.png"></a>
+    <a href="#"><img src="../img/ImoveisAte.png"></a>
+    <a href="#"><img src="../img/VeiculosCarros.png"></a>
   </div>
 
 </body>

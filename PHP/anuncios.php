@@ -27,7 +27,16 @@ include_once '../Include_once/head.php';
     ?>
     </div>
 
+    <button id="btnTopo">⬆️</button>
+
 </body>
 <?php include_once '../Include_once/footer.php'; ?>
 
 </html>
+
+<script>
+    document.getElementById("btnTopo").addEventListener("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+</script>

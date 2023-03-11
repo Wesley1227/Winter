@@ -26,22 +26,28 @@ if ($genero == 1) {
 include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
 
 <body>
-<?php $idDestinatario= $result['idUser'] ?>
+  <?php $idDestinatario = $result['idUser'] ?>
   <?php if ($_GET['chat'] == 1) { ?>
     <div id="popupChat" style="display: block;">
       <button id="fecharChat" class="fecharChat">x</button>
       <?php include_once('../Chat/chat.php'); ?>
     </div> <!-- POP-UP CHAT novamente -->
   <?php } ?>
-  
+
   <div id="popupChat" style="display: none;">
     <button id="fecharChat" class="fecharChat">x</button>
     <?php include_once('../Chat/chat.php'); ?>
   </div> <!-- POP-UP CHAT -->
 
+  <div id="popupImagens" style="display: none;">
+    <button id="fecharImagens">x</button>
+    <img id="imagensPopup" src="../uploads/<?= $result['imagem'] ?>" alt="">
+  </div> <!-- POP-UP Imagens -->
+
   <div class="anuncio">
     <div class="colunas" id="imagens">
-      <img src="../uploads/<?= $result['imagem'] ?>" alt="">
+      <a href="#" id="imagens">
+        <img id="linkImagens" src="../uploads/<?= $result['imagem'] ?>" alt=""></a>
       <div class="informacoes">
         <h1><?php echo $result['preco'] ?>€</h1>
         <h2>👀<?php echo $result['visualizacoes'] ?></h2>
@@ -74,7 +80,7 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
         <?php }
         if ($_SESSION['idUser'] == null) {
           echo "Faça login primeiro.";
-        }?><!-- Quando o user não estiver logado, aparecerá essa mensagem -->
+        } ?><!-- Quando o user não estiver logado, aparecerá essa mensagem -->
 
       </div>
     </div>
@@ -96,7 +102,25 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
 
 </html>
 
-<!-- |||||||||||||||||| JAVASCRIPT \\\\\\\\\\\\\\\ -->
+<!-- ||||||||||||||||||||| JAVASCRIPT \\\\\\\\\\\\\\\\\\\\\ -->
+
+<!-- POP-UP das Imagens -->
+<script>
+  var linkImagens = document.getElementById("linkImagens");
+  var popupImagens = document.getElementById("popupImagens");
+  var fecharImagens = document.getElementById("fecharImagens");
+
+  linkImagens.addEventListener("click", function(event) {
+    event.preventDefault();
+    popupImagens.style.display = "block";
+  });
+
+  fecharImagens.addEventListener("click", function() {
+    popupImagens.style.display = "none";
+  });
+</script>
+
+
 <!-- POP-UP do CHAT -->
 <script>
   var linkChat = document.getElementById("linkChat");
@@ -112,6 +136,7 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
     popupChat.style.display = "none";
   });
 </script>
+
 
 <!-- POP-UP do telemóvel -->
 <script>

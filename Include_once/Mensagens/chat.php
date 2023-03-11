@@ -12,19 +12,14 @@
         $resultado2 = $mysqli->query($query2);
         $result2 = mysqli_fetch_assoc($resultado2);
 
-
-
         foreach ($resultado2 as $chat2) { // Anuncios do User
 
             $idAnuncio2 = $chat2['idAnuncio'];
             $idUser2 = $chat2['idUser'];
-
-
             $result3 = $con->query("SELECT * FROM user WHERE idUser='$idUser2'")->fetchAll();
             foreach ($result3 as $user) {
             }
             $fotoPerfil = $user['fotoPerfil'];
-
             $idDestinatario = $chat2['idDestinatario'];
             $idUser2 = $chat2['idUser'];
             $queryAnuncio2 = "SELECT * FROM anuncios WHERE idAnuncio='$idAnuncio2'";
@@ -54,15 +49,10 @@
                 </div>
             </div>
         <?php } ?>
-
-
-
-
-
     </div>
+
     <div>
         <div class="mensagem" id="chat">
-
             <?php include_once('../Include_once/loadAnimation.php'); ?>
         </div>
         <div class="mensagem " id="enviarMensagem">
@@ -73,6 +63,7 @@
             </form>
         </div>
     </div>
+
 </div>
 
 <!-- JAVASCRIPT -->
@@ -90,19 +81,4 @@
     setInterval(function() {
         ajax();
     }, 500);
-
-
-
-
-    function atualizarDiv() {
-        var minhaDiv = document.getElementById("pessoas");
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                minhaDiv.innerHTML = xhr.responseText;
-            }
-        };
-        xhr.open("GET", "atualizar.php", true);
-        xhr.send();
-    }
-</script>
+</script> <!-- Atualiza apenas o chat, o site não. -->

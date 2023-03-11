@@ -1,5 +1,5 @@
 <form action="anuncio.php" method="POST">
-    <div class="anuncios">
+    <div class="anuncios" loading="lazy">
         <?php foreach ($result as $item) :
             $views = $item['visualizacoes'] + 1;
             $idAnuncio = $item['idAnuncio'];
@@ -27,3 +27,6 @@
 
 
 </div><br><br>
+<script>
+
+</script>

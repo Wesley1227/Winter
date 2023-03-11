@@ -1,4 +1,3 @@
-
 <footer>
   <div class="footer">
     <div class="contain">
@@ -30,17 +29,6 @@
           <li>Services</li>
           <li>Social</li>
           <li>Get in touch</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h1>Recursos</h1>
-        <ul>
-          <li>Webmail</li>
-          <li>Redeem code</li>
-          <li>WHOIS lookup</li>
-          <li>Site map</li>
-          <li>Web templates</li>
-          <li>Email templates</li>
         </ul>
       </div>
       <div class="col">

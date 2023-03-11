@@ -1,38 +1,37 @@
 
-/* Kristuff.WebUI.SideMenu */
-(function(window, undefined) {
+/* Menu slide dos filtros */
+(function (window, undefined) {
     'use strict';
-    // responsive pinnable sidemenu component
-    var sideMenu = function(el) {
+    var sideMenu = function (el) {
         var htmlSideMenu = el,
             htmlSideMenuPinTrigger = {},
             htmlSideMenuPinTriggerImage = {},
             htmlOverlay = {};
-        var init = function() {
+        var init = function () {
             htmlSideMenuPinTrigger = el.querySelector('.wui-side-menu-pin-trigger');
             htmlSideMenuPinTriggerImage = htmlSideMenuPinTrigger.querySelector('i.fa');
             htmlOverlay = document.querySelector('.wui-overlay');
-            Array.prototype.forEach.call(document.querySelectorAll('.wui-side-menu-trigger'), function(elmt, i) {
-                elmt.addEventListener('click', function(e) {
+            Array.prototype.forEach.call(document.querySelectorAll('.wui-side-menu-trigger'), function (elmt, i) {
+                elmt.addEventListener('click', function (e) {
                     e.preventDefault();
                     toggleMenuState();
                 }, false);
             });
-            htmlSideMenuPinTrigger.addEventListener('click', function(e) {
+            htmlSideMenuPinTrigger.addEventListener('click', function (e) {
                 e.preventDefault();
                 toggleMenuPinState();
             }, false);
-            htmlOverlay.addEventListener("click", function(e) {
+            htmlOverlay.addEventListener("click", function (e) {
                 htmlSideMenu.classList.remove('open');
             }, false);
             window.addEventListener("resize", checkIfNeedToCloseMenu, false);
             checkIfNeedToCloseMenu();
         };
-        var toggleMenuState = function() {
+        var toggleMenuState = function () {
             htmlSideMenu.classList.toggle('open');
             menuStateChanged(htmlSideMenu, htmlSideMenu.classList.contains('open'));
         };
-        var toggleMenuPinState = function() {
+        var toggleMenuPinState = function () {
             htmlSideMenu.classList.toggle('pinned');
             htmlSideMenuPinTriggerImage.classList.toggle('fa-rotate-90');
             if (htmlSideMenu.classList.contains('pinned') !== true) {
@@ -40,7 +39,7 @@
             }
             menuPinStateChanged(htmlSideMenu, htmlSideMenu.classList.contains('pinned'));
         };
-        var checkIfNeedToCloseMenu = function() {
+        var checkIfNeedToCloseMenu = function () {
             var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             if (width <= 767 && htmlSideMenu.classList.contains('open') === true) {
                 htmlSideMenu.classList.remove('open');
@@ -51,7 +50,7 @@
                 menuStateChanged(htmlSideMenu, htmlSideMenu.classList.contains('open'));
             }
         };
-        var menuStateChanged = function(element, state) {
+        var menuStateChanged = function (element, state) {
             var evt = new CustomEvent('menuStateChanged', {
                 detail: {
                     open: state
@@ -59,7 +58,7 @@
             });
             element.dispatchEvent(evt);
         };
-        var menuPinStateChanged = function(element, state) {
+        var menuPinStateChanged = function (element, state) {
             var evt = new CustomEvent('menuPinStateChanged', {
                 detail: {
                     pinned: state
@@ -79,7 +78,7 @@
 })(window);
 
 
-var documentReady = function(fn) {
+var documentReady = function (fn) {
     if (document.readyState != 'loading') {
         fn();
     } else {
@@ -87,14 +86,32 @@ var documentReady = function(fn) {
     }
 };
 
-documentReady(function() {
+documentReady(function () {
     var sample = new SideMenu(document.querySelector('.wui-side-menu'))
-    sample.htmlElement.addEventListener('menuPinStateChanged', function(e) {
+    sample.htmlElement.addEventListener('menuPinStateChanged', function (e) {
         document.querySelector('#events').innerHTML += 'menuPinStateChanged , menu pinned? => ' +
             e.detail.pinned + '<br>';
     }, false);
-    sample.htmlElement.addEventListener('menuStateChanged', function(e) {
+    sample.htmlElement.addEventListener('menuStateChanged', function (e) {
         document.querySelector('#events').innerHTML += 'menuStateChanged , menu open? => ' +
             e.detail.open + '<br>';
     }, false);
 });
+
+
+
+
+// BOTAO VOLTAR PRA CIMA
+
+// Mostra o botão quando o user rola a página para baixo
+window.onscroll = function () {
+    scrollFunction()
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+        document.getElementById("btnTopo").style.display = "block";
+    } else {
+        document.getElementById("btnTopo").style.display = "none";
+    }
+}

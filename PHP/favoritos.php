@@ -4,6 +4,7 @@ $titulo = "Favoritos";
 $pagina = "Winter - " . $titulo;
 $logo = "../img/1.png";
 
+error_reporting(0);
 $idPag = $_GET['idPag'];
 if ($idPag == null) {
     $idPag = 1;

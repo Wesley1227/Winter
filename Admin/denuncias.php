@@ -13,7 +13,7 @@ $resultadoDenuncias = $conn->query($queryDenuncias);
                 <?php echo $denuncias['idUser']; ?> Denúnciou: <?php echo $denuncias['idDenuncia']; ?>
                 <br><br>
                 Motivo: <?php echo $denuncias['motivo']; ?> <br><br>
-                🕒 <?php echo $denuncias['dataEnvio']; ?>
+                🕒 <?php echo $denuncias['dataDenuncia']; ?>
 
             </div>
         </div>

@@ -120,7 +120,8 @@
 #voltar {
     margin-top: -35px;
     font-size: 25px;
-    position: absolute;
+    position: fixed;
+    z-index: 2;
 }
 
 
@@ -192,10 +193,11 @@ a.pointer {
     outline: 0;
     font-family: sans-serif
 }
+
 html {
     scroll-behavior: smooth;
-  }
-  
+}
+
 
 
 /* ////////////////////////////////////////////////////// Página - "INDEX" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -533,7 +535,7 @@ select#marca.dropdown {
 /* side menu */
 a#menuFechado.wui-side-menu-trigger {
     margin-left: 50px;
-   font-size: 30px;
+    font-size: 30px;
 }
 
 .wui-side-menu {
@@ -690,24 +692,24 @@ ul.wui-side-menu-items {
     flex-direction: column;
     width: 300px;
     height: 300px;
-    border-radius: 20px;
     overflow: hidden;
+    border-radius: 18px;
     background-color: white;
     transition: all .3s ease-in-out;
     box-shadow: var(--boxShadow);
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
 }
 
 .itemAnuncio:hover {
     width: 350px;
-    border-radius: 15px;
 }
 
 img.itemImagem {
     height: 250px;
-    -o-object-fit: cover;
     object-fit: cover;
-    position: relative;
-    border-radius: 0px 0px 20px 20px;    
+    border-radius: 0px 0px 20px 20px;
 }
 
 .itemInfo {
@@ -777,6 +779,25 @@ img.itemImagem {
     margin-bottom: 20%;
 }
 
+#btnTopo {
+    display: none;
+    position: fixed;
+    bottom: 40%;
+    right: 5px;
+    font-size: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.3s ease;
+}
+
+#btnTopo:hover {
+    font-size: 50px;
+}
+
 /*//////////////////////////// PÁGINA "Anuncio" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .anuncio {
@@ -814,6 +835,47 @@ img.itemImagem {
     position: relative;
     top: 0;
     left: 0;
+}
+
+img#linkImagens {
+    cursor: zoom-in;
+}
+
+#imagensPopup {
+    position: fixed;
+    z-index: 4;
+    max-width: 90%;
+    max-height: 100%;
+    margin-top: -9%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes crescimento {
+    0% {
+        transform: scale(0.5);
+        border-radius: 50%;
+        margin-left: 150px;
+    }
+
+    100% {
+        transform: scale(1);
+        border-radius: 15px;
+        margin-left: 0px;
+    }
+}
+
+#fecharImagens {
+    position: fixed;
+    right: 10px;
+    margin-top: -25px;
+    cursor: pointer;
+    animation-name: crescimento;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 }
 
 .botoes {
@@ -1262,7 +1324,7 @@ input#search-bar.inputDados {
 
     .anuncios {
         width: 100%;
-             
+
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 10px;
     }
@@ -1377,14 +1439,13 @@ div#info {
 }
 
 #popupChat {
-    position: absolute;
+    position: fixed;
     display: flex;
     right: 10px;
     z-index: 2;
     width: 50vh;
     height: 55vh;
 }
-
 
 #chat {
     background-color: gray;
@@ -1473,6 +1534,7 @@ div#info {
     grid-template-columns: 38% 60%;
     gap: 2%;
     margin: 0 auto;
+    height: 50vh;
 }
 
 #pessoas {
@@ -1574,9 +1636,14 @@ img#fotoChat.miniFotoPerfil:hover {
     overflow-x: hidden;
 }
 
-#fotoPerfilMensagem {
+#fotoPerfilMensagem.miniFotoPerfil {
     position: relative;
     margin: 0 auto;
+}
+
+#fotoPerfilMensagem.miniFotoPerfil:hover {
+    border: 2px solid brown;
+    transform: scale(1.3);
 }
 
 #mensagem {
@@ -1633,15 +1700,8 @@ img#fotoChat.miniFotoPerfil:hover {
     width: 21%;
 }
 
-/* Tela menor */
-@media screen and (max-width: 800px) {
-    .mensagens {
-        grid-template-columns: 50% 50%;
-    }
-}
-
 /* MOBILE */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .mensagens {
         display: block;
         width: 95%;
@@ -1716,7 +1776,7 @@ img#fotoChat.miniFotoPerfil:hover {
 }
 
 
-/* /////////////////////////// FORUM \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/* /////////////////////////// Página "FORUM" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .forum {
     width: 95%;
     height: 80vh;
@@ -1780,41 +1840,24 @@ img#fotoChat.miniFotoPerfil:hover {
 /* /////////////////////////// FOOTER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .footer {
     border-radius: 10px;
-    margin-top: 40px;
-    width: 100%;
-    position: relative;
-    height: auto;
     background-color: brown;
-    overflow: hidden;
     box-shadow: var(--boxShadow);
     transition: all 0.2s ease;
+    margin-top: 20px;
+    overflow: hidden;
 }
 
 .logoFooter {
     height: 50%;
-    width: 140px;
+    width: 100px;
     transition: all 0.2s ease;
 }
 
 .footer .col {
-    width: 200px;
+    width: auto;
     height: auto;
     float: left;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    padding: 0px 20px 20px 20px;
-}
-
-.footer .col h1 {
-    margin: 0;
-    padding: 0;
-    font-family: inherit;
-    font-size: 25px;
-    line-height: 17px;
-    padding: 20px 0px 5px 0px;
-    color: rgb(0, 0, 0);
-    font-weight: normal;
+    padding: 0px 5% 20px 20px;
 }
 
 .footer .col ul {
@@ -1831,20 +1874,15 @@ img#fotoChat.miniFotoPerfil:hover {
     padding: 5px 0px 5px 0px;
     cursor: pointer;
     transition: .2s;
-    -webkit-transition: .2s;
-    -moz-transition: .2s;
 }
 
 .social ul li {
     display: inline-block;
-    padding-right: 5px !important;
 }
 
 .footer .col ul li:hover {
     color: #ffffff;
     transition: .1s;
-    -webkit-transition: .1s;
-    -moz-transition: .1s;
 }
 
 .clearfix {
@@ -1877,6 +1915,7 @@ img#fotoChat.miniFotoPerfil:hover {
     }
 }
 
+/* MOBILE */
 @media only screen and (max-width: 500px) {
     .footer .col {
         width: 50%;

@@ -1,5 +1,8 @@
-<div class="paginacao">
+<!-- <div class="paginacao">
         <?php
+ceil($registros);
+ceil($calculoAnuncio);
+
         if ($_GET['pagina'] <= 1 &&  $registros >= 21) { ?>
             <?php echo $pagina ?> <a href="?pesquisa=<?= $pesquisa = $_GET['pesquisa'] ?>&& pagina=<?= $pagina + 1 ?>">➡️</a>
             <a href="?pesquisa=<?= $pesquisa = $_GET['pesquisa'] ?>&& pagina=<?= $paginas ?>"><button class="custom-btn btn-1" id="ultima">Última</button></a>
@@ -22,4 +25,4 @@
             $paginaAnterior = $pagina - 1;
             header("location: pesquisa.php?pesquisa=$pesquisa&&pagina=$paginaAnterior");
         } ?>
-    </div>
+    </div> -->

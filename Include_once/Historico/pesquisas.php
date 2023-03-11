@@ -5,8 +5,8 @@ $result = $con->query("SELECT * FROM pesquisas WHERE idUser = $idUser ORDER BY d
 <div class="historicoPesquisas">
     <div id="historicoPesquisas">
         <?php
-        foreach ($result as $Pesquisas) { ?>
-            ID: <?php echo $Pesquisas['idPesquisa'] . " - " . $Pesquisas['pesquisa'] . " - " . $Pesquisas['dataPesquisa'] ?><br>
+        foreach ($result as $pesquisas) { ?>
+            <?php echo  $pesquisas['pesquisa'] . " 🕒" . $pesquisas['dataPesquisa'] ?><br>
         <?php } ?>
     </div>
 </div>
