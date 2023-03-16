@@ -1,10 +1,10 @@
 <form action="anuncio.php" method="POST">
     <div class="anuncios" loading="lazy">
         <?php foreach ($result as $item) :
-            $views = $item['visualizacoes'] + 1;
-            $idAnuncio = $item['idAnuncio'];
-            $queryView = "UPDATE anuncios SET visualizacoes ='$views' WHERE idAnuncio = $idAnuncio";
-            $resultadoView = $mysqli->query($queryView);
+            // $views = $item['visualizacoes'] + 1;
+            // $idAnuncio = $item['idAnuncio'];
+            // $queryView = "UPDATE anuncios SET visualizacoes ='$views' WHERE idAnuncio = $idAnuncio";
+            // $resultadoView = $mysqli->query($queryView);
         ?>
 
             <a href="../PHP/anuncio.php?idAnuncio=<?= $item['idAnuncio'] ?>">

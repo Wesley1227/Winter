@@ -3,6 +3,9 @@ include_once('../conexao.php');
 include_once('../../Login/protect.php');
 $idUser = $_SESSION['idUser'];
 $idUser2 = $_GET['idUser'];
+if ($idUser2 == null || $idUser2 == 0) {
+    header("Location: javascript:history.back()");
+}
 $idAnuncio = $_GET['idAnuncio'];
 
 if ($idUser2 == null) {
@@ -52,7 +55,7 @@ foreach ($result as $chat) {
 <?php }
 } ?>
 <div class="alertChat">
--Tenha sempre respeito. <br>
--Não partilhe informações pessoais que podem ocasionar em scam. <br>
--Não partilhe sua localização até que a Winter peça.<br>
+    -Tenha sempre respeito. <br>
+    -Não partilhe informações pessoais que podem ocasionar em scam. <br>
+    -Não partilhe sua localização até que a Winter peça.<br>
 </div>

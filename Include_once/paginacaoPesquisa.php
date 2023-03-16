@@ -1,4 +1,4 @@
-<!-- <div class="paginacao">
+<div class="paginacao">
         <?php
 ceil($registros);
 ceil($calculoAnuncio);
@@ -25,4 +25,4 @@ ceil($calculoAnuncio);
             $paginaAnterior = $pagina - 1;
             header("location: pesquisa.php?pesquisa=$pesquisa&&pagina=$paginaAnterior");
         } ?>
-    </div> -->
+    </div>

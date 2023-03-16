@@ -9,7 +9,7 @@
 
 /* /////////////////////////// HEADDER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 #logo {
-    z-index: 4;
+    z-index: 2;
     margin-top: 15px;
     position: relative;
     height: 85%;
@@ -419,7 +419,6 @@ form.search-container {
 .PesquisaRapida img:hover {
     border-radius: 12px;
     transform: scale(1.1);
-    border: 3px solid black;
 }
 
 @media screen and (max-width: 1000px) {
@@ -530,7 +529,7 @@ select#marca.dropdown {
     width: 100%;
 }
 
-/* ///////////////////////////////////////////////////// PÁGINA "Anúncios" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/* ///////////////////////////////////////////////////// PÁGINA "Anuncios" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 /* side menu */
 a#menuFechado.wui-side-menu-trigger {
@@ -622,6 +621,10 @@ ul.wui-side-menu-items {
     margin-top: 20px;
     width: 90%;
     text-align: center;
+}
+
+datalist.dataList {
+    background-color: white;
 }
 
 
@@ -841,17 +844,35 @@ img#linkImagens {
     cursor: zoom-in;
 }
 
-#imagensPopup {
+#fecharImagens {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+#popupImagens {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
     position: fixed;
     z-index: 4;
-    max-width: 90%;
-    max-height: 100%;
-    margin-top: -9%;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
     animation-name: crescimento;
     animation-duration: 0.4s;
     animation-timing-function: ease-in-out;
+}
+
+/* Imagem */
+#imagensPopup {
+    border-radius: 10px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+    max-width: 90%;
+    max-height: 100%;
 }
 
 @keyframes crescimento {
@@ -868,15 +889,6 @@ img#linkImagens {
     }
 }
 
-#fecharImagens {
-    position: fixed;
-    right: 10px;
-    margin-top: -25px;
-    cursor: pointer;
-    animation-name: crescimento;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-}
 
 .botoes {
     width: 85%;

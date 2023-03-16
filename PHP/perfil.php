@@ -1,8 +1,16 @@
 <?php include_once '../Include_once/conexao.php';
 $id = $_GET['idUser'];
-
+if ($id == null || $id == 0) {
+    header("Location: javascript:history.back()");
+} // Caso o user tente acessar um prefil apagando o idUser, volta onde estava antes
+ 
 $result = $con->query("SELECT * FROM user WHERE idUser ='$id'")->fetchAll();
 foreach ($result as $pessoa) : endforeach;
+$user = $pessoa['user'];
+if ($user == null ) {
+    header("Location: javascript:history.back()");
+} // Caso o user tente acessar um prefil que ainda não existe, volta onde estava antes
+
 if ($pessoa['genero'] == 1) {
     $emoji = "👨";
 } elseif ($pessoa['genero'] == 2) {
@@ -18,9 +26,9 @@ include_once '../Include_once/head.php';
 
 <body>
     <div class="perfil">
-    <?php if($pessoa['fotoPerfil'] == null){
+        <?php if ($pessoa['fotoPerfil'] == null) {
             $pessoa['fotoPerfil'] = "semFotoPerfil.png";
-        }?>
+        } ?>
         <img src="../uploads/<?= $pessoa['fotoPerfil'] ?>" />
         <div id="info">
             <?php if ($_SESSION['idUser'] == 1) { ?>

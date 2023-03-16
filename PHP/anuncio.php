@@ -1,15 +1,22 @@
 <?php include_once '../Include_once/conexao.php';
 $idAnuncio = $_GET['idAnuncio']; // Pega o ID do anúncio clicado da página anterior.
-
-$query = "SELECT * FROM anuncios WHERE idAnuncio = $idAnuncio"; // Selecionia tudo do anúncio pelo respetivo ID.
+if ($idAnuncio == null || $idAnuncio == 0) {
+  header("Location: javascript:history.back()");
+} // Caso o user tente acessar um anúncio apagando o idAnuncio, volta onde estava antes
+ 
+$query = "SELECT * FROM anuncios WHERE idAnuncio = $idAnuncio";
 $resultado = $mysqli->query($query);
-$result = mysqli_fetch_assoc($resultado);
-$titulo = $result['titulo'];
-$pagina = "Winter - " . $titulo;
+$result = mysqli_fetch_assoc($resultado); // Selecionia tudo do anúncio pelo respetivo ID.
+
 $idUser = $result['idUser'];
 if ($idUser == 0) {
   $idUser = "1";
 } // Os anúncios que foram adionados pela BD serão do Admin.
+$titulo = $result['titulo'];
+$pagina = "Winter - " . $titulo;
+if ($titulo == null) {
+  header("Location: javascript:history.back()");
+} // Caso o user tente acessar um anúncio que ainda não existe, volta onde estava antes
 
 $queryUser = "SELECT * FROM user WHERE idUser = $idUser"; // Pega as informações da pessoa que adicionou o anúncio.
 $resultado = $mysqli->query($queryUser);

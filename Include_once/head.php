@@ -37,7 +37,7 @@ if (!isset($_SESSION)) {
         error_reporting(0);
         if ($_SESSION['user'] == $semLogin) { ?>                  
         <?php } else { ?>
-            <li><a href="../PHP/conta.php?idPag=1" title="Mensagens">💭 </a></li>
+            <li><a href="../PHP/conta.php?idPag=1" title="Mensagens">💭+9 </a></li>
         <?php } ?>
 
         <!-- //////////////////// PERFIL \\\\\\\\\\\\\\\\\\ -->

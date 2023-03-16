@@ -26,7 +26,7 @@ if ($idAnuncio != null) {
 
 include_once '../Include_once/head.php';
 $idPag = $_GET['idPag'];
-if ($idPag == null) {
+if ($idPag == null || $idPag > 4) {
     $idPag = 1;
 }
 
