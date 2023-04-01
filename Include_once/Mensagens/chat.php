@@ -50,21 +50,37 @@
             </div>
         <?php } ?>
     </div>
+  
 
     <div>
         <div class="mensagem" id="chat">
-            <?php include_once('../Include_once/loadAnimation.php'); ?>
+            <!-- <?php include_once('../Include_once/loadAnimation.php'); ?> -->
         </div>
         <div class="mensagem " id="enviarMensagem">
 
-            <form action="../Include_once/Mensagens/inserirChat.php?idAnuncio=<?= $idAnuncio = $_GET['idAnuncio'] ?>&&idUser=<?= $_GET['idUser'] ?>" method="POST">
-                <input type="text" id="search-bar" class="mensagem" name="mensagem" placeholder="Mensagem:" required>
-                <input type="submit" id="enviar" value="enviar">
+            <form action="../Include_once/Mensagens/inserirChat.php?idAnuncio=<?= $idAnuncio = $_GET['idAnuncio'] ?>&&idUser=<?= $_GET['idUser'] ?>" id="myForm" method="POST">
+                <input type="text" id="search-bar" id="mensagem" class="mensagem" name="mensagem" placeholder="Mensagem:" required>
+                <input type="submit" id="enviar">
             </form>
         </div>
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+  $('#submitButton').click(function() {
+    var mensagem = $('#mensagem').val();
+    
+    $.post('../Include_once/Mensagens/inserirChat.php?idAnuncio=<?= $idAnuncio = $_GET['idAnuncio'] ?>&&idUser=<?= $_GET['idUser'] ?>"', { mensagem: mensagem, }, function(data) {
+      alert(data);
+    });
+  });
+});
+
+</script>
+
+
 
 <!-- JAVASCRIPT -->
 <script type="text/javascript">
@@ -80,5 +96,5 @@
     }
     setInterval(function() {
         ajax();
-    }, 500);
+    }, 300);
 </script> <!-- Atualiza apenas o chat, o site não. -->

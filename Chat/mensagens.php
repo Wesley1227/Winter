@@ -8,6 +8,9 @@ $resultado = $mysqli->query($query);
 $result = mysqli_fetch_assoc($resultado);
 $idUser2 = $result['idUser'];
 
+if ($idUser2 == null || $idUser2 == 0) {
+    header("Location: javascript:history.back()");
+} // Caso tente conversar com alguém que não existe, volta atrás
 
 
 if ($idUser2 == null) {

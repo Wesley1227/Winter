@@ -1,4 +1,4 @@
-<form action="../Include_once/atualizarDados.php" method="post" enctype="multipart/form-data">
+<form action="../Include_once/atualizarDados.php" class="formDados" method="post" enctype="multipart/form-data">
     <div class="gridDados">
         <div id="dadosPrivados">
             <h1>Dados privados</h1>

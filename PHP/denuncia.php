@@ -50,7 +50,7 @@ if ($idPerfil != null) {
                 
                 <input type="text" name="motivo" placeholder="Motivo:" required />
 
-                Outras provas: <input id="provas" name="print" type="file">
+                Provas (opcional): <input id="provas" name="print" type="file">
 
 
 

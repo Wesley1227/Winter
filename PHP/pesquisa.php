@@ -72,6 +72,9 @@ if ($pesquisa != null && $pesquisa != $cookiePesquisa) {
   $paginacao = $_GET['paginacao'];
   $limite = 99;
   $inicio = ($pagina * $limite) - $limite;
+  if ($pesquisa == "O que procuras?") {
+    $pesquisa = "";
+  }
 
   $result = $con->query("SELECT * FROM anuncios WHERE $precoMinimo $precoMaximo titulo LIKE '%" . $pesquisa . "%' $ordem LIMIT $inicio, $limite")->fetchAll(); /* ORDER BY dataCriacao DESC */
   $registros = $con->query("SELECT COUNT(idAnuncio) count FROM anuncios WHERE $precoMinimo $precoMaximo titulo LIKE '%" . $pesquisa . "%' ")->fetch()["count"];

@@ -3,10 +3,11 @@ include_once('../conexao.php');
 include_once('../../Login/protect.php');
 $idUser = $_SESSION['idUser'];
 $idUser2 = $_GET['idUser'];
+$idAnuncio = $_GET['idAnuncio'];
+
 if ($idUser2 == null || $idUser2 == 0) {
     header("Location: javascript:history.back()");
-}
-$idAnuncio = $_GET['idAnuncio'];
+} // Caso tente conversar com alguém que não existe, volta atrás
 
 if ($idUser2 == null) {
     $pesquisa = "SELECT * FROM chat WHERE idUser ='$idUser' AND idAnuncio='$idAnuncio' ORDER BY dataEnvio desc";
@@ -16,7 +17,6 @@ if ($idUser2 == null) {
 $result = $con->query($pesquisa)->fetchAll();
 if ($idAnuncio == null) { ?>
     <div id="escolhe1">👈🧑‍🦱 <br> Escolhe um</div>
-
     <?php }
 foreach ($result as $chat) {
     $user = $chat['nome'];

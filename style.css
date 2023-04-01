@@ -17,7 +17,6 @@
 }
 
 .header {
-    z-index: 3;
     color: #000000;
     background-color: brown;
     padding: auto;
@@ -30,12 +29,11 @@
 }
 
 .menu {
-    background: brown;
     padding-right: 40px;
 }
 
 .menu ul {
-    z-index: 3;
+    z-index: 2;
     border-radius: 10px;
     margin-top: -70px;
     float: right;
@@ -124,6 +122,10 @@
     z-index: 2;
 }
 
+.mensagensNaoLidas{
+    font-size: 12px;
+    font-weight: bold;
+}
 
 
 /* Mobile */
@@ -349,7 +351,6 @@ form.search-container {
 
 #search-bar:focus {
     border: 3px solid brown;
-
     color: #000000;
     border-radius: 8px;
 }
@@ -448,6 +449,10 @@ form.search-container {
 
 /* ///////////////////////////////////////////////////// Página - "criar anúncio" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
+#fechar.fecharProdutos{
+    display: flex;
+    justify-content: center;
+}
 div.formAnuncio {
     /* overflow-y: hidden; */
     margin-top: 20px;
@@ -599,12 +604,13 @@ ul.wui-side-menu-items {
     margin-top: 120px;
 }
 
-
 #search-bar.menu {
     width: 80%;
-    color: white;
     margin-bottom: 10px;
-
+}
+#search-bar.menu:focus{
+    background-color: rgb(163, 53, 53);
+    color: white;
 }
 
 #filtrar.custom-btn {
@@ -693,7 +699,7 @@ datalist.dataList {
 .itemAnuncio {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 320px;
     height: 300px;
     overflow: hidden;
     border-radius: 18px;
@@ -707,6 +713,7 @@ datalist.dataList {
 
 .itemAnuncio:hover {
     width: 350px;
+    border-radius: 15px;
 }
 
 img.itemImagem {
@@ -1174,6 +1181,11 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 
 
 /*  "Dados pessoias" */
+.formDados {
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
+}
 
 .gridDados {
     display: grid;
@@ -1293,7 +1305,7 @@ input#search-bar.inputDados {
 }
 
 /* Mobile */
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
 
     .gridDados {
         display: inline-block;
@@ -1336,7 +1348,6 @@ input#search-bar.inputDados {
 
     .anuncios {
         width: 100%;
-
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 10px;
     }
@@ -1380,21 +1391,72 @@ input#search-bar.inputDados {
 
 /* ////////////////////////////////////////////////// Página "Perfil" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .perfil {
-    background-color: white;
     width: 90%;
-    height: 50vh;
     border-radius: 15px;
-    display: block;
+    display: grid;
+    grid-template-columns: 58% 40%;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: var(--boxShadow);
+    gap: 2%;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
 }
 
-.perfil img {
+#fotoPerfilNivel img {
+    max-width: 90%;
+    min-width: 60%;
+    max-height: 60vh;
+    border-radius: 50%;
+    border: 10px solid #4d4d4d;
+    /* border-top-color: brown;
+    border-left-color: rgb(146, 67, 67);
+    border-bottom-color: gray;
+    border-right-color: gray; */
+}
+
+#fotoPerfilNivel {
+    padding-top: 20px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #555555, #474747);
+    box-shadow: 17px 17px 34px #272727, -17px -17px 34px #777777;
+    -o-object-fit: cover;
+    object-fit: cover;
+    animation-name: crescimento;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
+}
+
+#perfilNivelInfo {
+    /* Botão i */
+    background-color: #666464;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#info {
+    z-index: -1;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #555555, #474747);
+    box-shadow: 20px 20px 60px #272727, -20px -20px 60px #777777;
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
+}
+
+
+
+
+
+
+
+
+/* .perfil img {
     margin: 20px;
     border-radius: 20px;
     width: 35%;
-    height: 90%;
+    height: 80%;
     object-fit: cover;
     display: flex;
     object-position: 50% 50%;
@@ -1402,13 +1464,15 @@ input#search-bar.inputDados {
     border: 2px solid #000000;
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
     box-shadow: 18px 18px 36px #6e6e6e, -18px -18px 36px #ffffff;
-}
+} 
 
-div#info {
+#info {
+    float: right;
+    width: 50%;
     font-size: 4vh;
     text-align: center;
 }
-
+*/
 #semAnuncio.perfilSemAnuncio {
     font-size: 50px;
 }
@@ -1453,10 +1517,13 @@ div#info {
 #popupChat {
     position: fixed;
     display: flex;
-    right: 10px;
+    right: 5%;
     z-index: 2;
     width: 50vh;
     height: 55vh;
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
 }
 
 #chat {
@@ -1468,6 +1535,7 @@ div#info {
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
+
 }
 
 .circle-chart__circle {
@@ -1518,6 +1586,9 @@ div#info {
     width: 70%;
     border-radius: 15px;
 }
+#search-bar.mensagem:focus {
+    border-radius: 8px;
+}
 
 .fecharChat {
     position: absolute;
@@ -1560,6 +1631,7 @@ div#info {
     color: white;
     border-radius: 15px;
     font-size: 20px;
+
 }
 
 #anunciante {
@@ -1624,12 +1696,6 @@ img#fotoChat.miniFotoPerfil:hover {
     margin-left: auto;
     font-weight: bold;
     padding-right: 10px;
-}
-
-#escolhe1 {
-    font-size: 70px;
-    text-align: center;
-    margin-bottom: 15%;
 }
 
 #chat.mensagem {
@@ -1730,7 +1796,44 @@ img#fotoChat.miniFotoPerfil:hover {
 
 }
 
-/*//////////////////////////// PÁGINA "Denuncia" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/*//////////////////////////// PÁGINA "ADMIN" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+.estatisticas {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 90%;
+    column-gap: 10px;
+    margin: 0 auto;
+}
+
+.estatistica {
+    z-index: -1;
+    color: white;
+    height: 20vh;
+    padding: 20px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #5f5f5f, #505050);
+    box-shadow: 9px 9px 28px #474747, -9px -9px 28px #6b6b6b;
+    margin-bottom: 20px;
+    animation-name: crescimento;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.fecharEstatisticas {
+    position: fixed;
+    z-index: 99;
+    right: 20px;
+    bottom: 40%;
+}
+
+
+
+
+
+
+
+/* DENUNCIAS: */
 #mensagem.chatDenunciado {
     margin: 0 auto;
     text-align: left;
@@ -1742,7 +1845,6 @@ img#fotoChat.miniFotoPerfil:hover {
     margin-bottom: 0px;
 }
 
-/* Pag Admin */
 .denuncias {
     display: flex;
     width: 90%;

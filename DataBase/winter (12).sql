@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Mar-2023 às 17:24
+-- Tempo de geração: 01-Abr-2023 às 16:21
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -50,13 +50,13 @@ CREATE TABLE `anuncios` (
 --
 
 INSERT INTO `anuncios` (`idAnuncio`, `titulo`, `descricao`, `preco`, `localizacao`, `visualizacoes`, `idUser`, `idCategoria`, `estadoProduto`, `marca`, `intAnuncio`, `subCategoria`, `subSubCategoria`, `imagem`, `dataCriacao`) VALUES
-(1, 'Título do anúncio', 'Descrição', 123, 'Localização', 2191, 0, '', 'Imaculado', '[value-10]', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(2, 'teste 1', '', 0, '', 2282, 0, 'Informática', '', '', '', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(3, 'teste 2', 'pao', 125, '', 2333, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(4, 'teste 3', 'açkud', 126, '', 2084, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(5, 'teste 4', '', 0, '', 1064, 0, 'Veículos', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(6, 'teste 5', '', 0, '', 1064, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(7, 'teste 5', '', 0, '', 1047, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(1, 'Título do anúncio', 'Descrição', 123, 'Localização', 2217, 0, '', 'Imaculado', '[value-10]', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(2, 'teste 1', '', 0, '', 2308, 0, 'Informática', '', '', '', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(3, 'teste 2', 'pao', 125, '', 2359, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(4, 'teste 3', 'açkud', 126, '', 2110, 0, 'Informática', '', '', 'compra', 'Computadores', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(5, 'teste 4', '', 0, '', 1090, 0, 'Veículos', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(6, 'teste 5', '', 0, '', 1090, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
+(7, 'teste 5', '', 0, '', 1073, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (8, 'teste 6', '', 0, '', 1029, 0, '', '', '', 'venda', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (15, 'teste 7', 'sadfasf', 123, '', 1095, 0, '', 'Usado', '1', 'venda', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (17, 'teste 8', 'sfa fas', 132, '', 1067, 0, 'Informática', '', '3', 'venda', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
@@ -69,23 +69,24 @@ INSERT INTO `anuncios` (`idAnuncio`, `titulo`, `descricao`, `preco`, `localizaca
 (31, 'teste 15', 'qwdflkjqwd', 230, '', 1050, 0, 'Mobilidade', 'Semi-novo', 'Oneplus', 'compra', '7', '3', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (32, 'teste 16', '', 0, '', 1017, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
 (33, 'teste 17', '', 0, '', 996, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:26'),
-(36, 'teste 20', '', 0, '', 2717, 83, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(37, 'teste 21', '', 0, '', 2671, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(38, 'teste 22', '', 0, '', 2654, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(42, 'teste 25', '', 0, '', 2654, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(43, 'Lucas á parmegiana', '', 0, '', 2353, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(44, 'Vendo Lucas', 'Ele não presta', 99, '', 2405, 0, 'Informática', 'Estragado', '', 'compra', '9', '19', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(46, 'Produtos usados', 'Vendo essas tralhas pois estão sem uso a muito tempo e preciso do espaço.\nTexto aleatório a seguir porque sim: \r\nPão (do latim \"pane\")[1] é um alimento obtido pela cocção de uma massa de consistência elástica, elaborada basicamente com farinha de cereal (com proteínas formadores de glúten, geralmente de trigo), água, sal/açúcar.[2] A evidência de ocorrência mais antiga de pão na Europa data de há 30 mil anos.\n\nA esta mistura básica podem acrescentar-se vários ingredientes, desde gordura a especiarias, passando por carne (geralmente curada), frutas secas ou frutas cristalizadas, etc. O pão comercial por outro lado, geralmente contém aditivos para melhorar o sabor, textura, cor, vida de prateleira, nutrição e facilidade de fabricação.\n\nBasicamente existem tipos de pão: levedado, com adição de levedura/fermento biológico à massa, produzindo pães mais macios, e; ázimo, não fermentado,[3] que produz pães geralmente achatados e consistentes.', 450, 'Amadora', 2390, 1, 'Informática', 'Usado', 'Ferrari', 'compra', '9', '15', 'IMG-63c7e658c490a4.55154845.jpg', '2023-02-15 12:46:31'),
-(49, 'pao', 'teste', 0, '', 2103, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(50, 'pao', 'teste 47', 0, '', 2103, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(51, 'teste 48', '', 0, '', 2286, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(54, 'teste 49', 'Teste de user', 49, '', 2550, 1, 'Informática', '', 'Alcatel', 'doação', '1', '2', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(58, 'teste 52', 'Testar se criador do anuncio consegue ver os anuncios dele', 0, '', 2672, 7, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
-(73, 'Teclado mecânico Mars Gaming 60%', 'Teclado Mecânico Mars Gaming MKMINI RGB 60% PT Outemu Red · Peso: 400g · Dimensões: 292x102x37mm · Design: 60% mini · Material de teclado: ABS · Cor: Preto', 45, 'Cacem', 2496, 1, 'Informática', 'Novo', '', '', '23', '27', 'IMG-63ef9bf10f9e57.92921091.png', '2023-02-17 15:23:29'),
-(76, 'Portátil HP ', '240gb\r\nPosso aceitar troca por telemóveis', 500, 'Sete Rios', 2228, 7, 'Informática', 'Semi-novo', 'HP', '', '1', '5', 'IMG-63efe02e87c934.57813910.jpg', '2023-02-17 20:14:38'),
-(77, 'Placa Gráfica ', '', 120, 'Amadora', 2211, 1, 'Informática', 'Novo', 'Outro', '', '9', '12', 'IMG-63f0058e095d40.27505008.jpg', '2023-02-17 22:54:06'),
-(79, 'iPhone 8 64gb', '', 150, 'Sintra', 1105, 7, 'Mobilidade', 'Semi-novo', 'Apple', '', '7', '3', 'IMG-63f2a127116744.42147163.webp', '2023-02-19 22:22:31'),
-(87, 'Setup gaming completo', 'Vendo setup gaming completo com tudo incluso e no precinho!', 2000, 'Lisboa', 919, 83, 'Informática', 'Semi-novo', 'Asus', '', '1', '28', 'IMG-63f4f1862b8731.50118216.webp', '2023-02-21 16:29:58');
+(36, 'teste 20', '', 0, '', 3370, 83, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(37, 'teste 21', '', 0, '', 2697, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(38, 'teste 22', '', 0, '', 2680, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(42, 'teste 25', '', 0, '', 2680, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(43, 'Lucas á parmegiana', '', 0, '', 2379, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(44, 'Vendo Lucas', 'Ele não presta', 99, '', 2431, 0, 'Informática', 'Estragado', '', 'compra', '9', '19', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(46, 'Produtos usados', 'Vendo essas tralhas pois estão sem uso a muito tempo e preciso do espaço.\nTexto aleatório a seguir porque sim: \r\nPão (do latim \"pane\")[1] é um alimento obtido pela cocção de uma massa de consistência elástica, elaborada basicamente com farinha de cereal (com proteínas formadores de glúten, geralmente de trigo), água, sal/açúcar.[2] A evidência de ocorrência mais antiga de pão na Europa data de há 30 mil anos.\n\nA esta mistura básica podem acrescentar-se vários ingredientes, desde gordura a especiarias, passando por carne (geralmente curada), frutas secas ou frutas cristalizadas, etc. O pão comercial por outro lado, geralmente contém aditivos para melhorar o sabor, textura, cor, vida de prateleira, nutrição e facilidade de fabricação.\n\nBasicamente existem tipos de pão: levedado, com adição de levedura/fermento biológico à massa, produzindo pães mais macios, e; ázimo, não fermentado,[3] que produz pães geralmente achatados e consistentes.', 450, 'Amadora', 2618, 1, 'Informática', 'Usado', 'Ferrari', 'compra', '9', '15', 'IMG-63c7e658c490a4.55154845.jpg', '2023-02-15 12:46:31'),
+(49, 'pao', 'teste', 0, '', 2129, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(50, 'pao', 'teste 47', 0, '', 2129, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(51, 'teste 48', '', 0, '', 2312, 0, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(54, 'teste 49', 'Teste de user', 49, '', 2778, 1, 'Informática', '', 'Alcatel', 'doação', '1', '2', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(58, 'teste 52', 'Testar se criador do anuncio consegue ver os anuncios dele', 0, '', 2700, 7, '', '', '', '', '', '', 'semImagem.jpg', '2023-02-15 12:46:31'),
+(73, 'Teclado mecânico Mars Gaming 60%', 'Teclado Mecânico Mars Gaming MKMINI RGB 60% PT Outemu Red · Peso: 400g · Dimensões: 292x102x37mm · Design: 60% mini · Material de teclado: ABS · Cor: Preto', 45, 'Cacem', 2724, 1, 'Informática', 'Novo', '', '', '23', '27', 'IMG-63ef9bf10f9e57.92921091.png', '2023-02-17 15:23:29'),
+(76, 'Portátil HP ', '240gb\r\nPosso aceitar troca por telemóveis', 500, 'Sete Rios', 2256, 7, 'Informática', 'Semi-novo', 'HP', '', '1', '5', 'IMG-63efe02e87c934.57813910.jpg', '2023-02-17 20:14:38'),
+(77, 'Placa Gráfica ', '', 120, 'Amadora', 2439, 1, 'Informática', 'Novo', 'Outro', '', '9', '12', 'IMG-63f0058e095d40.27505008.jpg', '2023-02-17 22:54:06'),
+(79, 'iPhone 8 64gb', '', 150, 'Sintra', 1133, 7, 'Mobilidade', 'Semi-novo', 'Apple', '', '7', '3', 'IMG-63f2a127116744.42147163.webp', '2023-02-19 22:22:31'),
+(87, 'Setup gaming completo', 'Vendo setup gaming completo com tudo incluso e no precinho!', 2000, 'Lisboa', 1572, 83, 'Informática', 'Semi-novo', 'Asus', '', '1', '28', 'IMG-63f4f1862b8731.50118216.webp', '2023-02-21 16:29:58'),
+(88, 'teste 99', '', 0, '', 29, 83, '', '', '', '', '', '', 'semImagem.jpg', '2023-03-23 11:40:19');
 
 -- --------------------------------------------------------
 
@@ -140,9 +141,6 @@ INSERT INTO `chat` (`idChat`, `idAnuncio`, `idUser`, `idDestinatario`, `nome`, `
 (377, 77, 83, 1, 'Maria12', 'Qual o mínimo que aceita?', '2023-02-22 21:42:11'),
 (378, 77, 83, 1, 'Maria12', '?', '2023-02-22 21:43:27'),
 (379, 76, 83, 7, 'Maria12', 'LOL', '2023-02-22 21:43:45'),
-(395, 46, 83, 7, 'Maria12', 'teste 17', '2023-02-22 22:29:22'),
-(396, 46, 83, 7, 'Maria12', 'teste 18', '2023-02-22 22:29:35'),
-(397, 46, 83, 7, 'Maria12', 'teste 19', '2023-02-22 22:32:15'),
 (398, 46, 83, 7, 'Maria12', 'teste 20', '2023-02-22 22:34:38'),
 (399, 46, 83, 7, 'Maria12', 'teste 21', '2023-02-22 22:44:53'),
 (400, 87, 7, 83, 'Wess1227_', 'Olá', '2023-02-22 23:48:59'),
@@ -183,7 +181,40 @@ INSERT INTO `chat` (`idChat`, `idAnuncio`, `idUser`, `idDestinatario`, `nome`, `
 (505, 79, 83, 7, 'Maria12', 'PDOISAHGFUYADF', '2023-03-11 17:19:53'),
 (509, 76, 83, 7, 'Maria12', '?', '2023-03-11 18:24:44'),
 (513, 87, 86, 83, 'dipi', 'olaº', '2023-03-16 15:49:06'),
-(514, 87, 86, 83, 'dipi', 'tudo bem', '2023-03-16 15:49:17');
+(514, 87, 86, 83, 'dipi', 'tudo bem', '2023-03-16 15:49:17'),
+(515, 46, 83, 7, 'Maria12', 'teste 23', '2023-03-19 11:49:51'),
+(522, 87, 83, 86, 'Maria12', '2', '2023-03-19 11:56:38'),
+(560, 87, 83, 86, 'Maria12', '3', '2023-03-19 12:31:00'),
+(561, 87, 83, 86, 'Maria12', '4', '2023-03-19 12:31:01'),
+(562, 87, 83, 86, 'Maria12', '5', '2023-03-19 12:31:05'),
+(563, 87, 83, 86, 'Maria12', '5', '2023-03-19 12:32:14'),
+(564, 87, 83, 86, 'Maria12', '6', '2023-03-19 12:32:18'),
+(565, 87, 83, 86, 'Maria12', '7', '2023-03-19 12:32:20'),
+(566, 87, 83, 86, 'Maria12', '7', '2023-03-19 12:32:35'),
+(567, 87, 83, 86, 'Maria12', '7', '2023-03-19 12:32:39'),
+(568, 87, 83, 86, 'Maria12', '7', '2023-03-19 12:33:01'),
+(569, 87, 83, 86, 'Maria12', '9', '2023-03-19 12:35:00'),
+(570, 87, 83, 86, 'Maria12', '10', '2023-03-19 12:35:03'),
+(571, 87, 83, 86, 'Maria12', '11', '2023-03-19 12:35:30'),
+(572, 87, 83, 86, 'Maria12', '12', '2023-03-19 12:35:33'),
+(573, 87, 83, 86, 'Maria12', '13', '2023-03-19 12:35:35'),
+(574, 87, 83, 86, 'Maria12', '14', '2023-03-19 12:35:38'),
+(575, 87, 83, 86, 'Maria12', '17', '2023-03-19 12:35:42'),
+(576, 87, 83, 86, 'Maria12', '12', '2023-03-19 12:35:45'),
+(577, 87, 83, 86, 'Maria12', '331', '2023-03-19 12:35:49'),
+(578, 73, 83, 1, 'Maria12', 'oie', '2023-03-19 12:38:33'),
+(579, 73, 83, 1, 'Maria12', '?', '2023-03-19 12:38:46'),
+(580, 73, 83, 1, 'Maria12', 'isso é tao racista...', '2023-03-19 12:38:55'),
+(590, 73, 1, 83, 'Admin', '?', '2023-03-19 13:07:59'),
+(591, 73, 1, 83, 'Admin', 'quer ir de ban?', '2023-03-19 13:08:04'),
+(592, 46, 1, 83, 'Admin', 'teste 5', '2023-03-19 15:02:23'),
+(593, 77, 1, 83, 'Admin', 'aceito um cheque de 500€', '2023-03-19 15:02:36'),
+(594, 73, 1, 83, 'Admin', 'pao', '2023-03-20 15:41:36'),
+(597, 73, 83, 1, 'Maria12', 'quero', '2023-03-22 12:57:17'),
+(598, 73, 83, 1, 'Maria12', 'da ban aí entao!', '2023-03-22 12:57:27'),
+(601, 46, 83, 1, 'Maria12', 'teste 6', '2023-03-22 13:07:20'),
+(609, 77, 83, 1, 'Maria12', 'NUNCA', '2023-03-22 15:10:23'),
+(633, 77, 1, 83, 'Admin', '1', '2023-03-24 12:02:23');
 
 -- --------------------------------------------------------
 
@@ -228,13 +259,6 @@ CREATE TABLE `filtros` (
   `idSubCategoria` int(11) NOT NULL,
   `idSubSubCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `filtros`
---
-
-INSERT INTO `filtros` (`idFiltro`, `idUser`, `pesquisa`, `precoMin`, `precoMax`, `ordem`, `idCategoria`, `idSubCategoria`, `idSubSubCategoria`) VALUES
-(8, 83, 'teste', 1, 100, 3, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -448,7 +472,18 @@ INSERT INTO `pesquisas` (`idPesquisa`, `pesquisa`, `idUser`, `dataPesquisa`) VAL
 (125, 'Anúncios', 83, '2023-03-16 13:13:56'),
 (126, 'teste', 83, '2023-03-16 13:14:42'),
 (127, 'pao', 83, '2023-03-16 13:14:52'),
-(128, 'teste', 83, '2023-03-16 16:23:12');
+(128, 'teste', 83, '2023-03-16 16:23:12'),
+(129, 'teste', 83, '2023-03-19 12:18:25'),
+(130, 'pao', 83, '2023-03-19 12:36:54'),
+(131, 'Anúncios', 83, '2023-03-19 12:39:58'),
+(132, 'teste', 83, '2023-03-19 12:43:59'),
+(133, 'Anúncios', 1, '2023-03-20 15:20:40'),
+(134, 'pao', 1, '2023-03-20 15:42:07'),
+(135, 'Anúncios', 1, '2023-03-21 15:56:42'),
+(136, 'tests', 83, '2023-03-23 13:06:10'),
+(137, 'Anúncios', 83, '2023-03-23 13:09:53'),
+(138, 'Anúncios', 83, '2023-03-24 11:45:06'),
+(139, 'teste', 83, '2023-03-24 11:46:27');
 
 -- --------------------------------------------------------
 
@@ -544,6 +579,8 @@ CREATE TABLE `user` (
   `senha` varchar(30) NOT NULL,
   `nome` varchar(150) NOT NULL COMMENT 'Nome Pessoal do Utilizador',
   `apelido` varchar(255) NOT NULL,
+  `nivel` int(11) NOT NULL COMMENT 'Sistema de niveis, que permitirá quem possuir mais niveis, fazer coisas a mais do que quem é novo no site',
+  `xp` int(11) NOT NULL COMMENT 'xp são pontos que serão necessários obter para subir de nível',
   `avaliacao` int(11) NOT NULL COMMENT 'AvaliaÃ§Ã£o do utilizador',
   `morada` varchar(255) NOT NULL COMMENT 'Morada',
   `cod_postal` varchar(9) NOT NULL COMMENT 'CÃ³digo Postal',
@@ -561,12 +598,12 @@ CREATE TABLE `user` (
 -- Extraindo dados da tabela `user`
 --
 
-INSERT INTO `user` (`idUser`, `user`, `email`, `senha`, `nome`, `apelido`, `avaliacao`, `morada`, `cod_postal`, `localidade`, `telemovel`, `nif`, `nome_empresa`, `tipo_negocio`, `fotoPerfil`, `genero`, `dataCriacao`) VALUES
-(1, 'Admin', 'admin', '1227', 'Wesley', 'Nascimento', 0, 'av. teste', '1234-123', 'Amadora', 946238453, 294982634, NULL, 'n', 'IMG-63ecf56fe4d0d7.53409310.jpg', '1', '2023-02-22'),
-(7, 'Wess1227_', 'teste', '1', 'David', 'Semedo', 0, 'Rua teste 24, 4F', '2776-125', 'Budapeste', 948723646, 274873264, NULL, 'n', 'IMG-63f3de19b7d685.96727583.jpg', '1', '2023-02-22'),
-(83, 'Maria12', 'Maria12@gmail.com', '1', 'Maria', 'Joana', 0, 'Rua Pedro Nunes, 12, 4F', '2475-324', 'Almada', 965434125, 293465364, NULL, 'n', 'IMG-640b39b52c1b87.02409910.jpeg', '2', '2023-02-22'),
-(84, 'teste2', 'teste2@gmail.com', '1', 'Nivaldo', 'Pires', 0, '', '', '', 0, 0, NULL, 's', 'semFotoPerfil.png', '1', '2023-02-24'),
-(86, 'dipi', 'dpmedpm@gmail.cm', '1234', 'daniel', 'martins', 0, 'mae do wes', '2735', '555', 987654321, 92929328, NULL, 's', 'semFotoPerfil.png', '1', '2023-03-16');
+INSERT INTO `user` (`idUser`, `user`, `email`, `senha`, `nome`, `apelido`, `nivel`, `xp`, `avaliacao`, `morada`, `cod_postal`, `localidade`, `telemovel`, `nif`, `nome_empresa`, `tipo_negocio`, `fotoPerfil`, `genero`, `dataCriacao`) VALUES
+(1, 'Admin', 'admin', '1227', 'Wesley', 'Nascimento', 10, 850, 0, 'av. teste', '1234-123', 'Amadora', 946238453, 294982634, NULL, 'n', 'IMG-63ecf56fe4d0d7.53409310.jpg', '1', '2023-02-22'),
+(7, 'Wess1227_', 'teste', '1', 'David', 'Semedo', 0, 0, 0, 'Rua teste 24, 4F', '2776-125', 'Budapeste', 948723646, 274873264, NULL, 'n', 'IMG-63f3de19b7d685.96727583.jpg', '1', '2023-02-22'),
+(83, 'Maria12', 'Maria12@gmail.com', '1', 'Maria', 'Paula', 1, 500, 0, 'Rua Pedro Nunes, 12, 4F', '2475-324', 'Almada', 965434125, 293465364, NULL, 'n', 'IMG-640b39b52c1b87.02409910.jpeg', '2', '2023-02-22'),
+(84, 'teste2', 'teste2@gmail.com', '1', 'Nivaldo', 'Pires', 0, 0, 0, '', '', '', 0, 0, NULL, 's', 'semFotoPerfil.png', '1', '2023-02-24'),
+(86, 'dipi', 'dpmedpm@gmail.cm', '1234', 'daniel', 'martins', 0, 0, 0, 'mae do wes', '2735', '555', 987654321, 92929328, NULL, 's', 'semFotoPerfil.png', '1', '2023-03-16');
 
 --
 -- Índices para tabelas despejadas
@@ -654,7 +691,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
-  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT de tabela `categoria`
@@ -666,7 +703,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de tabela `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `idChat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=515;
+  MODIFY `idChat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=634;
 
 --
 -- AUTO_INCREMENT de tabela `denuncias`
@@ -678,7 +715,7 @@ ALTER TABLE `denuncias`
 -- AUTO_INCREMENT de tabela `filtros`
 --
 ALTER TABLE `filtros`
-  MODIFY `idFiltro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idFiltro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `foruns`
@@ -702,7 +739,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de tabela `pesquisas`
 --
 ALTER TABLE `pesquisas`
-  MODIFY `idPesquisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `idPesquisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de tabela `subcategoria`
