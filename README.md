@@ -1,4 +1,4 @@
-A segunda entrega consiste no avanço no trabalho que foi feito desde a primeria entrega.
+A terceira entrega consiste no avanço no trabalho que foi feito desde a primeria entrega.
 
 Conta ADMIN:
 Admin (email/user: amin // Senha: 1227)
