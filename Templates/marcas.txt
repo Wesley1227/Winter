@@ -1,0 +1,51 @@
+Telemóveis:
+ <option value="Apple">Apple</option>
+ <option value="Samsung">Samsung</option>
+ <option value="Xiaomi">Xiaomi</option>
+ <option value="Huawei">Huawei</option>
+ <option value="Realme">Realme</option>
+ <option value="OPPO">OPPO</option>
+ <option value="Oneplus">Oneplus</option>
+ <option value="Vivo">Vivo</option>
+ <option value="Asus">Asus</option>
+ <option value="Motorola">Motorola</option>
+ <option value="Nokia">Nokia</option>
+ <option value="Google">Goole</option>
+ <option value="LG">LG</option>
+ <option value="Alcatel">Alcatel</option>
+ <option value="ZTE">ZTE</option>
+ <option value="Outro">Outro</option>
+
+Tecnologia:
+<option value="Asus">Asus</option>
+<option value="Apple">Apple</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="HP">HP</option>
+<option value="CoolerMaster">CoolerMaster</option>
+<option value="Nvidia">Nvidia</option>
+<option value="AMD">AMD</option>
+<option value="Intel">Intel</option>
+<option value="Samsung">Samsung</option>
+<option value="Xiaomi">Xiaomi</option>
+<option value="Huawei">Huawei</option>
+<option value="Benq">Benq</option>
+<option value="Dell">Dell</option>
+<option value="Epson">Epson</option>
+<option value="Lenovo">Lenovo</option>
+<option value="LG">LG</option>
+<option value="Logitech">Logitech</option>
+<option value="Razer">Razer</option>
+<option value="HyperX">HyperX</option>
+<option value="Sony">Sony</option>
+<option value="Fujitsu">Fujitsu</option>
+<option value="Microsoft">Microsoft</option>
+<option value="Philips">Philips</option>
+<option value="Tp-link">Tp-link</option>
+<option value="Canon">Canon</option>
+<option value="TUF">TUF</option>
+<option value="AOC">AOC</option>
+<option value="MSI">MSI</option>
+<option value="Redragon">Redragon</option>
+<option value="Steel">Redragon</option>
+ 
+<option value="Outros">Outros</option>

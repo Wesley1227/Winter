@@ -1,0 +1,14 @@
+<?php
+ include_once '../Include_once/conexao.php';
+$titulo = "Título";
+$pagina = "Winter - " . $titulo;
+include_once '../Include_once/head.php';
+?>
+
+<body>
+
+
+</body>
+<?php include_once '../Include_once/footer.php'; ?>
+
+</html>
