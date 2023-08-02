@@ -140,7 +140,6 @@ $idUserFavoritado = $resultFavorito['idUser'];
         if ($_SESSION['idUser'] == null) {
           echo "Faça login primeiro.";
         } ?><!-- Quando o user não estiver logado, aparecerá essa mensagem -->
-
       </div>
     </div>
   </div>
