@@ -56,6 +56,7 @@ foreach ($result as $chat) {
 } ?>
 <div class="alertChat">
     -Tenha sempre respeito. <br>
-    -Não partilhe informações pessoais que podem ocasionar em scam. <br>
-    -Não partilhe sua localização até que a Winter peça.<br>
+    -Não partilhe a sua localização até que a Winter solicite. <br>
+    -Não partilhe informações pessoais que possam levar a fraudes. <br>
+
 </div>

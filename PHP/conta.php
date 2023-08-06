@@ -5,16 +5,16 @@ $id = $_SESSION['idUser'];
 $result = $con->query("SELECT * FROM user WHERE idUser ='$id'")->fetchAll();
 foreach ($result as $pessoa) {
 }
-$emoji = "";
-if ($pessoa['genero'] == 1) {
-    $emoji = "👨";
-} elseif ($pessoa['genero'] == 2) {
-    $emoji = "👩";
-} else {
-    $emoji = "👤";
-}
+// $emoji = "";
+// if ($pessoa['genero'] == 1) {
+//     $emoji = "👨";
+// } elseif ($pessoa['genero'] == 2) {
+//     $emoji = "👩";
+// } else {
+//     $emoji = "👤";
+// }
 
-$titulo = $emoji . $pessoa['user'];
+$titulo =  $pessoa['user'];
 $pagina = "Winter - " . $titulo;
 $logo = "../img/logo.png";
 

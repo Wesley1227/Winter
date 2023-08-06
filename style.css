@@ -15,6 +15,7 @@
     height: 85%;
     border-radius: 10px;
 }
+
 ::selection {
     background-color: rgb(165, 77, 77);
     color: #ffffff;
@@ -257,7 +258,7 @@ html {
 
 @media screen and (max-width: 700px) {
     #titulo.title {
-        width: 50%;
+        width: 70%;
         font-size: 20px;
         margin-top: -10px;
     }
@@ -378,7 +379,7 @@ form.search-container {
     gap: 25px;
     border-radius: 10px;
     padding-bottom: 10px;
-    padding-right: 10px;
+    padding-right: 40px;
     margin-top: -10px;
     scrollbar-color: var(--scrollcolor) var(--scrollbackground);
 }
@@ -679,6 +680,7 @@ datalist.dataList {
 }
 
 #emoji {
+    /* coracao */
     font-size: 30px;
     cursor: pointer;
     position: absolute;
@@ -694,21 +696,30 @@ datalist.dataList {
 }
 
 
+@keyframes notificacao {
+    0% {
+        margin-right: -50px;
+    }
+
+    100% {}
+}
 
 .notificacao {
     /* Notificações*/
     z-index: 99;
     position: fixed;
-    top: 10px;
+    top: 60px;
     right: 10px;
-    padding: 10px;
+    padding: 20px;
     background-color: #333;
     color: #fff;
     display: none;
-    border-radius: 5px;
-    animation-name: crescimento;
+    border-radius: 15px 15px 0px 15px;
+
+
+    animation-name: notificacao;
     animation-duration: 0.4s;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease;
 }
 
 
@@ -1074,6 +1085,19 @@ button#editarAnuncio.custom-btn {
         background-color: rgb(46, 46, 46);
         height: 15%;
         margin-left: 70%;
+        font-size: 
+        17px;
+    }
+
+    #emoji {
+        /* coracao */
+        font-size: 25px;
+    }
+    #anunciante {
+        font-size: 15px;
+    }
+    #regisros {
+        margin-top: -5%;
     }
 }
 
@@ -1950,6 +1974,20 @@ img#fotoChat.miniFotoPerfil:hover {
     margin-bottom: 10px;
 }
 
+.semFavoritos {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 45vh;
+    border-radius: 10px;
+    box-shadow: var(--boxShadow);
+    font-size: 15vh;
+    font-family: cursive;
+    color: white;
+}
 
 /* /////////////////////////// Página "FORUM" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .forum {
@@ -2027,7 +2065,7 @@ img#fotoChat.miniFotoPerfil:hover {
     position: relative;
     display: block;
     width: calc(134% + 1.3px);
-    height: 152px;
+    height: 150px;
 }
 
 .custom-shape-divider-bottom-1680885713 .shape-fill {
@@ -2040,6 +2078,7 @@ img#fotoChat.miniFotoPerfil:hover {
     margin-top: -20px;
     margin-left: 10%;
     font-size: 25px;
+
 }
 
 .logoFooter {

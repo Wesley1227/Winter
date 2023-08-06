@@ -22,7 +22,7 @@ include_once '../Include_once/head.php';
         <button id="fechar" class="fecharProdutos"> X </button>
         <form method="POST" action="../Include_once/inserir.php" enctype="multipart/form-data">
             <div class="formAnuncio">
-                <input type="text" name="titulo" class="tituloAnuncio" id="search-bar" minlength="2" required placeholder="Título do seu anuncio:"><br>
+                <input type="text" name="titulo" class="tituloAnuncio" id="search-bar" minlength="2" maxlength="40" required placeholder="Título do seu anuncio:"><br>
                 <textarea class="descricao" name="descricao" id="search-bar" placeholder="Descrição:" cols="30" rows="10"></textarea><br>
 
                 <select name="categoria" id="categoria" onchange="FetchSubCategoria(this.value)" class="dropdown-select">
