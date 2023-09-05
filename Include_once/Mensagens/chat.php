@@ -1,4 +1,5 @@
 <div class="mensagens">
+
     <div id="pessoas">
         <?php
         $idUser = $_SESSION['idUser'];
@@ -8,7 +9,7 @@
         // foreach ($result as $pesquisaIDanuncio) {
         // } // Pesquisa os anúncios que o user enviou mensagem
 
-        $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario FROM chat WHERE idDestinatario='$idUser' ORDER BY dataEnvio DESC";
+        $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario, visualizacao FROM chat WHERE idDestinatario='$idUser' ORDER BY visualizacao = '1' ASC";
         $resultado2 = $mysqli->query($query2);
         $result2 = mysqli_fetch_assoc($resultado2);
 
@@ -36,11 +37,17 @@
                 } else {
                     $style = "";
                 }
+                if ($chat2['visualizacao'] == 0) {
+                    $visu = ' 💬';
+                } else {
+                    $visu = "";
+                }
                 ?>
+
                 <div style="background-color: brown; color:white ; <?php echo $style ?>" id="anuncio">
                     <?php echo $idAnuncio2;  ?>
                     <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio2 ?>"><img src="../uploads/<?= $resultAnuncio2['imagem'] ?>" class="miniFotoPerfil" id="fotoChat" /></a>
-                    <?php echo $resultAnuncio2['titulo'] ?> <br><br>
+                    <?php echo $resultAnuncio2['titulo'] . " " . $visu ?> <br><br>
                     <div id="anunciante">
                         <img src="../uploads/<?= $fotoPerfil ?>" class="miniFotoPerfil" id="fotoPerfilPessoa" />
                         <?php echo $user['user'] ?>
@@ -62,6 +69,7 @@
         </div>
     </div>
 </div>
+
 
 
 

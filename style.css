@@ -1085,17 +1085,19 @@ button#editarAnuncio.custom-btn {
         background-color: rgb(46, 46, 46);
         height: 15%;
         margin-left: 70%;
-        font-size: 
-        17px;
+        font-size:
+            17px;
     }
 
     #emoji {
         /* coracao */
         font-size: 25px;
     }
+
     #anunciante {
         font-size: 15px;
     }
+
     #regisros {
         margin-top: -5%;
     }
@@ -1551,6 +1553,9 @@ input#search-bar.inputDados {
     .perfil {
         text-align: center;
         height: 70vh;
+        display: block;
+        z-index: 99;
+        height: auto;
     }
 
     .perfil img {
@@ -1563,6 +1568,10 @@ input#search-bar.inputDados {
         object-position: 50% 50%;
         border: 2px solid #000000;
         float: left;
+    }
+
+    #fotoPerfilNivel {
+        margin-bottom: 10px;
     }
 }
 
@@ -1785,6 +1794,7 @@ img#fotoChat.miniFotoPerfil:hover {
     margin-left: auto;
     font-weight: bold;
     padding-right: 10px;
+    font-size: 16px;
 }
 
 #chat.mensagem {

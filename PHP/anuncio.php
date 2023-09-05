@@ -127,7 +127,7 @@ $idUserFavoritado = $resultFavorito['idUser'];
       <img src="../img/mapa.png" alt="">
 
       <div class="botoes">
-        <?php if ($_SESSION['idUser'] == $idUser || $_SESSION['idUser'] == 1) {
+        <?php if ($_SESSION['idUser'] == $resultIdUser['idUser'] || $_SESSION['idUser'] == 1) {
         ?> <a href=""><button class="custom-btn" id="editarAnuncio">Editar</button></a><a href="../Include_once/deleteAnuncio.php?idAnuncio=<?= $result['idAnuncio'] ?>"><button class="custom-btn" id="editarAnuncio" onclick="return confirm('Tem certeza que deseja excluir este anúncio?')">🗑️</button></a>
         <?php } else { ?>
           <a href="" id="linkChat"><button class="custom-btn" id="editarAnuncio" title="Ainda em desenvolvimento">💭 Mensagem</button></a> <a href="#" id="link"><button class="custom-btn" id="editarAnuncio">📞</button></a>
