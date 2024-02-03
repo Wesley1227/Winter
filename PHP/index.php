@@ -13,7 +13,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
   <?php } else { ?>
     <form action="../PHP/criarAnuncio.php"><button class="custom-btn" id="criarAnuncio">Criar anúncio</button></form><br>
   <?php } ?>
-  <form action="../PHP/anuncios.php?pagina=1"><button class="custom-btn" id="btnAnuncios">Anúncios</button></form>
+  <form action="../PHP/anuncios.php?pagina=1"><button class="custom-btn" id="btnAnuncios">Anúncios</button></form><br>
 
   <?php include_once '../Include_once/barraPesquisa.php'; ?>
   <h1 class="title" id="destaques">Destaques</h1><br>

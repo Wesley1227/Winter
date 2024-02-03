@@ -11,6 +11,7 @@ if ($logo == null) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="icon" type="image/x-icon" href="../img/Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -53,7 +54,7 @@ if (!isset($_SESSION)) {
                 $linkPerfil = "../Login/login.php";
             }
             ?>
-            <a href="<?= $linkPerfil ?>">
+            <a>
                 <?php error_reporting(0);
                 if ($_SESSION['fotoPerfil'] == null) {
                     $_SESSION['fotoPerfil'] = "semFotoPerfil.png";
@@ -97,7 +98,7 @@ if (!isset($_SESSION)) {
             <ul class="menu-dropdown">
 
                 <?php if ($_SESSION['user'] == $semLogin) { ?>
-                    <li><a href="../Login/login.php">Logar</a></li>
+                    <li><a href="#" onclick="abrirModalLogin()">Logar</a></li>
                     <li><a href="../PHP/sobre.php">Sobre</a></li>
                 <?php
                 } else {
@@ -115,3 +116,54 @@ if (!isset($_SESSION)) {
         </style>
         <path d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z" />
     </svg></a>
+
+
+
+<!-- //////////////////// Modals \\\\\\\\\\\\\\\\\\ -->
+<script>
+    function abrirModalLogin() {
+        $.get('../Login/login.php', function(data) {
+            $('#modal_login').html(data);
+            $('#modal_login').show();
+        });
+    }
+</script>
+<div id="modal_login"></div>
+
+<!-- //////////////////// Notificações \\\\\\\\\\\\\\\\\\ -->
+<?php
+// Com isso vou saber a quanto tempo o user entrou, se foi a pouco tempo, irá mostrar uma notificação de Bem Vindo!
+$tempoLogado = time() - $_SESSION['timestamp_login'];
+$tempoFormatado = formatarTempo($tempoLogado);
+
+function formatarTempo($segundos)
+{
+
+    $horas = floor($segundos / 3600);
+    if ($segundos <= 5) { ?>
+        <div class="notificacao" id="notBemVindo" style="display: block; text-align:center;"> Olá <b><?php echo $_SESSION['user']; ?><br> Bem-vindo </b> de volta!</div>
+        <audio id="meuSom" src="../Sons/mg_recebida.mp3" autoplay></audio>
+<?php }
+    $minutos = floor(($segundos % 3600) / 60);
+    $segundos = $segundos % 60;
+    return sprintf("%02d:%02d:%02d", $horas, $minutos, $segundos);
+}
+?>
+<!-- SONS -->
+<!-- som ao enviar mensagem -->
+<script>
+    function somEnviada() {
+        var som = document.getElementById('mg_enviada');
+        som.play();
+    }
+</script>
+
+<!-- script para tirar notificação -->
+<script>
+    setTimeout(function() {
+        notBemVindo.style.transform = 'translateX(150%) ';
+        setTimeout(function() {
+            notBemVindo.style.display = 'none';
+        }, 1000); // Tempo de transição (0.5 segundos)
+    }, 5000); // 5 segundos
+</script>

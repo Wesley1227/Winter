@@ -9,11 +9,13 @@ foreach ($result as $user) :
   $_SESSION['user'] = $user['user'];
   $_SESSION['email'] = $user['email'];
   $_SESSION['fotoPerfil'] = $user['fotoPerfil'];
-  
+  $_SESSION['timestamp_login'] = time(); // Armazena o timestamp do login
+
 endforeach;
-if($result == null){
-  header("Location: ../login/login.php"); 
-  // echo "<script>alert('Login incorreto!');</script>";
-} else{
+if ($result == null) {
+  // header("Location: ../login/login.php"); 
+  echo "<script>alert('Login incorreto!');</script>";
+} else {
   header("Location: ../PHP/index.php");
+  
 }

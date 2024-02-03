@@ -22,6 +22,7 @@
 }
 
 .header {
+    z-index: 99;
     color: #000000;
     background-color: brown;
     padding: auto;
@@ -38,7 +39,7 @@
 }
 
 .menu ul {
-    z-index: 2;
+    z-index: 99;
     border-radius: 10px;
     margin-top: -70px;
     float: right;
@@ -48,11 +49,13 @@
 
 .menu,
 .menu a {
+    z-index: 99;
     color: #e2e2e2;
     text-decoration: none;
 }
 
 .menu a {
+    z-index: 99;
     display: flex;
     white-space: nowrap;
     padding: 15px 30px;
@@ -205,7 +208,114 @@ html {
     scroll-behavior: smooth;
 }
 
+/* /////////////////////////////////////////////////////////////// Modals \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
+/* /////////////////////////////////////////////////// Modal LOGIN \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#fecharModalLogin {
+    width: 95%;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.modal_login {
+    position: fixed;
+    z-index: 99;
+    /* Torna o modal uma caixa */
+    left: 50%;
+    top: 50%;
+    /* Define a largura e altura do modal */
+    width: 50vh;
+    height: 60vh;
+    /* Centraliza o modal */
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--boxShadow);
+    transition: all 0.2s ease;
+    background: rgb(63, 63, 63);
+    font-family: Helvetica;
+    color: #fff;
+    text-align: center;
+}
+
+.caixa h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.caixa input {
+    border-radius: 15px;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: 0;
+    box-shadow: var(--boxShadow);
+}
+
+.caixa input:focus {
+    border: 3px solid brown;
+    transition: 0.15s;
+    color: #ffffff;
+}
+
+.caixa input:focus::-webkit-input-placeholder {
+    transition: opacity 0.15s ease;
+    opacity: 0;
+}
+
+.caixa button {
+    background-color: brown;
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    width: 320px;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: var(--boxShadow);
+}
+
+.caixa button:hover {
+    background-color: rgb(85, 85, 85);
+}
+
+.caixa p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.caixa p span {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    color: brown;
+}
+
+.caixa p span:hover {
+    color: #fff;
+}
+
+/* Ecra menor */
+@media screen and (max-width: 900px) {
+    .login {
+        width: 60%;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+    .login {
+        width: 95%;
+    }
+}
 
 /* ////////////////////////////////////////////////////// Página - "INDEX" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
@@ -243,17 +353,25 @@ html {
     cursor: pointer;
 }
 
+
 #lupa {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    z-index: 1;
+   cursor: pointer;
+   width: 80px;
+   border-radius: 0px 20px 20px 0px;
+   border: 3px solid #D0CFCE;
+    transition: all 0.4s ease;
     font-size: 30px;
-    margin-top: 1.5%;
-    margin-left: 31%;
-    transition: all 0.2s ease;
+}
+#lupa:hover{
+    background-color: brown;
+    color: white;
+}
+
+#search-bar.pesquisaIndex{
+    border-radius: 20px 0px 0px 20px;
+}
+#search-bar.pesquisaIndex:focus{
+    border-radius: 10px 0px 0px 10px;
 }
 
 @media screen and (max-width: 700px) {
@@ -263,10 +381,7 @@ html {
         margin-top: -10px;
     }
 
-    #lupa {
-        margin-top: 3%;
-        margin-left: 55%;
-    }
+
 }
 
 .custom-btn {
@@ -347,7 +462,7 @@ form.search-container {
     height: 45px;
     padding: 0 10px;
     padding-right: 10px;
-    margin-top: 1%;
+
     font-size: 1rem;
     border: 3px solid #D0CFCE;
     transition: all 0.4s ease;
@@ -685,6 +800,7 @@ datalist.dataList {
     cursor: pointer;
     position: absolute;
     right: 10px;
+    
 }
 
 .grey {
@@ -706,7 +822,7 @@ datalist.dataList {
 
 .notificacao {
     /* Notificações*/
-    z-index: 99;
+    z-index: 50;
     position: fixed;
     top: 60px;
     right: 10px;
@@ -715,11 +831,10 @@ datalist.dataList {
     color: #fff;
     display: none;
     border-radius: 15px 15px 0px 15px;
-
-
     animation-name: notificacao;
     animation-duration: 0.4s;
     animation-timing-function: ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 
@@ -747,7 +862,7 @@ datalist.dataList {
     width: 90%;
     margin: 0 auto;
     justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     transition: all 0.2s ease;
     gap: 20px;
     /* row-gap: 10px; */
@@ -756,8 +871,8 @@ datalist.dataList {
 .itemAnuncio {
     display: flex;
     flex-direction: column;
-    width: 320px;
-    height: 300px;
+    width: 300px;
+    height: 280px;
     overflow: hidden;
     border-radius: 18px;
     background-color: white;
@@ -769,15 +884,19 @@ datalist.dataList {
 }
 
 .itemAnuncio:hover {
-    width: 350px;
+    width: 330px;
     border-radius: 15px;
 }
 
-img.itemImagem {
+.itemImagem {
     height: 250px;
     object-fit: cover;
     border-radius: 0px 0px 20px 20px;
 }
+/* .itemImagem:hover{
+    border-radius: 0px 0px 10px 10px;
+    transition: all 0.5s ease;
+} */
 
 .itemInfo {
     padding: 1rem;
@@ -965,7 +1084,7 @@ img#linkImagens {
 
 button#editarAnuncio.custom-btn {
     width: 100%;
-    font-size: 3vh;
+    font-size: 30px;
 }
 
 #perfil.colunas img {
@@ -1128,105 +1247,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
     border: 3px solid brown;
 }
 
-/*//////////////////////////////////// Página "Login" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
-.login {
-    width: 40%;
-    height: 80vh;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: var(--boxShadow);
-    transition: all 0.2s ease;
-}
 
-.caixa {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    font-family: Helvetica;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.13);
-    padding: 30px 0px;
-    text-align: center;
-}
-
-.caixa h1 {
-    text-align: center;
-    font-size: 30px;
-}
-
-.caixa input {
-    border-radius: 15px;
-    display: block;
-    width: 80%;
-    margin: 9% auto;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.2);
-    color: #fff;
-    border: 0;
-    box-shadow: var(--boxShadow);
-}
-
-.caixa input:focus {
-    border: 3px solid brown;
-    transition: 0.15s;
-    color: #ffffff;
-}
-
-.caixa input:focus::-webkit-input-placeholder {
-    transition: opacity 0.15s ease;
-    opacity: 0;
-}
-
-.caixa button {
-    background-color: brown;
-    border: 0;
-    color: #fff;
-    padding: 10px;
-    font-size: 20px;
-    width: 320px;
-    margin: 20px auto;
-    display: block;
-    cursor: pointer;
-    border-radius: 15px;
-    box-shadow: var(--boxShadow);
-}
-
-.caixa button:hover {
-    background-color: rgb(85, 85, 85);
-}
-
-.caixa p {
-    font-size: 14px;
-    text-align: center;
-}
-
-.caixa p span {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    color: brown;
-}
-
-.caixa p span:hover {
-    color: #fff;
-}
-
-/* Ecra menor */
-@media screen and (max-width: 900px) {
-    .login {
-        width: 60%;
-    }
-}
-
-/* MOBILE */
-@media screen and (max-width: 600px) {
-    .login {
-        width: 95%;
-    }
-}
 
 
 /* ////////////////////////////////////////////////// Página "Conta" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -1238,7 +1259,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
     margin-right: auto;
     justify-content: space-evenly;
     grid-template-columns: 25% 25% 25% 25%;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 10px;
 }
 
@@ -1656,12 +1677,7 @@ input#search-bar.inputDados {
     margin-bottom: 5%;
 }
 
-#enviarMensagem {
-    height: 50px;
-    width: 100%;
-    background-color: rgb(68, 68, 68);
-    border-radius: 0px 0px 15px 15px;
-}
+
 
 #chat::-webkit-scrollbar {
     width: 10px;
@@ -1678,11 +1694,7 @@ input#search-bar.inputDados {
     border-radius: 10px;
 }
 
-#search-bar.mensagem {
-    height: 35px;
-    width: 70%;
-    border-radius: 15px;
-}
+
 
 #search-bar.mensagem:focus {
     border-radius: 8px;
@@ -1721,7 +1733,7 @@ input#search-bar.inputDados {
 #pessoas {
     /* Onde aparece od anuncios */
     z-index: 1;
-    height: 74vh;
+    max-height: 100%;
     background-color: rgb(77, 75, 75);
     width: 100%;
     overflow: auto;
@@ -1799,7 +1811,7 @@ img#fotoChat.miniFotoPerfil:hover {
 
 #chat.mensagem {
     /* Onde aparecerá o chat */
-    height: 64vh;
+    height: 50vh;
     background-color: rgb(77, 75, 75);
     width: 100%;
     color: white;
@@ -1839,10 +1851,6 @@ img#fotoChat.miniFotoPerfil:hover {
     border: 0px;
 }
 
-#enviarMensagem.mensagem {
-    padding-left: 10px;
-    width: 100%;
-}
 
 #pessoas::-webkit-scrollbar {
     width: 10px;
@@ -1859,9 +1867,27 @@ img#fotoChat.miniFotoPerfil:hover {
     border-radius: 10px;
 }
 
-#enviar {
-    width: 20%;
+form#formEnviarMensagem {
+    margin: 0 auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    background-color: rgb(68, 68, 68);
+    border-radius: 0px 0px 15px 15px;
+    padding: 10px;
+    gap: 2%;
+}
+
+#search-bar.mensagem {
     height: 40px;
+    width: 65%;
+    border-radius: 15px;
+}
+
+#enviar {
+    height: 40px;
+    width: 28%;
     border-radius: 15px;
     background-color: brown;
     color: white;
@@ -1869,7 +1895,6 @@ img#fotoChat.miniFotoPerfil:hover {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-left: 1%;
 }
 
 #enviar:hover {

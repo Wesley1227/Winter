@@ -39,6 +39,7 @@
                 }
                 if ($chat2['visualizacao'] == 0) {
                     $visu = ' 💬';
+                    $style = "width: 92%; background-color: #cb3434; border: 2px solid rgb(172, 0, 0);border-radius:  25px";
                 } else {
                     $visu = "";
                 }
@@ -61,12 +62,11 @@
         <div class="mensagem" id="chat">
             <?php include_once('../Include_once/loadAnimation.php'); ?>
         </div>
-        <div class="mensagem " id="enviarMensagem">
-            <form onsubmit="enviarDados(); return false;">
-                <input type="text" id="search-bar" class="mensagem" name="mensagem" placeholder="Mensagem:" value="" required>
-                <input type="submit" onclick="clearInput()" id="enviar">
-            </form>
-        </div>
+        <form onsubmit="enviarDados(); return false;" id="formEnviarMensagem">
+            <input type="text" id="search-bar" class="mensagem" name="mensagem" placeholder="Mensagem:" value="" required>
+            <input type="submit" onclick="somEnviada()" id="enviar">
+            <audio id="mg_enviada" src="../Sons/mg_enviada.mp3"></audio>
+        </form>
     </div>
 </div>
 
@@ -105,4 +105,11 @@
     setInterval(function() {
         ajax();
     }, 500);
+</script>
+<!-- Reproduz som -->
+<script>
+    function somEnviada() {
+        var som = document.getElementById('mg_enviada');
+        som.play();
+    }
 </script>

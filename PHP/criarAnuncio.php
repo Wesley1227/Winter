@@ -90,13 +90,14 @@ include_once '../Include_once/head.php';
                     echo "<script>alert('Atingiu o limite de 15 anúncios!');</script>";
                 }
                 ?>
-                <button type="submit" style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
+                <button type="submit"  style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
+                
             </div>
         </form>
     </div>
 
     <div id="formEmpregos" style="display: none">
-    <button id="fecharEmpregos"> X </button>
+        <button id="fecharEmpregos"> X </button>
         <form action="#">
             <input type="text">
         </form>

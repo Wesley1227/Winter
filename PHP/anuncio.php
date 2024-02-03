@@ -9,9 +9,10 @@ $resultado = $mysqli->query($query);
 $result = mysqli_fetch_assoc($resultado); // Selecionia tudo do anúncio pelo respetivo ID.
 
 $idUser = $result['idUser'];
-if ($idUser == 0) {
-  $idUser = "1";
-} // Os anúncios que foram adionados pela BD serão do Admin.
+// if ($idUser == "0") {
+//   $idUser = "1";
+// } // Os anúncios que foram adionados pela BD serão do Admin.
+
 $titulo = $result['titulo'];
 $pagina = "Winter - " . $titulo;
 if ($titulo == null) {
@@ -90,9 +91,10 @@ $idUserFavoritado = $resultFavorito['idUser'];
           $onclick = "toggleHeartEmoji()";
         } /* Caso o utilizador nao estiver logado, aparecer a notificacao que nao esta logado, logo, nao poderá favoritar um anuncio */
 
-        if ($_SESSION['idUser'] == $idUser) {
+        if ($_SESSION['idUser'] == $result['idUser']) {
           $display = "display: none";
         } /* Caso o anúncio for do utilizador logado, nao aparecer a opcao de favoritar anúncio. */
+
         ?>
 
         <span style="<?= $display ?>" id="emoji" onclick="<?= $onclick ?>"><?= $coracao ?></span>
@@ -248,14 +250,22 @@ $idUserFavoritado = $resultFavorito['idUser'];
   }
 </script>
 
+<!-- notificacoes com som -->
+<audio id="somFavoritar" src="../Sons/mg_recebida.mp3"></audio>
+<audio id="somDesfavoritar" src="../Sons/notificacao_negativa.mp3"></audio>
 <script>
   function mostrarNotificacao() {
     var not = document.getElementById("not");
     not.style.display = "block";
     favoritarAnuncio();
     setTimeout(function() {
-      not.style.display = "none";
-    }, 2000);
+        not.style.transform = 'translateX(150%) ';
+        setTimeout(function() {
+            not.style.display = 'none';
+        }, 1000); // Tempo de transição (0.5 segundos)
+    }, 3000); // 5 segundos
+    var som = document.getElementById('somFavoritar');
+    som.play();
   }
 
   function mostrarNotificacao2() {
@@ -263,7 +273,13 @@ $idUserFavoritado = $resultFavorito['idUser'];
     not2.style.display = "block";
     desfavoritarAnuncio();
     setTimeout(function() {
-      not2.style.display = "none";
-    }, 2000);
+      not2.style.transform = 'translateX(150%) ';
+      setTimeout(function() {
+        not2.style.display = 'none';
+      }, 1000); // Tempo de transição (0.5 segundos)
+    }, 3000); // 5 segundos
+    var som = document.getElementById('somDesfavoritar');
+    som.play();
+
   }
 </script>

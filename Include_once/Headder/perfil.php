@@ -1,4 +1,4 @@
-<li><a href="../PHP/conta.php?idPag=1">Mensagens</a></li>
+
 <li><a href="../PHP/perfil.php?idUser=<?=$_SESSION['idUser'];?>">Perfil</a></li>
 <li class="menu-hasdropdown menu-hasflyout">
     <a href="#">Conta  
@@ -15,3 +15,4 @@
         <!-- <li><a href="">CV</a></li> -->
     </ul>
 </li>
+<li><a href="../PHP/conta.php?idPag=1">Mensagens</a></li>
