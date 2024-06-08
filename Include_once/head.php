@@ -26,14 +26,17 @@ if ($logo == null) {
 </div>
 
 <?php
+$urlAtual = $_SERVER['REQUEST_URI'];
 if (!isset($_SESSION)) {
     session_start();
 }
+
 ?>
 <!-- //////////////////// MENSAGENS \\\\\\\\\\\\\\\\\\ -->
 <nav role='navigation' class="menu">
     <ul>
         <?php
+        
         $semLogin = "Conecta-se";
         error_reporting(0);
         if ($_SESSION['user'] == $semLogin) { ?>                  
@@ -120,7 +123,14 @@ if (!isset($_SESSION)) {
 
 
 <!-- //////////////////// Modals \\\\\\\\\\\\\\\\\\ -->
+<!-- Modal Login -->
+
 <script>
+    // Verificar se a URL contém "LoginIncorreto"
+    if (window.location.href.indexOf('LoginIncorreto') !== -1) {
+        // Abrir o modal de login
+        abrirModalLogin();
+    }
     function abrirModalLogin() {
         $.get('../Login/login.php', function(data) {
             $('#modal_login').html(data);

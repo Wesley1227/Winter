@@ -47,7 +47,7 @@ if ($idPerfil != null) {
                         <?php echo $chat['mensagem'] ?>
                     </div>
                 <?php } ?> <!-- Caso o user Denunciar uma mensagem, aparecer a mensagem denunciada. -->
-                
+                <br><br><br>
                 <input type="text" name="motivo" placeholder="Motivo:" required />
 
                 Provas (opcional): <input id="provas" name="print" type="file">

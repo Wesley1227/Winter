@@ -7,7 +7,7 @@ $mensagem = $_POST['mensagem'];
 $idAnuncio = $_GET['idAnuncio'];
 $idDestinatario = $_GET['idDestinatario'];
 
-if ($idDestinatario == null || $idDestinatario == 0) {
+if ($idDestinatario == null || $idDestinatario == 0 || $idUser == null || $idUser == 0 ) {
     header("Location: " . $_SERVER['HTTP_REFERER'] . "");
 } else {
     $insert = " idUser = '$idUser', idAnuncio = '$idAnuncio', idDestinatario='$idDestinatario', nome='$nome', mensagem='$mensagem'";

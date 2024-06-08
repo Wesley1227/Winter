@@ -9,7 +9,7 @@
         // foreach ($result as $pesquisaIDanuncio) {
         // } // Pesquisa os anúncios que o user enviou mensagem
 
-        $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario, visualizacao FROM chat WHERE idDestinatario='$idUser' ORDER BY visualizacao = '1' ASC";
+        $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario, visualizacao FROM chat WHERE idDestinatario='$idUser' AND idUser != '0' ORDER BY visualizacao = '1' ASC";
         $resultado2 = $mysqli->query($query2);
         $result2 = mysqli_fetch_assoc($resultado2);
 
@@ -33,27 +33,27 @@
                 $idAnuncio = $_GET['idAnuncio'];
                 $idUserGET = $_GET['idUser'];
                 if ($idAnuncio == $idAnuncio2  && $idUserGET == $chat2['idUser']) {
-                    $style = "width: 92%; background-color: #FFE4E1; border: 2px solid rgb(172, 0, 0); color: black; border-radius: 25px 40px 0px 25px";
+                    $style = "width: 92%; background-color: white; border: 2px solid DarkSlateBlue; color: black; border-radius: 25px 40px 0px 25px";
                 } else {
                     $style = "";
                 }
                 if ($chat2['visualizacao'] == 0) {
                     $visu = ' 💬';
-                    $style = "width: 92%; background-color: #cb3434; border: 2px solid rgb(172, 0, 0);border-radius:  25px";
+                    $style = "width: 92%; background-color: RebeccaPurple; border: 2px solid RebeccaPurple;border-radius: 25px";
                 } else {
                     $visu = "";
                 }
                 ?>
 
-                <div style="background-color: brown; color:white ; <?php echo $style ?>" id="anuncio">
+                <div style="background-color: DarkSlateBlue; color:white; font-size:20px; <?php echo $style ?>" id="anuncio">
                     <?php echo $idAnuncio2;  ?>
                     <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio2 ?>"><img src="../uploads/<?= $resultAnuncio2['imagem'] ?>" class="miniFotoPerfil" id="fotoChat" /></a>
                     <?php echo $resultAnuncio2['titulo'] . " " . $visu ?> <br><br>
-                    <div id="anunciante">
+                    
+                    <div id="preco"><div id="anunciante">
                         <img src="../uploads/<?= $fotoPerfil ?>" class="miniFotoPerfil" id="fotoPerfilPessoa" />
                         <?php echo $user['user'] ?>
-                    </div>
-                    <div id="preco"><?php echo $resultAnuncio2['preco'] . "€" ?></div>
+                    </div><?php echo $resultAnuncio2['preco'] . "€" ?></div>
                 </div>
             </div>
         <?php } ?>

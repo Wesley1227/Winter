@@ -10,14 +10,14 @@ include_once '../Include_once/head.php';
 ?>
 
 <body>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <div class="PesquisaRapida">
         <a href="#" id="popupProdutos"><img src="../img/1.png"></a>
         <a href="#" id="popupEmpregos"><img src="../img/2.png"></a>
         <a href="#" id="popupEntreterimento"><img src="../img/3.png"></a>
         <a href="#" id="popupProgramacao"><img src="../img/4.png"></a>
     </div>
-
+    <br><br><br><br><br><br>
     <div id="formProdutos" style="display: none">
         <button id="fechar" class="fecharProdutos"> X </button>
         <form method="POST" action="../Include_once/inserir.php" enctype="multipart/form-data">
@@ -66,9 +66,9 @@ include_once '../Include_once/head.php';
                 <select name="intAnuncio" id="select" class="dropdown-select">
                     <option value="">Intenção do anúncio</option>
                     <option value="opcao1">Vender</option>
-                    <option value="2">Trocar</option>
-                    <option value="3">Doar</option>
-                    <option value="4">Comprar</option>
+                    <option value="3">Trocar</option>
+                    <option value="4">Doar</option>
+                    <option value="1">Comprar</option>
                 </select><br>
 
                 <div id="opcao1" style="display: none;">

@@ -31,7 +31,7 @@ include_once '../Include_once/head.php';
                 }
                 ?>
                 <button type="submit">Registrar</button>
-                <p>Já tem conta? <a href="login.php"><span>Loga-se</span></p></a>
+                <p>Já tem conta? <a href="#" onclick="abrirModalLogin()"><span>Loga-se</span></p></a>
             </div>
         </div>
     </form>

@@ -1,11 +1,11 @@
-<div class="wui-side-menu open pinned" data-wui-theme="dark">
+<div class="wui-side-menu " data-wui-theme="dark">
     <div class="wui-side-menu-header">
         <a href="#" class="wui-side-menu-trigger"><i class="fa fa-bars"> Filtros</i></a>
         <a href="#" class="wui-side-menu-pin-trigger"> </a>
     </div>
 
     <ul class="wui-side-menu-items">
-    <form action="../Include_once/inserirFiltros.php" method="GET">
+        <form action="../Include_once/inserirFiltros.php" method="GET">
             <?php
             $idUser = $_SESSION['idUser'];
             $selectFiltros = $con->query("SELECT * FROM filtros WHERE idUser ='$idUser'")->fetchAll();
@@ -17,8 +17,8 @@
             }
             ?>
             <input type="text" id="search-bar" class="menu" for="pesquisa" name="pesquisa" placeholder="<?php echo $pesquisa ?>">
-   
-        
+
+
             <?php
             // $precoMinimo = $_GET['precoMin'];
             $precoMinimo = $filtros['precoMin'];
@@ -116,8 +116,15 @@
             <br>
 
             <a href="../Include_once/limparFiltros.php?idUser=<?= $idUser ?>">Limpar</a>
+            <!-- onclick="abrirModalLogin()" -->
+            <?php
+            if ($_SESSION["idUser"] != null) { ?>
+                <button type="submit" class="custom-btn" id="filtrar">Filtrar</button>
+            <?php } else {
+            ?><a onclick="abrirModalLogin()" class="custom-btn" id="filtrar">Logar primeiro</a>
+            <?php }
+            ?>
 
-            <button type="submit" class="custom-btn" id="filtrar">Filtrar</button>
         </form>
     </ul>
 </div>

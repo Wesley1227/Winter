@@ -9,9 +9,9 @@ $resultado = $mysqli->query($query);
 $result = mysqli_fetch_assoc($resultado); // Selecionia tudo do anúncio pelo respetivo ID.
 
 $idUser = $result['idUser'];
-// if ($idUser == "0") {
-//   $idUser = "1";
-// } // Os anúncios que foram adionados pela BD serão do Admin.
+if ($idUser == "0") {
+  $idUser = "88";
+} // Os anúncios que foram adionados pela BD serão do Admin.
 
 $titulo = $result['titulo'];
 $pagina = "Winter - " . $titulo;
@@ -24,6 +24,9 @@ $resultado = $mysqli->query($queryUser);
 $resultIdUser = mysqli_fetch_assoc($resultado);
 
 $genero = $resultIdUser['genero'];
+if ($genero == null) {
+  $genero = 1;
+}
 if ($genero == 1) {
   $emoji = "👨";
 } elseif ($genero == 2) {
@@ -73,46 +76,50 @@ $idUserFavoritado = $resultFavorito['idUser'];
     <div class="colunas" id="imagens">
       <a href="#" id="imagens">
         <img id="linkImagens" src="../uploads/<?= $result['imagem'] ?>" alt=""></a>
-      <div class="informacoes">
-        <h1><?php echo $result['preco'] ?>€</h1>
-        <div class="notificacao" id="not">Anúncio favoritado!</div>
-        <div class="notificacao" id="not2">Desfavoritou o anúncio!</div>
-        <?php
-        /* Quando nao estiver favoritado o anuncio o 🤍 será branco e favoritado aparecerá vermelho */
-        if ($idUserFavoritado != 0) {
-          $coracao = "❤️";
-        } else {
-          $coracao = "🤍";
-        } /* Caso o utilizador tenha favoritado este anúncio, o coração fica vermelho */
-
-        if ($idUserSESSION == null) {
-          $onclick = "semLogin()";
-        } else {
-          $onclick = "toggleHeartEmoji()";
-        } /* Caso o utilizador nao estiver logado, aparecer a notificacao que nao esta logado, logo, nao poderá favoritar um anuncio */
-
-        if ($_SESSION['idUser'] == $result['idUser']) {
-          $display = "display: none";
-        } /* Caso o anúncio for do utilizador logado, nao aparecer a opcao de favoritar anúncio. */
-
-        ?>
-
-        <span style="<?= $display ?>" id="emoji" onclick="<?= $onclick ?>"><?= $coracao ?></span>
-        <script>
-          function toggleHeartEmoji() {
-
-            var status = "<?php echo $idUserFavoritado; ?>";
-            var emoji = document.getElementById("emoji");
-            if (emoji.textContent == "🤍") {
-              emoji.textContent = "❤️";
-              mostrarNotificacao();
+        <?php include_once("../Include_once/iconYT.php"); ?>
+          <div class="informacoes">
+            <h1><?php echo $result['preco'] ?>€</h1>
+            <div class="notificacao" id="not">Anúncio favoritado!</div>
+            <div class="notificacao" id="not2">Desfavoritou o anúncio!</div>
+            <?php
+            /* Quando nao estiver favoritado o anuncio o 🤍 será branco e favoritado aparecerá vermelho */
+            if ($idUserFavoritado != 0) {
+              $coracao = "❤️";
             } else {
-              emoji.textContent = "🤍";
-              mostrarNotificacao2();
-            }
-          }
-        </script>
-      </div>
+              $coracao = "🤍";
+            } /* Caso o utilizador tenha favoritado este anúncio, o coração fica vermelho */
+
+            if ($idUserSESSION == null) {
+              $onclick = "semLogin()";
+            } else {
+              $onclick = "toggleHeartEmoji()";
+            } /* Caso o utilizador nao estiver logado, aparecer a notificacao que nao esta logado, logo, nao poderá favoritar um anuncio */
+
+            if ($_SESSION['idUser'] == $result['idUser']) {
+              $display = "display: none";
+            } /* Caso o anúncio for do utilizador logado, nao aparecer a opcao de favoritar anúncio. */
+
+            ?>
+
+            <span style="<?= $display ?>" id="emoji" onclick="<?= $onclick ?>"><?= $coracao ?> </span>
+           
+
+
+            <script>
+              function toggleHeartEmoji() {
+
+                var status = "<?php echo $idUserFavoritado; ?>";
+                var emoji = document.getElementById("emoji");
+                if (emoji.textContent == "🤍") {
+                  emoji.textContent = "❤️";
+                  mostrarNotificacao();
+                } else {
+                  emoji.textContent = "🤍";
+                  mostrarNotificacao2();
+                }
+              }
+            </script>
+          </div>
     </div>
 
     <div class="colunas" id="perfil">
@@ -135,24 +142,32 @@ $idUserFavoritado = $resultFavorito['idUser'];
           <a href="" id="linkChat"><button class="custom-btn" id="editarAnuncio" title="Ainda em desenvolvimento">💭 Mensagem</button></a> <a href="#" id="link"><button class="custom-btn" id="editarAnuncio">📞</button></a>
 
           <div id="popup" style="display: none;">
-            📞<?php echo $resultIdUser['telemovel'] ?>
+            <?php
+            $numTelemovel = $resultIdUser['telemovel'];
+            if ($_SESSION['idUser'] == null) {
+              $numTelemovel = "Loga-se";
+            }
+            ?>
+            📞<?php echo $numTelemovel ?>
             <button id="fechar">x</button>
           </div> <!-- Quando clicar para ver o número de telemóvel, aparecerá um POP-UP -->
-        <?php }
-        if ($_SESSION['idUser'] == null) {
-          echo "Faça login primeiro.";
-        } ?><!-- Quando o user não estiver logado, aparecerá essa mensagem -->
+        <?php } ?>
       </div>
     </div>
   </div>
-
+  <?php if ($result['preco'] != 0) {
+    $result['intAnuncio'] = "Vender";
+  }
+  if ($result['preco'] == 0 && $result['intAnuncio'] == null) {
+    $result['intAnuncio'] = "testar";
+  }
+  ?>
   <div class="descricao">
+
     <textarea name="descricao" id="anuncioDescricao" disabled>
-      <?php if ($result['preco'] != 0) {
-        $result['intAnuncio'] = "Vender";
-      } ?>
+
     Estado <?php echo $result['estadoProduto'] ?> | Preço negociável | Intensão em <?php echo $result['intAnuncio']; ?> 
-    
+   
     <?php echo $result['descricao'] ?>
     
     </textarea>
@@ -259,10 +274,10 @@ $idUserFavoritado = $resultFavorito['idUser'];
     not.style.display = "block";
     favoritarAnuncio();
     setTimeout(function() {
-        not.style.transform = 'translateX(150%) ';
-        setTimeout(function() {
-            not.style.display = 'none';
-        }, 1000); // Tempo de transição (0.5 segundos)
+      not.style.transform = 'translateX(150%) ';
+      setTimeout(function() {
+        not.style.display = 'none';
+      }, 1000); // Tempo de transição (0.5 segundos)
     }, 3000); // 5 segundos
     var som = document.getElementById('somFavoritar');
     som.play();

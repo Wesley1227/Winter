@@ -80,7 +80,7 @@ if ($pesquisa != null && $pesquisa != "Anúncios" && $pesquisa != $cookiePesquis
   $registros = $con->query("SELECT COUNT(idAnuncio) count FROM anuncios WHERE $precoMinimo $precoMaximo titulo LIKE '%" . $pesquisa . "%' ")->fetch()["count"];
   $paginas = ceil($registros / $limite);
   $calculoAnuncio = $registros - $inicio;  ?>
-  <div id="regisros"> <?php echo $registros . " anuncios"; ?> </div>
+  <div id="regisros"> <?php echo $registros . " anúncios"; ?> </div>
 
   <?php if ($registros == null) { ?>
     <div id="semAnuncio"> Nenhum resultado para: "<?php echo $pesquisa ?>"</div>
