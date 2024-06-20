@@ -1,9 +1,13 @@
 <?php include_once '../Include_once/conexao.php';
-error_reporting(0);
-if ($logo == null) {
-    $logo = "../img/1.png";
+// error_reporting(0);
+// if ($logo == null) {
+//     $logo = "../img/1.png";
+// }
+if (isset($_SESSION['idUser']) && $_SESSION['idUser'] == null){
+$idUser = 0;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +24,7 @@ if ($logo == null) {
 </head>
 
 <div class="header">
-    <a href="../PHP/index.php"><img src=<?php echo $logo ?> alt="" id="logo"></a>
+    <a href="../PHP/index.php"><img src="../img/Logo.png" alt="" id="logo"></a>
 
     <h1 class="title" id="titulo"><?php echo $titulo ?></h1>
 </div>
@@ -36,15 +40,13 @@ if (!isset($_SESSION)) {
 <nav role='navigation' class="menu">
     <ul>
         <?php
-        
+
         $semLogin = "Conecta-se";
-        error_reporting(0);
+        
         if ($_SESSION['user'] == $semLogin) { ?>                  
         <?php } else {
             include_once '../Include_once/Headder/mensagensNaoLidas.php';
-        ?>
-            <li><a href="../PHP/conta.php?idPag=1" title="Mensagens">💭<div class="mensagensNaoLidas"><?= $naoLidas ?></div></a></li>
-
+        ?> <li><a href="../PHP/conta.php?idPag=1" title="Mensagens">💭<div class="mensagensNaoLidas"><?= $naoLidas ?></div></a></li>
         <?php } ?>
 
         <!-- //////////////////// PERFIL \\\\\\\\\\\\\\\\\\ -->
@@ -58,7 +60,7 @@ if (!isset($_SESSION)) {
             }
             ?>
             <a>
-                <?php error_reporting(0);
+                <?php 
                 if ($_SESSION['fotoPerfil'] == null) {
                     $_SESSION['fotoPerfil'] = "semFotoPerfil.png";
                 }
@@ -131,6 +133,7 @@ if (!isset($_SESSION)) {
         // Abrir o modal de login
         abrirModalLogin();
     }
+
     function abrirModalLogin() {
         $.get('../Login/login.php', function(data) {
             $('#modal_login').html(data);
@@ -143,8 +146,15 @@ if (!isset($_SESSION)) {
 <!-- //////////////////// Notificações \\\\\\\\\\\\\\\\\\ -->
 <?php
 // Com isso vou saber a quanto tempo o user entrou, se foi a pouco tempo, irá mostrar uma notificação de Bem Vindo!
-$tempoLogado = time() - $_SESSION['timestamp_login'];
-$tempoFormatado = formatarTempo($tempoLogado);
+$tempoLogado = "0";
+if($_SESSION['user'] != 0 || $_SESSION['user'] != null){
+    $tempoLogado = "0";
+    $_SESSION['timestamp_login'] = 0;
+}else{
+   $tempoLogado = time() - $_SESSION['timestamp_login'];
+$tempoFormatado = formatarTempo($tempoLogado); 
+}
+
 
 function formatarTempo($segundos)
 {

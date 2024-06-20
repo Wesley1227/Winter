@@ -15,7 +15,7 @@
             </select><br>
             Email:<input disabled type="text" name="email" placeholder="<?php echo $pessoa['email']; ?>" class="dadosEmail" id="search-bar"><br>
             Morada:<input type="text" name="morada" placeholder="<?php echo $pessoa['morada']; ?>" class="inputDados" id="search-bar"><br>
-            Código postal:<input type="text" maxlength="8" name="cod_postal" placeholder="<?php echo $pessoa['cod_postal'] ?>" class="dadosCodPostal" id="search-bar">
+            Código postal:<input type="text" minlength="8" maxlength="8" name="cod_postal" placeholder="<?php echo $pessoa['cod_postal'] ?>" class="dadosCodPostal" id="search-bar">
             <input type="text" name="localidade" placeholder="<?php echo $pessoa['localidade'] ?>" class="nomeApelido" id="search-bar"><br><br>
 
             Tipo de negócio: <br>

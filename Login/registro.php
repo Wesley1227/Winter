@@ -3,35 +3,55 @@ $titulo = "Resgitra-se";
 $pagina = "Winter - " . $titulo;
 include_once '../Include_once/head.php';
 ?>
+<?php
+//session_start();  Certifique-se de iniciar a sessão
+
+/*if (isset($_SESSION['user']) && $_SESSION['user'] != 0) {
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit(); 
+    }
+}*/
+?>
+
 
 <body>
-    <form id="formLogin" method="post">
+    <form id="formLogin" method="post" action="registrar.php">
         <div class="login">
             <div class="caixa">
-                <h1>Registro</h1>
+                <h1>
+                    <div id="erroSenha" class="error">Registro</div>
+                </h1>
                 <input type="text" name="user" placeholder="Usuário:" required maxlength="12" />
                 <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="senha" for="senha" placeholder="Senha" />
-                <input type="password" name="verificacao" for="verificacao" placeholder="Confirme a senha" />
-                <?php
-                if ($_POST) {
-                    $user = $_POST['user'];
-                    $email = $_POST['email'];
-                    $senha = $_POST['senha'];
-                    $verificacao  = $_POST['verificacao'];
-                    if ($senha == $verificacao) { ?>
-                        <script>
-                            window.location.href = "registrar.php?email=<?= $email ?>&&senha=<?= $senha ?>&&user=<?= $user ?>";
-                        </script>
-                <?php
-                    } else {
-                        $mensagem = "As senhas não condizem!"; //usar uspa no lgin
+                <input type="password" id="senha" name="senha" placeholder="Senha" oninput="verificaPassword()" />
+                <input type="password" id="verificacao" name="verificacao" placeholder="Confirme a senha" oninput="verificaPassword()" />
+
+                <div style="display: flex; justify-content: center;">
+                </div>
+
+
+                <!-- Script para verificar se a senha coincide com a verificação de senha -->
+                <script>
+                    function verificaPassword() {
+                        var senha = document.getElementById("senha").value;
+                        var verificacao = document.getElementById("verificacao").value;
+                        var registrar = document.getElementById("registrar");
+                        var mensagemErro = document.getElementById("erroSenha");
+
+                        if (senha === verificacao) {
+                            registrar.disabled = false;
+                            mensagemErro.textContent = "Registro";
+                        } else {
+                            registrar.disabled = true;
+                            mensagemErro.textContent = "As senhas não coincidem.";
+                        }
                     }
-                    echo "<p id='mensagem'>" . $mensagem . "</p>";
-                }
-                ?>
-                <button type="submit">Registrar</button>
+                </script>
+                <button type="submit" id="registrar" disabled>Registrar</button>
                 <p>Já tem conta? <a href="#" onclick="abrirModalLogin()"><span>Loga-se</span></p></a>
+                <br> Parte visual em desenvolvimento <br>
+
             </div>
         </div>
     </form>

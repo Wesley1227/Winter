@@ -1,0 +1,126 @@
+<!-- Parte esquerda onde aparece as conversas -->
+<div class="mensagens">
+
+    <div id="pessoas">
+    <?php
+$idUser = $_SESSION['idUser'];
+$query2 = "
+    SELECT 
+        idAnuncio, 
+        CASE 
+            WHEN idUser = $idUser THEN idDestinatario 
+            ELSE idUser 
+        END as otherUser, 
+        MAX(visualizacao) as maxVisualizacao
+    FROM chat 
+    WHERE idUser = $idUser OR idDestinatario = $idUser 
+    GROUP BY idAnuncio, otherUser 
+    ORDER BY maxVisualizacao ASC
+";
+$resultado2 = $mysqli->query($query2);
+
+foreach ($resultado2 as $chat2) {
+    $idAnuncio2 = $chat2['idAnuncio'];
+    $otherUser = $chat2['otherUser'];
+
+    // Determine se o usuário atual enviou a mensagem
+    $isSender = ($_SESSION['idUser'] == $chat2['idUser']);
+
+    // Obtenha os dados do usuário destinatário
+    $result3 = $mysqli->query("SELECT * FROM user WHERE idUser='$otherUser'");
+    $user = $result3->fetch_assoc();
+    $fotoPerfil = $user['fotoPerfil'];
+
+    // Obtenha os dados do anúncio
+    $queryAnuncio2 = "SELECT * FROM anuncios WHERE idAnuncio='$idAnuncio2'";
+    $resultadoAnuncio2 = $mysqli->query($queryAnuncio2);
+    $resultAnuncio2 = $resultadoAnuncio2->fetch_assoc();
+
+    // Determine o estilo
+    $style = "";
+    $visu = "";
+
+    if ($chat2['maxVisualizacao'] == 0 && (!$isSender || $_SESSION['idUser'] == $otherUser)) {
+        // Se a visualização é 0 e o usuário atual não é o remetente (ou é o destinatário)
+        $visu = ' 💬';
+        $style = "width: 92%; background-color: RebeccaPurple; border: 2px solid RebeccaPurple; border-radius: 25px";
+    }
+
+?>
+    <div onclick="window.location.href='?idAnuncio=<?= $idAnuncio2 ?>&&idUser=<?= $otherUser ?>'">
+        <div style="background-color: DarkSlateBlue; color:white; font-size:20px; <?= $style ?>" id="anuncio">
+            <?= $idAnuncio2; ?>
+            <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio2 ?>"><img src="../uploads/<?= $resultAnuncio2['imagem'] ?>" class="miniFotoPerfil" id="fotoChat" /></a>
+            <?= $resultAnuncio2['titulo'] . " " . $visu ?> <br><br>
+
+            <div id="preco">
+                <div id="anunciante">
+                    <img src="../uploads/<?= $fotoPerfil ?>" class="miniFotoPerfil" id="fotoPerfilPessoa" />
+                    <?= $user['user'] ?>
+                </div>
+                <?= $resultAnuncio2['preco'] . "€" ?>
+            </div>
+        </div>
+    </div>
+<?php 
+} 
+?>
+
+
+
+
+    </div>
+    <div>
+        <div class="mensagem" id="chat">
+            <?php include_once('../Include_once/loadAnimation.php'); ?>
+        </div>
+        <form onsubmit="enviarDados(); return false;" id="formEnviarMensagem">
+            <input type="text" id="search-bar" class="mensagem" name="mensagem" placeholder="Mensagem:" value="" required>
+            <input type="submit" onclick="somEnviada()" id="enviar">
+            <audio id="mg_enviada" src="../Sons/mg_enviada.mp3"></audio>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Insere sem atualizar a página -->
+<script>
+    function enviarDados() {
+        var mensagem = document.getElementsByName('mensagem')[0].value;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "../include_once/Mensagens/inserirChat.php?idAnuncio=<?= $idAnuncio = $_GET['idAnuncio']; ?>&&idUser=<?= $_GET['idUser']; ?>&&mensagem=" + mensagem, true);
+        xmlhttp.send();
+        document.getElementById("search-bar").value = "";
+    }
+</script>
+
+
+<!-- Atualiza apenas o chat de 0.5s em 0.5s -->
+<script type="text/javascript">
+    function ajax() {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4 && req.status == 200) {
+                document.getElementById('chat').innerHTML = req.responseText;
+            }
+        }
+        req.open('GET', '../include_once/Mensagens/mensagens.php?idAnuncio=<?= $idAnuncio = $_GET['idAnuncio']; ?>&&idUser=<?= $_GET['idUser'] ?>', true);
+        req.send();
+    }
+    setInterval(function() {
+        ajax();
+    }, 500);
+</script>
+<!-- Reproduz som -->
+<script>
+    function somEnviada() {
+        var som = document.getElementById('mg_enviada');
+        som.play();
+    }
+</script>

@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['idUser'] == null) {
+if (isset($_SESSION['idUser']) && $_SESSION['idUser'] == null) {
   $linkPesquisar = "";
   $dica = "Faça login para pesquisar";
 } else {

@@ -1,18 +1,13 @@
 <div id="atualizar">
     <?php
-    session_start();
-    include_once '../conexao.php';
-    $idUser = $_SESSION['idUser'];
-    if ($idUser == null) {
+    if (isset($_SESSION['idUser']) == null) {
         $idUser = "0";
+    } else {
+        $idUser = $_SESSION['idUser'];
     }
     $naoLidas = $con->query("SELECT COUNT(idDestinatario) count FROM chat WHERE idDestinatario= $idUser AND visualizacao = 1")->fetch()["count"];
-    if ($naoLidas == null) {
+    if (isset($naoLidas) == null) {
         $naoLidas = "0";
     }
     ?>
 </div>
-
-
-
-

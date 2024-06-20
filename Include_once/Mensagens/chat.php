@@ -1,3 +1,5 @@
+
+<!-- Parte esquerda onde aparece as conversas -->
 <div class="mensagens">
 
     <div id="pessoas">
@@ -9,7 +11,7 @@
         // foreach ($result as $pesquisaIDanuncio) {
         // } // Pesquisa os anúncios que o user enviou mensagem
 
-        $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario, visualizacao FROM chat WHERE idDestinatario='$idUser' AND idUser != '0' ORDER BY visualizacao = '1' ASC";
+        $query2 = "SELECT DISTINCT idAnuncio,idUser,idDestinatario, visualizacao FROM chat WHERE idDestinatario='$idUser' ORDER BY visualizacao = '1' ASC";
         $resultado2 = $mysqli->query($query2);
         $result2 = mysqli_fetch_assoc($resultado2);
 
@@ -77,7 +79,6 @@
 
 
 
-
 <!-- Insere sem atualizar a página -->
 <script>
     function enviarDados() {
@@ -113,3 +114,4 @@
         som.play();
     }
 </script>
+

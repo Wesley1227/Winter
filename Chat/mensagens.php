@@ -30,7 +30,7 @@ foreach ($result as $chat) {
         if ($chat['nome'] == $_SESSION['user']) { // A mesagem do user é diferenten para ser mais fácil distinguir
             $chat['nome'] = "Eu";
             $fotoPefil = $_SESSION['fotoPerfil'];
-            $style =  "margin-left: auto; border-radius:  15px 25px 0px 20px; background-color:brown; color:white;";
+            $style =  "margin-left: auto; border-radius:  15px 25px 0px 20px; background-color:DarkSlateBlue; color:white;";
             $perfil = $idUser;
             $lixo = "";
             $denuncia = "display:none;";

@@ -93,6 +93,7 @@ if ($xp > 750) {
             <?php echo $emoji . $pessoa['nome'] . " " . $pessoa['apelido']  ?><br>
             📞<?php echo $pessoa['telemovel'] ?><br>
             ⏱️ <?php echo $pessoa['dataCriacao'] ?>
+            <br><br><br><br> Parte visual em desenvolvimento <br>
         </div>
     </div>
 

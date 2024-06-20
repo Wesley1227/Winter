@@ -1,5 +1,6 @@
 <li class="menu-hasdropdown">
-    <a href="#" title="Favoritos">❤</a>    
+    <?php include_once '../Include_once/Headder/numFavoritos.php'; ?>
+    <a href="#" title="Favoritos">❤<div class="mensagensNaoLidas"><?= $numFavoritos ?></div></a>
     <input type="checkbox" id="about">
     <ul class="menu-dropdown">
         <li><a href="../PHP/favoritos.php">Anúncios</a></li>

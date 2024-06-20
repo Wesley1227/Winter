@@ -3,6 +3,7 @@ $titulo = "Denúncias";
 $pagina = "Winter - " . $titulo;
 include_once '../Include_once/head.php';
 $resultadoDenuncias = $conn->query($queryDenuncias);
+
 ?>
 
 <body>
@@ -10,9 +11,9 @@ $resultadoDenuncias = $conn->query($queryDenuncias);
     foreach ($resultadoDenuncias as $denuncias) { ?>
         <div class="denuncias">
             <div id="denuncia">
-                <?php echo $denuncias['idUser']; ?> Denúnciou: <?php echo $denuncias['idDenuncia']; ?>
+               IdUser: <?php echo $denuncias['idUser']; ?><br> IdDenunciado: <?php echo $denuncias['idDenuncia']; ?>
                 <br><br>
-                Motivo: <?php echo $denuncias['motivo']; ?> <br><br>
+                Motivo: <?php echo $denuncias['motivo']; ?> <br>
                 🕒 <?php echo $denuncias['dataDenuncia']; ?>
 
             </div>

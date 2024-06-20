@@ -39,14 +39,32 @@ include_once '../Include_once/head.php'; ?><!-- Chama o head e headder. -->
 
 <!-- NOTIFICACOES e FAVORITAR ANUNCIOS-->
 <?php
-$idUserSESSION = $_SESSION['idUser'];
-if ($idUserSESSION == null) {
-  $idUserSESSION = 0;
+if (isset($_SESSION['idUser']) != null) {
+  $idUserSESSION = $_SESSION['idUser'];
 }
-$queryFavorito = "SELECT * FROM anunciosfavoritos WHERE idAnuncio = $idAnuncio AND idUser = $idUserSESSION";
-$resultadoFavorito = $mysqli->query($queryFavorito);
-$resultFavorito = mysqli_fetch_assoc($resultadoFavorito); // Selecionia se o anúncio é favoritado pelo respetivo ID do USER.
-$idUserFavoritado = $resultFavorito['idUser'];
+
+if (isset($idUserSESSION) == null) {
+  $idUserSESSION = 0;
+  $_SESSION['idUser'] = 0;
+}
+
+if (isset($_SESSION['idUser']) && $_SESSION['idUser'] != null) {
+  $idUserSESSION = $_SESSION['idUser'];
+  $queryFavorito = "SELECT * FROM anunciosfavoritos WHERE idAnuncio = $idAnuncio AND idUser = $idUserSESSION";
+  $resultadoFavorito = $mysqli->query($queryFavorito);
+
+  if ($resultadoFavorito) {
+    $resultFavorito = mysqli_fetch_assoc($resultadoFavorito);
+
+    if ($resultFavorito) {
+      $idUserFavoritado = $resultFavorito['idUser'];
+    } else {
+      $idUserFavoritado = null;
+    }
+  } else {
+    echo "Erro na consulta: " . $mysqli->error;
+  }
+}
 ?>
 
 
@@ -55,7 +73,7 @@ $idUserFavoritado = $resultFavorito['idUser'];
 
 <body>
   <?php $idDestinatario = $result['idUser'] ?>
-  <?php if ($_GET['chat'] == 1) { ?>
+  <?php if (isset($_GET['chat']) == 1) { ?>
     <div id="popupChat" style="display: block;">
       <button id="fecharChat" class="fecharChat">x</button>
       <?php include_once('../Chat/chat.php'); ?>
@@ -76,50 +94,50 @@ $idUserFavoritado = $resultFavorito['idUser'];
     <div class="colunas" id="imagens">
       <a href="#" id="imagens">
         <img id="linkImagens" src="../uploads/<?= $result['imagem'] ?>" alt=""></a>
-        <?php include_once("../Include_once/iconYT.php"); ?>
-          <div class="informacoes">
-            <h1><?php echo $result['preco'] ?>€</h1>
-            <div class="notificacao" id="not">Anúncio favoritado!</div>
-            <div class="notificacao" id="not2">Desfavoritou o anúncio!</div>
-            <?php
-            /* Quando nao estiver favoritado o anuncio o 🤍 será branco e favoritado aparecerá vermelho */
-            if ($idUserFavoritado != 0) {
-              $coracao = "❤️";
+      <?php include_once("../Include_once/iconYT.php"); ?>
+      <div class="informacoes">
+        <h1><?php echo $result['preco'] ?>€</h1>
+        <div class="notificacao" id="not">Anúncio favoritado!</div>
+        <div class="notificacao" id="not2">Desfavoritou o anúncio!</div>
+        <?php
+        /* Quando nao estiver favoritado o anuncio o 🤍 será branco e favoritado aparecerá vermelho */
+        if (isset($idUserFavoritado) != 0) {
+          $coracao = "❤️";
+        } else {
+          $coracao = "🤍";
+        } /* Caso o utilizador tenha favoritado este anúncio, o coração fica vermelho */
+
+        if ($idUserSESSION == null) {
+          $onclick = "semLogin()";
+        } else {
+          $onclick = "toggleHeartEmoji()";
+        } /* Caso o utilizador nao estiver logado, aparecer a notificacao que nao esta logado, logo, nao poderá favoritar um anuncio */
+
+        if ($_SESSION['idUser'] == $result['idUser']) {
+          $display = "display: none";
+        } /* Caso o anúncio for do utilizador logado, nao aparecer a opcao de favoritar anúncio. */
+
+        ?>
+
+        <span style="<?= $display ?>" id="emoji" onclick="<?= $onclick ?>"><?= $coracao ?> </span>
+
+
+
+        <script>
+          function toggleHeartEmoji() {
+
+            var status = "<?php echo $idUserFavoritado; ?>";
+            var emoji = document.getElementById("emoji");
+            if (emoji.textContent == "🤍") {
+              emoji.textContent = "❤️";
+              mostrarNotificacao();
             } else {
-              $coracao = "🤍";
-            } /* Caso o utilizador tenha favoritado este anúncio, o coração fica vermelho */
-
-            if ($idUserSESSION == null) {
-              $onclick = "semLogin()";
-            } else {
-              $onclick = "toggleHeartEmoji()";
-            } /* Caso o utilizador nao estiver logado, aparecer a notificacao que nao esta logado, logo, nao poderá favoritar um anuncio */
-
-            if ($_SESSION['idUser'] == $result['idUser']) {
-              $display = "display: none";
-            } /* Caso o anúncio for do utilizador logado, nao aparecer a opcao de favoritar anúncio. */
-
-            ?>
-
-            <span style="<?= $display ?>" id="emoji" onclick="<?= $onclick ?>"><?= $coracao ?> </span>
-           
-
-
-            <script>
-              function toggleHeartEmoji() {
-
-                var status = "<?php echo $idUserFavoritado; ?>";
-                var emoji = document.getElementById("emoji");
-                if (emoji.textContent == "🤍") {
-                  emoji.textContent = "❤️";
-                  mostrarNotificacao();
-                } else {
-                  emoji.textContent = "🤍";
-                  mostrarNotificacao2();
-                }
-              }
-            </script>
-          </div>
+              emoji.textContent = "🤍";
+              mostrarNotificacao2();
+            }
+          }
+        </script>
+      </div>
     </div>
 
     <div class="colunas" id="perfil">

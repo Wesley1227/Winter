@@ -10,7 +10,7 @@ include_once '../Include_once/head.php';
 ?>
 
 <body>
-    <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
     <div class="PesquisaRapida">
         <a href="#" id="popupProdutos"><img src="../img/1.png"></a>
         <a href="#" id="popupEmpregos"><img src="../img/2.png"></a>
@@ -103,6 +103,8 @@ include_once '../Include_once/head.php';
         </form>
     </div>
 </body>
+
+
 <?php include_once '../Include_once/footer.php'; ?>
 
 </html>

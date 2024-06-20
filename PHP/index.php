@@ -8,7 +8,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
 <Body>
 
-  <?php if ($_SESSION['idUser'] == null) { ?>
+  <?php if (isset($_SESSION['idUser']) && $_SESSION['idUser'] == null) { ?>
     <form action=""><button class="custom-btn" id="instalarApp" title="APP ainda em desenvolvimento">Instale nossa app</button></form><br>
   <?php } else { ?>
     <form action="../PHP/criarAnuncio.php"><button class="custom-btn" id="criarAnuncio">Criar anúncio</button></form><br>
@@ -53,13 +53,14 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
   <br><br><br>
 
-  <div class="PesquisaRapida">
-    <!-- <a href=""><img src="../img/1.png"></a> -->
+  <!-- POSSIVEIS PROJETOS: -->
+  <!-- <div class="PesquisaRapida">
+    <!-- <a href=""><img src="../img/1.png"></a> 
     <a href="#"><img src="../img/2.png"></a>
     <a href="#"><img src="../img/3.png"></a>
     <a href="#"><img src="../img/4.png"></a>
     <a href="forum.php"><img src="../img/5.png"></a>
-  </div>
+  </div> -->
 
   <br><br>
   <h1 class="title" id="destaques">Pesquisa rápida</h1><br>

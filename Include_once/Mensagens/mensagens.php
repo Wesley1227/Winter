@@ -66,7 +66,7 @@ foreach ($result as $chat) {
 <?php
     }
 } //Configuração para marcar mensagem como visualizado
-$idChat = $chat['idChat'];
+
 $lido = 1;
 $queryView = "SELECT * FROM chat WHERE idAnuncio = $idAnuncio AND idDestinatario= $idUser AND visualizacao = '0' ";
 $resultView = $conn->query($queryView);
