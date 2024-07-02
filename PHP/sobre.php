@@ -10,6 +10,6 @@ include_once '../Include_once/head.php';
     Olá
 </div>
 </body>
-<?php include_once '../Include_once/footer2.php'; ?>
+<?php include_once '../Include_once/footer.php'; ?>
 
 </html>

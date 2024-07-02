@@ -8,11 +8,12 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
 <Body>
 
-  <?php if (isset($_SESSION['idUser']) && $_SESSION['idUser'] == null) { ?>
+  <?php if (!isset($_SESSION['idUser']) || $_SESSION['idUser'] == null) { ?>
     <form action=""><button class="custom-btn" id="instalarApp" title="APP ainda em desenvolvimento">Instale nossa app</button></form><br>
   <?php } else { ?>
     <form action="../PHP/criarAnuncio.php"><button class="custom-btn" id="criarAnuncio">Criar anúncio</button></form><br>
   <?php } ?>
+  
   <form action="../PHP/anuncios.php?pagina=1"><button class="custom-btn" id="btnAnuncios">Anúncios</button></form><br>
 
   <?php include_once '../Include_once/barraPesquisa.php'; ?>
@@ -105,17 +106,18 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 <!-- Notificações -->
 <audio id="somNotificacao" src="../Sons/mg_recebida.mp3"></audio>
 <script>
- function mostrarNotificacao() {
-        var not = document.getElementById("not");
-        not.style.display = "block";
-        setTimeout(function() {
-            not.style.transform = 'translateX(150%)';
-            setTimeout(function() {
-                not.style.display = 'none';
-                not.style.transform = 'translateX(0%)';
-            }, 500); 
-        }, 5000);  var som = document.getElementById('somNotificacao');
-     som.play(); 
-    }
+  function mostrarNotificacao() {
+    var not = document.getElementById("not");
+    not.style.display = "block";
+    setTimeout(function() {
+      not.style.transform = 'translateX(150%)';
+      setTimeout(function() {
+        not.style.display = 'none';
+        not.style.transform = 'translateX(0%)';
+      }, 500);
+    }, 5000);
+    var som = document.getElementById('somNotificacao');
+    som.play();
+  }
 </script>
 <!-- -->

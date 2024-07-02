@@ -103,7 +103,7 @@ if (!isset($_SESSION)) {
             <ul class="menu-dropdown">
 
                 <?php if ($_SESSION['user'] == $semLogin) { ?>
-                    <li><a href="#" onclick="abrirModalLogin()">Logar</a></li>
+                    <li><a href="#" onclick="abrirModalLogin()">Login</a></li>
                     <li><a href="../PHP/sobre.php">Sobre</a></li>
                 <?php
                 } else {

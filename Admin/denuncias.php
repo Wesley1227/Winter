@@ -20,5 +20,5 @@ $resultadoDenuncias = $conn->query($queryDenuncias);
         </div>
     <?php } ?>
 </body>
-
+<?php include_once('../Include_once/footer.php') ?>
 </html>

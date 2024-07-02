@@ -25,13 +25,12 @@ foreach ($selectPesquisas as $numPesquisas) {
 }
 foreach ($selectDenuncias as $numDenuncias) {
 }
-foreach ($selectPreco as $numPreco) {
-}   ?>
+?>
 <!-- <meta http-equiv="refresh" content="1"> -->
 
 <body>
     <br>
-    <h1 class="title" id="destaques">Nas útilmas 24h: </h1>
+    <h1 class="title" id="destaques">Nas útilmas 24h: </h1><br>
 
     <div class="estatisticas">
         <div class="estatistica">
@@ -46,14 +45,14 @@ foreach ($selectPreco as $numPreco) {
             <h1><?php echo $numUser['idUser'] ?></h1>
             Contas registradas
         </div>
-        <div class="estatistica">
+        <!-- <div class="estatistica">
             <h1>-</h1>
             Vendas
         </div>
         <div class="estatistica">
             <h1>-</h1>
             Acessos
-        </div>
+        </div> -->
         <div class="estatistica">
             <h1><?php echo $numPesquisas['idPesquisa'] ?></h1>
             Pesquisas
@@ -164,3 +163,4 @@ foreach ($selectPreco as $numPreco) {
         estatisticas.style.display = "none";
     });
 </script>
+<?php include_once('../Include_once/footer.php') ?>

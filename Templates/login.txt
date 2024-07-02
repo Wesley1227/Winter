@@ -1,0 +1,7 @@
+<!-- <?php //Função para saber se está na página Login
+                    $urlAtual = $_SERVER['REQUEST_URI'];
+                    echo "URL:" . $urlAtual;
+                    if ($urlAtual == '/Winter/Login/login.php') {
+                        $linkLongin = "javascript:history.back()";
+                    }
+                    ?>  -->

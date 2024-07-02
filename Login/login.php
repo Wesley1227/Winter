@@ -1,43 +1,55 @@
 <link rel="stylesheet" type="text/css" href="../style.css">
 <div class="modalBG">
-    <div class="modal_login" id="">
+    <div class="modal_login" id="modal_login">
         <div class="caixa">
-            <!-- <?php //Função para saber se está na página Login
-                    $urlAtual = $_SERVER['REQUEST_URI'];
-                    echo "URL:" . $urlAtual;
-                    if ($urlAtual == '/Winter/Login/login.php') {
-                        $linkLongin = "javascript:history.back()";
-                    }
-
-                    ?>  -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
             <script>
                 function fecharModalLogin() {
                     $('#modal_login').hide();
                 }
-                var novaURL = window.location.href.replace('LoginIncorreto', '');
-                history.replaceState({}, document.title, novaURL);
-                fecharModalLogin();
+
+                $(document).ready(function() {
+                    $('#loginForm').submit(function(event) {
+                        event.preventDefault();
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '../Login/logar.php',
+                            data: $(this).serialize(),
+                            success: function(response) {
+                                if (response.trim() === 'Login bem-sucedido!') {
+                                    fecharModalLogin();
+                                    window.location.reload();
+                                } else {
+                                    $('#mensagemErro').text(response).show();
+                                }
+                            }
+                        });
+                    });
+                });
+
+                function abrirModalLogin() {
+                    $('#modal_login').show();
+                }
+
+                if (window.location.href.indexOf('LoginIncorreto') !== -1) {
+                    abrirModalLogin();
+                }
             </script>
 
-
             <button onclick="fecharModalLogin()" id="fecharModalLogin">Fechar</button>
-            <form class="" action="../Login/logar.php" method="post">
+            <form id="loginForm" class="" method="post">
                 <h1>Login</h1>
-                <input type="text" name="email" placeholder="Email ou Nome de utilizador" required />
+                <input type="text" name="email" placeholder="Email, User ou NIF" required />
                 <input type="password" name="senha" placeholder="Senha" />
-                <script>
-                    if (window.location.href.indexOf('LoginIncorreto') !== -1) {
-                        abrirModalLogin();
-                    }
-                </script>
-
-                <button type="submit">Logar</button><br>
-                <p>Não tem conta? <a href="../Login/registro.php"><span>Registra-se</span></p></a>
-                <p>Esqueceu sua senha? <a href=""><span>Temos pena</span></p></a>
+                
+                <p id="mensagemErro" style="display:none; color:red;"></p>
+                
+                <button type="submit">Login</button><br>
+                <p>Não tem conta? <a href="../Login/registro.php"><span>Registra-se</span></a></p>
+                <p>Esqueceu sua senha? <a href=""><span>Temos pena</span></a></p>
             </form>
-
-
         </div>
     </div>
 </div>
