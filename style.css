@@ -2149,7 +2149,36 @@ Form#formMiniCHat {
         margin-bottom: 10px;
     }
 }
-
+/* #Sobre{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: larger;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; 
+} */
+ 
+#sobre {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #444444;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#sobre h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#sobre p {
+    margin: 10px 0;
+}
+#sobre .mission {
+    margin-top: 20px;
+}
 
 
 

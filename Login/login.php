@@ -47,8 +47,8 @@
                 <p id="mensagemErro" style="display:none; color:red;"></p>
                 
                 <button type="submit">Login</button><br>
-                <p>Não tem conta? <a href="../Login/registro.php"><span>Registra-se</span></a></p>
-                <p>Esqueceu sua senha? <a href=""><span>Temos pena</span></a></p>
+                <p>Não tem conta? <a href="../Login/registro.php"><span>Regista-se</span></a></p>
+                <p>Esqueceu sua senha? <a href=""><span>Recupere-a</span></a></p>
             </form>
         </div>
     </div>

@@ -5,8 +5,8 @@ if (isset($_POST['email'])) {
     $email = $_POST['email'];
     $user = $_POST['user'];
     $nif = $_POST['nif'];
+    $senha = $_POST['senha'];
 
-    // Verificar se o email já existe
     $queryCheckEmail = "SELECT * FROM winter.user WHERE email='$email'";
     $resultCheckEmail = mysqli_query($mysqli, $queryCheckEmail);
 
@@ -14,8 +14,6 @@ if (isset($_POST['email'])) {
         echo "email_existe";
         exit();
     }
-
-    // Verificar se o nome de usuário já existe
     $queryCheckUser = "SELECT * FROM winter.user WHERE user='$user'";
     $resultCheckUser = mysqli_query($mysqli, $queryCheckUser);
 
@@ -23,8 +21,6 @@ if (isset($_POST['email'])) {
         echo "user_existe";
         exit();
     }
-
-    // Verificar se o NIF já existe
     $queryCheckNif = "SELECT * FROM winter.user WHERE nif='$nif'";
     $resultCheckNif = mysqli_query($mysqli, $queryCheckNif);
 
@@ -32,28 +28,19 @@ if (isset($_POST['email'])) {
         echo "nif_existe";
         exit();
     }
-
-    $senha = $_POST['senha'];
     $query = "INSERT INTO winter.user (user, email, senha, fotoPerfil, nif) VALUES ('$user','$email','$senha','semFotoPerfil.png','$nif')";
 
     if (mysqli_query($mysqli, $query)) {
-        $result = $mysqli->query("SELECT * FROM winter.user WHERE email='$email' AND senha='$senha'")->fetch_assoc();
+        session_start();
 
-        if ($result) {
-            session_start();
+        $_SESSION['idUser'] = mysqli_insert_id($mysqli);
+        $_SESSION['user'] = $user;
+        $_SESSION['email'] = $email;
 
-            $_SESSION['idUser'] = $result['idUser'];
-            $_SESSION['user'] = $result['user'];
-            $_SESSION['email'] = $result['email'];
-
-            echo "registro_sucesso";
-        } else {
-            echo "erro_sessao";
-        }
+        echo "registro_sucesso";
     } else {
         echo "erro_registro: " . mysqli_error($mysqli);
     }
 } else {
     echo "dados_invalidos";
 }
-?>
