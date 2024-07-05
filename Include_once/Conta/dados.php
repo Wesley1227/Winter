@@ -4,8 +4,7 @@
             <h1>Dados privados</h1>
             Nome:<input type="text" name="nome" placeholder="<?php echo $pessoa['nome'] ?>" class="nomeApelido" id="search-bar">
             Apelido:<input type="text" name="apelido" placeholder="<?php echo $pessoa['apelido']; ?>" class="nomeApelido" id="search-bar"><br>
-            NIF:<input type="text" name="nif" maxlength="9" placeholder="<?php echo $pessoa['nif']; ?>" class="dadosNif" id="search-bar">
-
+            NIF:<input disabled type="text" name="nif" maxlength="9" placeholder="<?php echo $pessoa['nif']; ?>" class="dadosUser" style="width: 20%;" id="search-bar">
 
             <select name="genero" class="dropdown-select" id="">
                 <option value="">Género</option>
@@ -13,6 +12,7 @@
                 <option value="2">Feminimo</option>
                 <option value="3">Outro</option>
             </select><br>
+
             Email:<input disabled type="text" name="email" placeholder="<?php echo $pessoa['email']; ?>" class="dadosEmail" id="search-bar"><br>
             Morada:<input type="text" name="morada" placeholder="<?php echo $pessoa['morada']; ?>" class="inputDados" id="search-bar"><br>
             Código postal:<input type="text" minlength="8" maxlength="8" name="cod_postal" placeholder="<?php echo $pessoa['cod_postal'] ?>" class="dadosCodPostal" id="search-bar">

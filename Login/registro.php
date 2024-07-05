@@ -21,7 +21,7 @@ if (!empty($_SESSION['idUser'])) {
                 <h1>
                     <div id="erroSenha" class="error">Registo</div>
                 </h1>
-                <input type="text" name="user" placeholder="Usuário:" required maxlength="12" />
+                <input type="text" name="user" placeholder="Nome de utilizador:" required maxlength="12" />
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" id="senha" name="senha" placeholder="Senha" oninput="verificaPassword()" />
                 <input type="password" id="verificacao" name="verificacao" placeholder="Confirme a senha" oninput="verificaPassword()" />
@@ -57,18 +57,18 @@ if (!empty($_SESSION['idUser'])) {
                                 var mensagemErro = document.getElementById("erroMensagem");
 
                                 if (resposta === "email_existe") {
-                                    mensagemErro.textContent = "Email já está registrado.";
+                                    mensagemErro.textContent = "Email já está registado.";
                                     mensagemErro.style.color = "red";
                                 } else if (resposta === "user_existe") {
-                                    mensagemErro.textContent = "Nome de usuário já está registrado.";
+                                    mensagemErro.textContent = "Nome de utilizador já está registado.";
                                     mensagemErro.style.color = "red";
                                 } else if (resposta === "nif_existe") {
-                                    mensagemErro.textContent = "NIF já está registrado.";
+                                    mensagemErro.textContent = "NIF já está registado.";
                                     mensagemErro.style.color = "red";
                                 } else if (resposta === "registro_sucesso") {
                                     window.location.href = "../PHP/conta.php?idPag=4";
                                 } else {
-                                    mensagemErro.textContent = "Erro ao registrar. Tente novamente.";
+                                    mensagemErro.textContent = "Erro ao registar. Tente novamente.";
                                     mensagemErro.style.color = "red";
                                 }
                             }

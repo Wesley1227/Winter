@@ -57,6 +57,6 @@ include_once("../Include_once/Conta/menu.php");
     } ?>
 
 </body>
-<?php include_once('../Include_once/footer.php'); ?>
+<!-- <?php include_once('../Include_once/footer.php'); ?> -->
 
 </html>

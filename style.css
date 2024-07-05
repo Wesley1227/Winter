@@ -853,6 +853,7 @@ datalist.dataList {
     100% {}
 }
 
+/* FIM DO MENU SLIDE */
 .notificacao {
     z-index: 99;
     position: fixed;
@@ -872,13 +873,6 @@ datalist.dataList {
 
 
 
-
-
-
-
-
-
-/* FIM DO MENU SLIDE */
 
 
 #regisros {
@@ -1319,7 +1313,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
     margin-right: auto;
     justify-content: space-evenly;
     grid-template-columns: 25% 25% 25% 25%;
-    gap: 15px;
+    gap: 1%;
     margin-bottom: 10px;
 }
 
@@ -1358,7 +1352,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 #dadosPrivados {
     border-radius: 30px;
     background: linear-gradient(315deg, #514f4f, #605e5e);
-    box-shadow: -10px -10px 20px #484646, 10px 10px 20px #6c6a6a;
+    box-shadow: var(--boxShadow);
     width: 100%;
     height: 65vh;
     margin-top: 10px;
@@ -1369,7 +1363,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
     height: 61vh;
     border-radius: 30px;
     background: #595959;
-    box-shadow: -11px -11px 22px #4c4c4c, 11px 11px 22px #666666;
+    box-shadow: var(--boxShadow);
 }
 
 input#search-bar.inputDados {
@@ -1664,7 +1658,7 @@ input#search-bar.inputDados {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    
+
 }
 
 #erro404 {
@@ -1793,7 +1787,8 @@ input#search-bar.inputDados {
     display: grid;
     grid-template-columns: 38% 60%;
     gap: 2%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     height: 50vh;
 }
 
@@ -1808,7 +1803,7 @@ input#search-bar.inputDados {
     color: white;
     border-radius: 15px;
     font-size: 20px;
-
+    box-shadow: var(--boxShadow);
 }
 
 #anunciante {
@@ -1888,6 +1883,7 @@ img#fotoChat.miniFotoPerfil:hover {
     flex-direction: column-reverse;
     background: linear-gradient(145deg, #696767, #585656);
     overflow-x: hidden;
+    box-shadow: var(--boxShadow);
 }
 
 #fotoPerfilMensagem.miniFotoPerfil {
@@ -1945,6 +1941,7 @@ form#formEnviarMensagem {
     padding: 10px;
     gap: 2%;
     width: 100%;
+    box-shadow: var(--boxShadow);
 }
 
 #search-bar.mensagem {
@@ -1986,7 +1983,8 @@ Form#formMiniCHat {
 @media screen and (max-width: 800px) {
     .mensagens {
         display: block;
-        width: 95%;
+        width: 94%;
+        margin: 0;
     }
 
     #pessoas {
@@ -2017,7 +2015,7 @@ Form#formMiniCHat {
     padding: 20px;
     border-radius: 30px;
     background: linear-gradient(145deg, #5f5f5f, #505050);
-    
+
     margin-bottom: 20px;
     animation-name: crescimento;
     animation-duration: 0.5s;
@@ -2052,15 +2050,14 @@ Form#formMiniCHat {
 }
 
 #denuncia {
-    background-color: white;
-    color: black;
+    background-color: rgb(82, 82, 82);
+    color: white;
     border-radius: 15px;
     width: 100%;
-    height: 90px;
+    height: 10%;
     margin-bottom: 10px;
     padding: 10px;
     box-shadow: var(--boxShadow);
-    border: 1px solid;
 }
 
 /* ////////////////////////////////////////////////// Página "Historico" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -2149,43 +2146,111 @@ Form#formMiniCHat {
         margin-bottom: 10px;
     }
 }
-/* #Sobre{
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: larger;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto; 
-} */
- 
+
+/* Sobre do site */
+
 #sobre {
-    max-width: 800px;
+    max-width: 70%;
     margin: 50px auto;
     padding: 20px;
     background-color: #444444;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 #sobre h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
     text-align: center;
 }
+
 #sobre p {
     margin: 10px 0;
 }
+
 #sobre .mission {
     margin-top: 20px;
 }
 
+/* Configurações do site */
 
+#configuracoes {
+    max-width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #444444;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+#configuracoes h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
+#configuracoes button {
+    background-color: black;
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    width: 40%;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: var(--boxShadow);
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.3s ease;
+}
 
+#configuracoes button:hover {
+    background-color: rgb(44, 44, 44);
 
+}
 
+/* Ticket */
+#btn_ticket {
+    width: 100%;
+}
+
+#btn_ticket2 {
+    width: 100%;
+    background-color: #202020;
+}
+
+#tickets {
+    background-color: rgb(82, 82, 82);
+    color: white;
+    width: auto;
+    max-width: 70%;
+    border-radius: 20px;
+    box-shadow: var(--boxShadow);
+    padding: 10px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.pagTickets {
+    text-align: center;
+}
+
+#ticketFoto.miniFotoPerfil {
+    margin-left: 10px;
+}
+
+#cancelarBtn {
+    border-radius: 10px;
+    border: 0;
+    box-shadow: var(--boxShadow);
+    background-color: #838383;
+    cursor: pointer;
+}
 
 
 
@@ -2196,7 +2261,7 @@ Form#formMiniCHat {
 
 /* /////////////////////////// FOOTER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .footer {
-    margin-top: 30px;
+    margin-top: 100px;
     margin-left: -8px;
     margin-right: -8px;
     margin-bottom: -8px;
@@ -2212,11 +2277,12 @@ Form#formMiniCHat {
     width: calc(134% + 1.3px);
     height: 150px;
 }
+
 .page-wrapper {
     min-height: 100vh;
-    position: relative; 
-  }
-  
+    position: relative;
+}
+
 
 .footer .shape-fill {
     fill: black;

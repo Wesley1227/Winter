@@ -67,7 +67,7 @@ if (!isset($_SESSION)) {
 
                 ?><img src="../uploads/<?= $_SESSION['fotoPerfil'] ?>" class="miniFotoPerfil" />
                 <?php echo $_SESSION['user'];
-                if ($_SESSION['user'] == null) {
+                if (isset($_SESSION['user']) == null) {
                     $_SESSION['user'] = $semLogin;
                 } ?>
                   <?php if ($_SESSION['user'] != $semLogin) { ?>
@@ -146,29 +146,63 @@ if (!isset($_SESSION)) {
 <!-- //////////////////// Notificações \\\\\\\\\\\\\\\\\\ -->
 <?php
 // Com isso vou saber a quanto tempo o user entrou, se foi a pouco tempo, irá mostrar uma notificação de Bem Vindo!
-$tempoLogado = "0";
-if($_SESSION['user'] != 0 || $_SESSION['user'] != null){
-    $tempoLogado = "0";
-    $_SESSION['timestamp_login'] = 0;
-}else{
-   $tempoLogado = time() - $_SESSION['timestamp_login'];
-$tempoFormatado = formatarTempo($tempoLogado); 
+$tempoLogado = 0;
+$tempoFormatado = '';
+
+if (isset($_SESSION['user']) && $_SESSION['user'] != 0) {
+    // Verifica se 'timestamp_login' está definido antes de usá-lo
+    if (isset($_SESSION['timestamp_login'])) {
+        $tempoLogado = time() - $_SESSION['timestamp_login'];
+    } else {
+        // Define 'timestamp_login' se não estiver definido
+        $_SESSION['timestamp_login'] = time();
+        $tempoLogado = 0;
+    }
+    $tempoFormatado = formatarTempo($tempoLogado);
+} else {
+    // Se o usuário não estiver logado, define 'timestamp_login' e formata o tempo como 0
+    if (!isset($_SESSION['timestamp_login'])) {
+        $_SESSION['timestamp_login'] = time();
+    }
+    $tempoFormatado = formatarTempo($tempoLogado);
 }
 
 
 function formatarTempo($segundos)
 {
-
     $horas = floor($segundos / 3600);
     if ($segundos <= 5) { ?>
-        <div class="notificacao" id="notBemVindo" style="display: block; text-align:center;"> Olá <b><?php echo $_SESSION['user']; ?><br> Bem-vindo </b> de volta!</div>
+        <div class="notificacao" id="notBemVindo" style="display: block; text-align:center;">
+            Olá <b><?php echo $_SESSION['user']; 
+            if (isset($_SESSION['idUser']) != null) {
+                echo "<br> Bem-vindo </b> de volta!";
+            } else {
+                echo "<br>Para melhor experiência!";
+            }
+            ?></div>
         <audio id="meuSom" src="../Sons/mg_recebida.mp3" autoplay></audio>
-<?php }
+    <?php }
     $minutos = floor(($segundos % 3600) / 60);
     $segundos = $segundos % 60;
     return sprintf("%02d:%02d:%02d", $horas, $minutos, $segundos);
 }
 ?>
+
+<!-- script para tirar notificação -->
+<script>
+    window.setTimeout(function() {
+        var notBemVindo = document.getElementById('notBemVindo');
+        if (notBemVindo) {
+            notBemVindo.style.transform = 'translateX(150%)';
+            window.setTimeout(function() {
+                notBemVindo.style.display = 'none';
+            }, 1000); // Tempo de transição (1 segundo)
+        }
+    }, 5000); // 5 segundos
+</script>
+
+
+
 <!-- SONS -->
 <!-- som ao enviar mensagem -->
 <script>
@@ -176,14 +210,4 @@ function formatarTempo($segundos)
         var som = document.getElementById('mg_enviada');
         som.play();
     }
-</script>
-
-<!-- script para tirar notificação -->
-<script>
-    setTimeout(function() {
-        notBemVindo.style.transform = 'translateX(150%) ';
-        setTimeout(function() {
-            notBemVindo.style.display = 'none';
-        }, 1000); // Tempo de transição (0.5 segundos)
-    }, 5000); // 5 segundos
 </script>

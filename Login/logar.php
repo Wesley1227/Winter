@@ -17,6 +17,6 @@ if ($result->num_rows > 0) {
 
     echo "Login bem-sucedido!";
 } else {
-    echo "Senha incorreta.";
+    echo "Credenciais incorretas.";
 }
 ?>

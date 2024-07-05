@@ -78,30 +78,37 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 </html>
 <!-- ||||||||||||||||||||||| JAVA SCRIPT \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 <script>
-  // Função para atualiazar assim poder recarregar a SESSION
+  // Função para atualizar e assim poder recarregar a SESSION
   function reloadIt() {
     if (window.location.href.substr(-2) !== "?r") {
       window.location = window.location.href + "?r";
     }
   }
-  setTimeout('reloadIt()', 0)();
+
+  setTimeout(reloadIt, 0);
 </script>
+
 
 <script>
-  // Função POP-UP
-  var link = document.getElementById("link");
-  var popup = document.getElementById("popup");
-  var fechar = document.getElementById("fechar");
+  document.addEventListener("DOMContentLoaded", function() {
+    // Função POP-UP
+    var link = document.getElementById("link");
+    var popup = document.getElementById("popup");
+    var fechar = document.getElementById("fechar");
 
-  link.addEventListener("click", function(event) {
-    event.preventDefault();
-    popup.style.display = "block";
-  });
+    if (link && popup && fechar) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        popup.style.display = "block";
+      });
 
-  fechar.addEventListener("click", function() {
-    popup.style.display = "none";
+      fechar.addEventListener("click", function() {
+        popup.style.display = "none";
+      });
+    } 
   });
 </script>
+
 
 <!-- Notificações -->
 <audio id="somNotificacao" src="../Sons/mg_recebida.mp3"></audio>
