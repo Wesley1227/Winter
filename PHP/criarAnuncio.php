@@ -10,16 +10,8 @@ include_once '../Include_once/head.php';
 ?>
 
 <body>
-    <br><br><br><br><br><br><br><br>
-    <div class="PesquisaRapida">
-        <a href="#" id="popupProdutos"><img src="../img/1.png"></a>
-        <a href="#" id="popupEmpregos"><img src="../img/2.png"></a>
-        <a href="#" id="popupEntreterimento"><img src="../img/3.png"></a>
-        <a href="#" id="popupProgramacao"><img src="../img/4.png"></a>
-    </div>
-    <br><br><br><br><br><br>
-    <div id="formProdutos" style="display: none">
-        <button id="fechar" class="fecharProdutos"> X </button>
+
+    <div id="formProdutos">
         <form method="POST" action="../Include_once/inserir.php" enctype="multipart/form-data">
             <div class="formAnuncio">
                 <input type="text" name="titulo" class="tituloAnuncio" id="search-bar" minlength="2" maxlength="40" required placeholder="Título do seu anuncio:"><br>
@@ -75,11 +67,9 @@ include_once '../Include_once/head.php';
                     <input type="number" min="0" max="100000" for="preco" name="preco" class="preco" id="search-bar" placeholder="Preço">
                 </div><br>
 
-                <input type="text" name="localizacao" class="localizacao" id="search-bar" minlength="2" placeholder="Localização:">
-
                 <?php $idUser = $_SESSION['idUser'];
                 $registros = $con->query("SELECT COUNT(idUser) count FROM anuncios WHERE idUser= $idUser")->fetch()["count"];
-                ?> Tens <?php echo $registros ?> anúncios ativos!
+                ?> <br>
 
                 <br><input type="file" name="imagem">
 
@@ -90,27 +80,100 @@ include_once '../Include_once/head.php';
                     echo "<script>alert('Atingiu o limite de 15 anúncios!');</script>";
                 }
                 ?>
-                <button type="submit"  style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
-                
+                <div class="container">
+                    <h1>Pesquisar Cidades</h1>
+                    <input id="pac-input" name="localizacao" class="controls" type="text" placeholder="Digite o nome da cidade">
+                    <div id="map" style="height: 400px; width: 40%;"></div>
+                    <div id="latlng">
+                        <p>Latitude: <span id="lat"></span></p>
+                        <p>Longitude: <span id="lng"></span></p>
+                    </div>
+                    <!-- Campos ocultos para latitude e longitude -->
+                    <input type="hidden" name="latitude" id="latitude">
+                    <input type="hidden" name="longitude" id="longitude">
+                </div>
+                Possui <?php echo $registros ?> anúncios ativos! <br>
+                <button type="submit" style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
             </div>
         </form>
     </div>
 
-    <div id="formEmpregos" style="display: none">
-        <button id="fecharEmpregos"> X </button>
-        <form action="#">
-            <input type="text">
-        </form>
-    </div>
 </body>
-
-
-<?php include_once '../Include_once/footer.php'; ?>
 
 </html>
 
 <!-- ||||||||||||||||||||||| JAVA SCRIPT \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Script para carregar a API do Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApD0rM22UO1KZK6q_6O6iJuai76mf0svc&libraries=places&callback=initMap" async defer></script>
+<script>
+    // Função para inicializar o mapa e o autocomplete
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 39.39987199999999,
+                lng: -8.224454
+            }, // Centro inicial do mapa
+            zoom: 6.5
+        });
+
+        var input = document.getElementById('pac-input');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Nenhum detalhe disponível para: '" + place.name + "'");
+                return;
+            }
+
+            // Se o lugar tiver uma geometria, então ele será exibido no mapa.
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(17);
+            }
+            marker.setPosition(place.geometry.location);
+            marker.setVisible(true);
+
+            var address = '';
+            if (place.address_components) {
+                address = [
+                    (place.address_components[0] && place.address_components[0].short_name || ''),
+                    (place.address_components[1] && place.address_components[1].short_name || ''),
+                    (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+            }
+
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+            infowindow.open(map, marker);
+
+            // Atualiza os valores de latitude e longitude
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lng').textContent = longitude;
+
+            // Preenche os campos ocultos com latitude e longitude
+            document.getElementById('latitude').value = latitude;
+            document.getElementById('longitude').value = longitude;
+        });
+    }
+</script>
+
 <script>
     // Scrip para mostar preco caso o user escolher a opção "venda".
     var select = document.getElementById("select");

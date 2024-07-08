@@ -110,18 +110,30 @@ var documentReady = function (fn) {
 
 documentReady(function () {
     var sideMenuElement = document.querySelector('.wui-side-menu');
+    
     if (sideMenuElement) {
         var sample = new SideMenu(sideMenuElement);
+        
         sample.htmlElement.addEventListener('menuPinStateChanged', function (e) {
-            document.querySelector('#events').innerHTML += 'menuPinStateChanged , menu pinned? => ' +
-                e.detail.pinned + '<br>';
+            var eventsElement = document.querySelector('#events');
+            if (eventsElement) {
+                eventsElement.innerHTML += 'menuPinStateChanged , menu pinned? => ' +
+                    e.detail.pinned + '<br>';
+            }
         }, false);
+        
         sample.htmlElement.addEventListener('menuStateChanged', function (e) {
-            document.querySelector('#events').innerHTML += 'menuStateChanged , menu open? => ' +
-                e.detail.open + '<br>';
+            var eventsElement = document.querySelector('#events');
+            if (eventsElement) {
+                eventsElement.innerHTML += 'menuStateChanged , menu open? => ' +
+                    e.detail.open + '<br>';
+            }
         }, false);
+    } else {
+        console.error('Elemento .wui-side-menu não encontrado.');
     }
 });
+
 
 
 

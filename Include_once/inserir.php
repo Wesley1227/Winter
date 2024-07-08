@@ -15,8 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $descricao = $_POST['descricao'];
    $preco = $_POST['preco'];
    $marca = $_POST['marca'];
-
-   $img_name = $_FILES['imagem']['name'];
+   $latitude = $_POST['latitude'];
+   $longitude = $_POST['longitude'];
+      $img_name = $_FILES['imagem']['name'];
    $img_size = $_FILES['imagem']['size'];
    $tmp_name = $_FILES['imagem']['tmp_name'];
    $error = $_FILES['imagem']['error'];
@@ -46,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $registros = $con->query("SELECT COUNT(idUser) count FROM anuncios WHERE idUser= $idUser")->fetch()["count"];
    if ($registros < 15) {
       $sql = "INSERT INTO winter.anuncios 
-        (titulo,localizacao,idCategoria,estadoProduto,intAnuncio,descricao,preco,subCategoria,subSubCategoria,marca,imagem,idUser)
-        VALUES ('$titulo','$localizacao','$categoria','$estadoProduto','$intensaoAnuncio','$descricao','$preco','$subCategoria','$subSubCategoria','$marca','$new_img_name','$idUser')";
+        (titulo,localizacao,idCategoria,estadoProduto,intAnuncio,descricao,preco,subCategoria,subSubCategoria,marca,imagem,idUser,latitude,longitude)
+        VALUES ('$titulo','$localizacao','$categoria','$estadoProduto','$intensaoAnuncio','$descricao','$preco','$subCategoria','$subSubCategoria','$marca','$new_img_name','$idUser','$latitude','$longitude')";
    }
    else{
       header("Location: " . $_SERVER['HTTP_REFERER'] . "");

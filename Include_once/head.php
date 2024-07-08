@@ -15,10 +15,10 @@ $idUser = 0;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="icon" type="image/x-icon" href="../img/Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../JS/js.js"></script>
     <title><?php echo $pagina ?></title>
 </head>
@@ -198,7 +198,7 @@ function formatarTempo($segundos)
                 notBemVindo.style.display = 'none';
             }, 1000); // Tempo de transição (1 segundo)
         }
-    }, 5000); // 5 segundos
+    }, 5000); // 4 segundos
 </script>
 
 

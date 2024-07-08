@@ -13,7 +13,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
   <?php } else { ?>
     <form action="../PHP/criarAnuncio.php"><button class="custom-btn" id="criarAnuncio">Criar anúncio</button></form><br>
   <?php } ?>
-  
+
   <form action="../PHP/anuncios.php?pagina=1"><button class="custom-btn" id="btnAnuncios">Anúncios</button></form><br>
 
   <?php include_once '../Include_once/barraPesquisa.php'; ?>
@@ -84,7 +84,6 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
       window.location = window.location.href + "?r";
     }
   }
-
   setTimeout(reloadIt, 0);
 </script>
 
@@ -105,7 +104,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
       fechar.addEventListener("click", function() {
         popup.style.display = "none";
       });
-    } 
+    }
   });
 </script>
 

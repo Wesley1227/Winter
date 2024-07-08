@@ -1,4 +1,6 @@
+
 <?php
+
 $pagina = 1;
 $limite = 15; //Uma pessoa só pode ter 15 anúncios.
 $inicio = ($pagina * $limite) - $limite;
@@ -9,11 +11,11 @@ echo $registros . " anuncios"; ?>
 
 <form action="anuncio.php" method="POST">
     <div class="anuncios">
-        <?php foreach ($result as $item) :
+        <?php  foreach ($result as $item) :
             $views = $item['visualizacoes'] + 1;
             $idAnuncio = $item['idAnuncio'];
-            $queryView = "UPDATE anuncios SET visualizacoes ='$views' WHERE idAnuncio = $idAnuncio";
-            $resultadoView = $mysqli->query($queryView);
+            // $queryView = "UPDATE anuncios SET visualizacoes ='$views' WHERE idAnuncio = $idAnuncio";
+            // $resultadoView = $mysqli->query($queryView);
         ?>
 
             <a href="../PHP/anuncio.php?idAnuncio=<?= $item['idAnuncio'] ?>">

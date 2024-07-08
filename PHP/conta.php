@@ -41,7 +41,7 @@ include_once("../Include_once/Conta/menu.php");
         <a href="conta.php?idPag=3"><button class="<?php echo $class3 ?>" id="perfilBTN">Avaliações</button></a>
         <a href="conta.php?idPag=4"><button class="<?php echo $class4 ?>" id="perfilBTN">Dados</button></a>
     </div>
-
+<br>
     <?php
     if ($idPag == 1) {
         include_once('../Include_once/Mensagens/chat.php');
@@ -50,7 +50,7 @@ include_once("../Include_once/Conta/menu.php");
         include_once('../Include_once/Conta/anuncios.php');
     }
     if ($idPag == 3) {
-        echo "Avaliações - Página ainda em desenvolvimento";
+        include_once('../Include_once/Conta/avaliacoes.php');
     }
     if ($idPag == 4) {
         include_once('../Include_once/Conta/dados.php');

@@ -10,6 +10,6 @@
         <li><a href="../Admin/admin.php">Config</a></li>
         <li><a href="../Admin/testes.php">Testes</a></li>
         <li><a href="../Admin/denuncias.php">Denúncias</a></li>
-        <li><a href="../PHP/ticket.php?assunto=4">Tickets</a></li>
+        <li><a href="../Admin/tickets.php">Tickets</a></li>
     </ul>
 </li>

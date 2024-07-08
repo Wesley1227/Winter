@@ -22,7 +22,7 @@ $resultadoDenuncias = $conn->query($queryDenuncias);
     ?>
         <div class="denuncias">
             <div id="denuncia">
-                IdUser: <?php echo $denuncias['idUser']; ?><br> IdDenunciado: <?php echo $denuncias['idDenuncia']; ?>
+                IdUser: <?php echo $denuncias['idUser']; ?><br> IdDenunciado: <?php echo $denuncias['idDenunciado']; ?>
                 <br><br>
                 Motivo: <?php echo $denuncias['motivo']; ?> <br>
                 Status: <?php echo $status; ?> <br>

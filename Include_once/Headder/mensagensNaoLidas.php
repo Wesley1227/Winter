@@ -5,7 +5,7 @@
     } else {
         $idUser = $_SESSION['idUser'];
     }
-    $naoLidas = $con->query("SELECT COUNT(idDestinatario) count FROM chat WHERE idDestinatario= $idUser AND visualizacao = 2")->fetch()["count"];
+    $naoLidas = $con->query("SELECT COUNT(idDestinatario) count FROM chat WHERE idDestinatario= $idUser AND visualizacao = 0")->fetch()["count"];
     if (isset($naoLidas) == null) {
         $naoLidas = "0";
     }

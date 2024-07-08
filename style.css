@@ -67,7 +67,7 @@ img#logo {
 
     background-color: rgb(44, 44, 44);
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .menu-dropdown,
@@ -355,6 +355,10 @@ html {
     }
 }
 
+.erroMensagem {
+    text-align: center;
+}
+
 /* ////////////////////////////////////////////////////// Página - "INDEX" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .title {
@@ -388,9 +392,11 @@ html {
     margin-left: 59%;
     margin-top: -43px;
     border-radius: 100%;
-    background-color: #666464;
+    background-color: #363636;
     color: white;
     cursor: pointer;
+    border: none;
+    box-shadow: var(--boxShadow);
 }
 
 
@@ -401,6 +407,7 @@ html {
     border: 3px solid #D0CFCE;
     transition: all 0.4s ease;
     font-size: 30px;
+
 }
 
 #lupa:hover {
@@ -612,6 +619,14 @@ form.search-container {
 #fechar.fecharProdutos {
     display: flex;
     justify-content: center;
+}
+
+#map {
+    height: 330px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--boxShadow);
+    margin-bottom: 5px;
 }
 
 div.formAnuncio {
@@ -911,7 +926,6 @@ datalist.dataList {
 
 .itemAnuncio:hover {
     width: 315px;
-    border-radius: 13px;
 }
 
 .itemImagem {
@@ -960,7 +974,12 @@ datalist.dataList {
     margin-bottom: -75px;
     margin-top: -12px;
     font-size: 80%;
+    max-width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 
 .paginacao {
     display: flex;
@@ -1072,6 +1091,40 @@ a#iconYT {
     top: 60px;
     font-size: 50px;
     cursor: pointer;
+    background-color: #414141;
+    box-shadow: var(--boxShadow);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    z-index: 99;
+}
+
+#editarAnuncioPopup {
+    position: absolute;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.6);
+    width: 95%;
+    height: 85%;
+    border-radius: 15px;
+    padding: 10px;
+    animation-name: popupEdicao;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes popupEdicao {
+    0% {
+        transform: scale(0.8);
+        border-radius: 30%;
+        margin-left: 200px;
+        margin-top: 100px;
+    }
+
+    100% {
+        transform: scale(1);
+        border-radius: 15px;
+        margin-left: 0px;
+    }
 }
 
 @keyframes crescimento {
@@ -1119,7 +1172,7 @@ a#iconYT {
 /* Imagem do anúncio em tela cheia*/
 #imagensPopup {
     position: fixed;
-    z-index: 99;
+    z-index: 80;
     left: 50%;
     top: 50%;
     width: auto;
@@ -1142,7 +1195,11 @@ a#iconYT {
 
 button#editarAnuncio.custom-btn {
     width: 100%;
-    font-size: 30px;
+    font-size: auto;
+}
+
+#perfil.colunas {
+    text-align: center;
 }
 
 #perfil.colunas img {
@@ -1192,7 +1249,9 @@ button#editarAnuncio.custom-btn {
 
 #fechar {
     border-radius: 100%;
-    background-color: black;
+    background-color: #414141;
+    box-shadow: var(--boxShadow);
+    border: none;
     color: white;
     cursor: pointer;
 }
@@ -1273,6 +1332,17 @@ button#editarAnuncio.custom-btn {
 
     #regisros {
         margin-top: -5%;
+    }
+
+    #imagensPopup {
+        position: fixed;
+        z-index: 80;
+        width: 90%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: var(--boxShadow);
     }
 }
 
@@ -1572,10 +1642,13 @@ input#search-bar.inputDados {
 
 #perfilNivelInfo {
     /* Botão i */
-    background-color: #666464;
+
     color: white;
     cursor: pointer;
     border-radius: 50%;
+    background-color: #414141;
+    box-shadow: var(--boxShadow);
+    border: none;
 }
 
 #info {
@@ -1945,7 +2018,7 @@ form#formEnviarMensagem {
 }
 
 #search-bar.mensagem {
-    height: 40px;
+    height: 35px;
     width: 65%;
     border-radius: 15px;
 
@@ -2015,7 +2088,6 @@ Form#formMiniCHat {
     padding: 20px;
     border-radius: 30px;
     background: linear-gradient(145deg, #5f5f5f, #505050);
-
     margin-bottom: 20px;
     animation-name: crescimento;
     animation-duration: 0.5s;
@@ -2099,6 +2171,7 @@ Form#formMiniCHat {
     font-size: 15vh;
     font-family: cursive;
     color: white;
+    text-align: center;
 }
 
 /* /////////////////////////// Página "FORUM" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -2155,7 +2228,7 @@ Form#formMiniCHat {
     padding: 20px;
     background-color: #444444;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--boxShadow);
 }
 
 #sobre h1 {
@@ -2170,6 +2243,57 @@ Form#formMiniCHat {
 
 #sobre .mission {
     margin-top: 20px;
+}
+
+/* Termos e condições do site */
+#termosCondicoesPag {
+    max-width: 90vh;
+    width: 70vh auto;
+    height: 80vh;
+    padding: 20px;
+    background-color: #444444;
+    border-radius: 8px;
+    box-shadow: var(--boxShadow);
+    position: fixed;
+    top: 10%;
+    bottom: 0;
+    z-index: 99;
+    right: 10%;
+    z-index: 99;
+    animation-name: crescimento;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#termosCondicoesPag h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#termosCondicoesPag p {
+    margin: 10px 0;
+}
+
+#termosCondicoesPag .mission {
+    margin-top: 20px;
+}
+
+#btnFechartermos {
+    background-color: #383838;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fimFormRegisto {
+    text-align: center;
 }
 
 /* Configurações do site */
@@ -2209,7 +2333,6 @@ Form#formMiniCHat {
 
 #configuracoes button:hover {
     background-color: rgb(44, 44, 44);
-
 }
 
 /* Ticket */
@@ -2222,7 +2345,7 @@ Form#formMiniCHat {
     background-color: #202020;
 }
 
-#tickets {
+.ticket {
     background-color: rgb(82, 82, 82);
     color: white;
     width: auto;
@@ -2233,7 +2356,6 @@ Form#formMiniCHat {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .pagTickets {
@@ -2244,7 +2366,7 @@ Form#formMiniCHat {
     margin-left: 10px;
 }
 
-#cancelarBtn {
+.cancelarBtn {
     border-radius: 10px;
     border: 0;
     box-shadow: var(--boxShadow);
@@ -2252,11 +2374,9 @@ Form#formMiniCHat {
     cursor: pointer;
 }
 
-
-
-
-
-
+#registrar {
+    cursor: pointer;
+}
 
 
 /* /////////////////////////// FOOTER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -2283,7 +2403,6 @@ Form#formMiniCHat {
     position: relative;
 }
 
-
 .footer .shape-fill {
     fill: black;
 }
@@ -2294,7 +2413,6 @@ Form#formMiniCHat {
     margin-top: -20px;
     margin-left: 10%;
     font-size: 25px;
-
 }
 
 .logoFooter {

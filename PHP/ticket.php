@@ -26,7 +26,24 @@ $assunto = $_GET["assunto"];
         <a href="ticket.php?assunto=4"> <button class="custom-btn" style="width: 40%;" id="<?php if ($assunto == "4") {
                                                                                                 echo "btn_ticket2";
                                                                                             } ?>">Tickets existentes</button></a><br><br>
+
         <?php
+        function getStatusText($status)
+        {
+            switch ($status) {
+                case "Pendente":
+                    return "Pendente 🟠";
+                case "Resolvido":
+                    return "Resolvido 🟢";
+                case "Recusado":
+                    return "Recusado 🔴";
+                case "Apagado":
+                    return "Apagado ⚫";
+                default:
+                    return "ERRO";
+            }
+        }
+
         $assunto = $_GET["assunto"];
         if ($assunto == 1) {
             include_once('../Include_once/Ticket/edicaoDados.php');
