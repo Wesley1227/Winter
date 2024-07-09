@@ -39,7 +39,6 @@ function atualizarHistorico($mysqli, $idUser, $idAnuncio) {
     $stmtCheck->close();
 }
 
-// Chamar a função de atualização do histórico
 atualizarHistorico($mysqli, $idUser, $idAnuncio);
 
 // Redirecionar para o anúncio após atualizar o histórico

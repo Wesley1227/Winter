@@ -22,7 +22,7 @@ foreach ($result as $chat) {
     $user = $chat['nome'];
     $result2 = $con->query("SELECT * FROM user WHERE user='$user'")->fetchAll();
     foreach ($result2 as $conta) {
-        if ($chat['nome'] == $_SESSION['user']) { // A mesagem do user é diferenten para ser mais fácil distinguir
+        if ($chat['nome'] == $_SESSION['user']) { // A mensagem do user é diferenten para ser mais fácil distinguir
             $chat['nome'] = "Eu";
             $fotoPefil = $_SESSION['fotoPerfil'];
             $style =  "margin-left: auto; border-radius:  15px 25px 0px 20px; background-color:DarkSlateBlue; color:white;";

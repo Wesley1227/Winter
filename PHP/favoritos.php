@@ -16,7 +16,7 @@ if ($quantidade == null) {
 ?>
 
 <body>
-<br>
+<br><br><br>
     <form action="anuncio.php" method="POST">
         <div class="anuncios">
             <?php

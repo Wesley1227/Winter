@@ -1,12 +1,9 @@
-<?php include_once '../Include_once/conexao.php';
-// error_reporting(0);
-// if ($logo == null) {
-//     $logo = "../img/1.png";
-// }
-if (isset($_SESSION['idUser']) && $_SESSION['idUser'] == null){
-$idUser = 0;
-}
+<?php
+include_once('../Include_once/conexao.php');
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +15,11 @@ $idUser = 0;
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="icon" type="image/x-icon" href="../img/Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../JS/js.js"></script>
     <title><?php echo $pagina ?></title>
+    
 </head>
 
 <div class="header">

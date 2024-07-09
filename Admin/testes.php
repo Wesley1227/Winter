@@ -15,7 +15,7 @@ include_once '../Include_once/head.php';
             width: 80%;
         }
     </style>
-    </head>
+ 
 
     <body>
         <h1>Meu Mapa do Google</h1>

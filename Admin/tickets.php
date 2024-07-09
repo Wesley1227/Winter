@@ -1,12 +1,11 @@
 <?php
-include('../login/protect.php');
 include_once 'conexao.php';
 
 $titulo = "Tickets";
 $pagina = "Admin - " . $titulo;
 include_once '../Include_once/head.php';
 
-$stmt_ticket = $con->prepare("SELECT * FROM ticket");
+$stmt_ticket = $con->prepare("SELECT * FROM ticket WHERE status != 'Apagado'");
 $stmt_ticket->execute();
 $tickets_ticket = $stmt_ticket->fetchAll(PDO::FETCH_ASSOC);
 

@@ -1,11 +1,9 @@
 <?php session_start();
-if (!isset($_SESSION['idUser']) || $_SESSION['idUser'] !== 1) {
-    // Redireciona o usuário ou encerra a execução do script
+if (!isset($_SESSION['idUser']) && $_SESSION['idUser'] != 1) {
     header("Location: ../PHP/index.php");
-    exit; // Encerra a execução do script
+    exit;
 }
 
-// Conexão com o banco de dados
 $servidor = "localhost";
 $usuario = "root";
 $senha = "";
@@ -16,12 +14,16 @@ if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);
 }
 
-// Exemplo de queries (pode adicionar outras conexões ou operações aqui)
 $querySub = "SELECT * FROM subcategoria";
-$queryDenuncias = "SELECT * FROM denuncias ORDER BY dataDenuncia DESC";
+$queryDenuncias = "SELECT * FROM denuncias WHERE status !='Apagado' ORDER BY status ASC";
 
-// Exemplo de execução de query
 $resultado = $conn->query($querySub);
 if (!$resultado) {
     die("Erro na consulta: " . $conn->error);
+}
+
+$mysqli = new mysqli("localhost", "root", "", "winter");
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }

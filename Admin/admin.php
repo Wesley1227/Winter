@@ -43,7 +43,7 @@ foreach ($selectDenuncias as $numDenuncias) {
         </div>
         <div class="estatistica">
             <h1><?php echo $numUser['idUser'] ?></h1>
-            Contas registradas
+            Contas registadas
         </div>
         <!-- <div class="estatistica">
             <h1>-</h1>
@@ -52,25 +52,30 @@ foreach ($selectDenuncias as $numDenuncias) {
         <div class="estatistica">
             <h1>-</h1>
             Acessos
-        </div> -->
-        <div class="estatistica">
-            <h1><?php echo $numPesquisas['idPesquisa'] ?></h1>
-            Pesquisas
-        </div>
-        <div class="estatistica">
-            <h1><?php echo ceil($media["media"]) ?>€</h1>
-            Média preço do anúncios ativos
-        </div>
-        <a href="" id="link">
+        </div> --><a href="" id="link">
             <div class="estatistica">
                 <h1>+</h1>
                 Ver mais
             </div>
         </a>
+
+
     </div>
     <!-- OUTRAS estatisticas que ficarao inviseis -->
     <div id="estatisticas" style="display: none;">
         <div class="estatisticas">
+            <div class="estatistica">
+                <h1><?php echo $numPesquisas['idPesquisa'] ?></h1>
+                Pesquisas
+            </div>
+            <div class="estatistica">
+                <h1><?php echo ceil($media["media"]) ?>€</h1>
+                Média preço do anúncios ativos
+            </div>
+            <div class="estatistica">
+                <h1><?php echo $numDenuncias['idDenuncia'] ?></h1>
+                Denúncias
+            </div>
             <div class="estatistica">
                 <h1>-</h1>
                 Buscas por emprego
@@ -79,10 +84,7 @@ foreach ($selectDenuncias as $numDenuncias) {
                 <h1>-</h1>
                 Buscas por pesquisa rápida
             </div>
-            <div class="estatistica">
-                <h1><?php echo $numDenuncias['idDenuncia'] ?></h1>
-                Denúncias
-            </div>
+
             <div class="estatistica">
                 <h1>-</h1>
                 Punições
@@ -163,4 +165,3 @@ foreach ($selectDenuncias as $numDenuncias) {
         estatisticas.style.display = "none";
     });
 </script>
-<?php include_once('../Include_once/footer.php') ?>

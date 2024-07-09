@@ -1,6 +1,6 @@
 <?php
 $idUser = $_SESSION['idUser'];
-$query_ticket = "SELECT * FROM ticket WHERE idUser = ?";
+$query_ticket = "SELECT * FROM ticket WHERE idUser = ? ORDER BY status ASC";
 $stmt_ticket = $con->prepare($query_ticket);
 $stmt_ticket->execute([$idUser]);
 $tickets_ticket = $stmt_ticket->fetchAll(PDO::FETCH_ASSOC);
@@ -43,7 +43,7 @@ $tickets_ticket = $stmt_ticket->fetchAll(PDO::FETCH_ASSOC);
 
         <?php
         // Consulta SQL para selecionar os tickets da tabela ticketremocaoconta para o utilizador com login feito
-        $query_remocao = "SELECT * FROM ticketremocaoconta WHERE idUser = ?";
+        $query_remocao = "SELECT * FROM ticketremocaoconta WHERE idUser = ? ";
         $stmt_remocao = $con->prepare($query_remocao);
         $stmt_remocao->execute([$idUser]);
         $tickets_remocao = $stmt_remocao->fetchAll(PDO::FETCH_ASSOC);

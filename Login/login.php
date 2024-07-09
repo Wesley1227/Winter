@@ -48,7 +48,7 @@
                 
                 <button type="submit">Login</button><br>
                 <p>Não tem conta? <a href="../Login/registro.php"><span>Regista-se</span></a></p>
-                <p>Esqueceu sua senha? <a href=""><span>Recupere-a</span></a></p>
+                <!-- <p>Esqueceu sua senha? <a href=""><span>Recupere-a</span></a></p> -->
             </form>
         </div>
     </div>

@@ -7,9 +7,11 @@
     </a>
     <input type="checkbox" id="services">
     <ul class="menu-dropdown">
-        <li><a href="../Admin/admin.php">Config</a></li>
-        <li><a href="../Admin/testes.php">Testes</a></li>
+        <li><a href="../Admin/admin.php">Estatisticas</a></li>
         <li><a href="../Admin/denuncias.php">Denúncias</a></li>
         <li><a href="../Admin/tickets.php">Tickets</a></li>
+        <li><a href="../Admin/users.php">Utilizadores</a></li>
+        <li><a href="../Admin/insercoes.php">Inserções</a></li>
+        <li><a href="../Admin/testes.php">Testes</a></li>
     </ul>
 </li>

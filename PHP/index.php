@@ -64,7 +64,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
   </div> -->
 
   <br><br>
-  <h1 class="title" id="destaques">Pesquisa rápida</h1><br>
+  <h1 class="title" id="destaques">Atalhos</h1><br>
   <div class="PesquisaRapida" id="pesquisa">
     <a href="#"><img src="../img/telemoveisAte300.jpg"></a>
     <a href="#"><img src="../img/ComputadoresTorre.png"></a>

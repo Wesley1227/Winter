@@ -1,11 +1,16 @@
 <?php
 include_once('conexao.php');
 include_once('../Login/protect.php');
+
 $idUser = $_SESSION['idUser'];
 $pesquisa = $_GET['pesquisa'];
 $precoMin = $_GET['precoMin'];
 $precoMax = $_GET['precoMax'];
 $ordem = $_GET['ordem'];
+if (!isset($idUser) || $idUser == null) {
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    exit;
+  }
 $selectFiltros = $con->query("SELECT * FROM filtros WHERE idUser ='$idUser'")->fetchAll();
 foreach ($selectFiltros as $filtros) {
 }
