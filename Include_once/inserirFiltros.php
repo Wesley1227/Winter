@@ -1,47 +1,61 @@
 <?php
-include_once('conexao.php');
-include_once('../Login/protect.php');
+session_start();
 
-$idUser = $_SESSION['idUser'];
-$pesquisa = $_GET['pesquisa'];
-$precoMin = $_GET['precoMin'];
-$precoMax = $_GET['precoMax'];
-$ordem = $_GET['ordem'];
-if (!isset($idUser) || $idUser == null) {
+// Verificar se o usuário está logado
+if (!isset($_SESSION['idUser']) || empty($_SESSION['idUser'])) {
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit;
-  }
-$selectFiltros = $con->query("SELECT * FROM filtros WHERE idUser ='$idUser'")->fetchAll();
-foreach ($selectFiltros as $filtros) {
-}
-if ($pesquisa ==  null) {
-    $pesquisa = $filtros['pesquisa'];
-} else {
-    $pesquisa = $_GET['pesquisa'];
 }
 
-if ($precoMin ==  null) {
-    $precoMin = $filtros['precoMin'];
+// Incluir arquivo de conexão com o banco de dados
+include_once('conexao.php');
+
+$idUser = $_SESSION['idUser'];
+
+// Recuperar valores dos filtros da URL
+$pesquisa = isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '';
+$precoMin = isset($_GET['precoMin']) ? $_GET['precoMin'] : '';
+$precoMax = isset($_GET['precoMax']) ? $_GET['precoMax'] : '';
+$categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
+$subCategoria = isset($_GET['subCategoria']) ? $_GET['subCategoria'] : '';
+$subSubCategoria = isset($_GET['subSubCategoria']) ? $_GET['subSubCategoria'] : '';
+$ordem = isset($_GET['ordem']) ? $_GET['ordem'] : '';
+
+// Verificar se já existem filtros para o usuário
+$selectFiltros = $con->prepare("SELECT * FROM filtros WHERE idUser = :idUser");
+$selectFiltros->bindParam(':idUser', $idUser, PDO::PARAM_INT);
+$selectFiltros->execute();
+$filtros = $selectFiltros->fetch(PDO::FETCH_ASSOC);
+
+if (!$filtros) {
+    // Se não houver filtros, INSERT
+    $queryFiltros = "INSERT INTO filtros (idUser, pesquisa, precoMin, precoMax, ordem, idCategoria,idSubCategoria,idSubSubCategoria) 
+                     VALUES (:idUser, :pesquisa, :precoMin, :precoMax, :ordem, :idCategoria, :idSubCategoria, :idSubSubCategoria)";
 } else {
-    $precoMin = $_GET['precoMin'];
-}
-if ($precoMax ==  null) {
-    $precoMax = $filtros['precoMax'];
-} else {
-    $precoMax = $_GET['precoMax'];
-}
-if ($ordem ==  null) {
-    $ordem = $filtros['ordem'];
-} else {
-    $ordem = $_GET['ordem'];
+    // Se houver filtros, UPDATE mantendo os valores anteriores se não forem modificados
+    $queryFiltros = "UPDATE filtros SET 
+                        pesquisa = COALESCE(:pesquisa, pesquisa),
+                        precoMin = COALESCE(:precoMin, precoMin),
+                        precoMax = COALESCE(:precoMax, precoMax),
+                        ordem = COALESCE(:ordem, ordem),
+                        idCategoria = COALESCE(:idCategoria, idCategoria),
+                        idSubCategoria = COALESCE(:idSubCategoria, idSubCategoria),
+                        idSubSubCategoria = COALESCE(:idSubSubCategoria, idSubSubCategoria)
+                    WHERE idUser = :idUser";
 }
 
-if ($filtros['idUser'] == $idUser) {
-    $queryFiltros = "UPDATE filtros SET pesquisa = '$pesquisa', precoMin = '$precoMin',precoMax = '$precoMax',ordem = '$ordem' WHERE idUser = $idUser";
-} else {
-    $queryFiltros = "INSERT INTO filtros (idUser,pesquisa,precoMin,precoMax,ordem) 
-    VALUES('$idUser','$pesquisa','$precoMin','$precoMax','$ordem')";
-}
+$stmt = $con->prepare($queryFiltros);
+$stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
+$stmt->bindParam(':pesquisa', $pesquisa, PDO::PARAM_STR);
+$stmt->bindParam(':precoMin', $precoMin, PDO::PARAM_STR);
+$stmt->bindParam(':precoMax', $precoMax, PDO::PARAM_STR);
+$stmt->bindParam(':ordem', $ordem, PDO::PARAM_STR);
+$stmt->bindParam(':idCategoria', $categoria, PDO::PARAM_INT);
+$stmt->bindParam(':idSubCategoria', $subCategoria, PDO::PARAM_INT);
+$stmt->bindParam(':idSubSubCategoria', $subSubCategoria, PDO::PARAM_INT);
+$stmt->execute();
 
-$insertFiltros = $con->query($queryFiltros)->fetchAll();
+// Redirecionar para a página de pesquisa após atualização
 header('Location: ../PHP/pesquisa.php');
+exit;
+?>

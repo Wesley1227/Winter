@@ -50,11 +50,19 @@
                 <div style="background-color: DarkSlateBlue; color:white; font-size:20px; <?php echo $style ?>" id="anuncio">
                     <?php echo $idAnuncio2;  ?>
                     <a href="../PHP/anuncio.php?idAnuncio=<?= $idAnuncio2 ?>"><img src="../uploads/<?= $resultAnuncio2['imagem'] ?>" class="miniFotoPerfil" id="fotoChat" /></a>
-                    <?php echo $resultAnuncio2['titulo'] . " " . $visu ?> <br><br>
+                    <div id="tituloChat"><h4><?php echo $resultAnuncio2['titulo'] . " " . $visu ?></h4></div> <br><br>
                     
                     <div id="preco"><div id="anunciante">
                         <img src="../uploads/<?= $fotoPerfil ?>" class="miniFotoPerfil" id="fotoPerfilPessoa" />
-                        <?php echo $user['user'] ?>
+                        <?php
+                        if ($user['status'] == 1) {
+                            $status = "🔴";
+                        } else if ($user['status'] == 2) {
+                            $status = "🟢";
+                        } else if ($user['status'] == 3) {
+                            $status = "🔘";
+                        }
+                         echo $user['user'] ?><div class="status"><?= $status ?></div>
                     </div><?php echo $resultAnuncio2['preco'] . "€" ?></div>
                 </div>
             </div>

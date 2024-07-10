@@ -5,10 +5,6 @@ $titulo = "Tickets";
 $pagina = "Admin - " . $titulo;
 include_once '../Include_once/head.php';
 
-$stmt_ticket = $con->prepare("SELECT * FROM ticket WHERE status != 'Apagado'");
-$stmt_ticket->execute();
-$tickets_ticket = $stmt_ticket->fetchAll(PDO::FETCH_ASSOC);
-
 // Função para pegar a foto de perfil do user
 function getUserPhoto($con, $idUser)
 {
@@ -16,6 +12,38 @@ function getUserPhoto($con, $idUser)
     $stmt->execute([$idUser]);
     return $stmt->fetchColumn();
 }
+
+// Função para pegar o texto do status
+function getStatusText($status)
+{
+    switch ($status) {
+        case "Pendente":
+            return "Pendente 🟠";
+        case "Resolvido":
+            return "Resolvido 🟢";
+        case "Recusado":
+            return "Recusado 🔴";
+        default:
+            return "";
+    }
+}
+
+// Processa o formulário de atualização de status
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['idTicket']) && isset($_POST['status'])) {
+    $idTicket = $_POST['idTicket'];
+    $novoStatus = $_POST['status'];
+    $queryUpdate = "UPDATE ticket SET status = ? WHERE idTicket = ?";
+    $stmtUpdate = $con->prepare($queryUpdate);
+    if ($stmtUpdate->execute([$novoStatus, $idTicket])) {
+        echo "Status atualizado com sucesso.";
+    } else {
+        echo "Erro ao atualizar status.";
+    }
+}
+
+$stmt_ticket = $con->prepare("SELECT * FROM ticket WHERE status != 'Apagado'");
+$stmt_ticket->execute();
+$tickets_ticket = $stmt_ticket->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <body>
@@ -33,6 +61,19 @@ function getUserPhoto($con, $idUser)
                 Mensagem: <?= $ticket['mensagem'] ?><br><br>
                 Status: <?= $status ?><br>
                 Data: <?= $ticket['dataCriacao'] ?><br>
+
+                <!-- Formulário para atualizar o status -->
+                <form method="post" action="">
+                    <input type="hidden" name="idTicket" value="<?= $ticket['idTicket'] ?>">
+                    <label for="status">Alterar Status:</label>
+                    <select name="status" id="status">
+                        <option value="Pendente" <?= $ticket['status'] == "Pendente" ? 'selected' : ''; ?>>Pendente 🟠</option>
+                        <option value="Resolvido" <?= $ticket['status'] == "Resolvido" ? 'selected' : ''; ?>>Resolvido 🟢</option>
+                        <option value="Recusado" <?= $ticket['status'] == "Recusado" ? 'selected' : ''; ?>>Recusado 🔴</option>
+                    </select>
+                    <button type="submit">Atualizar</button>
+                </form>
+
                 <button title="Cancelar pedido" class="cancelarBtn">❌</button>
             </div><br>
         <?php endforeach; ?>
@@ -59,6 +100,19 @@ function getUserPhoto($con, $idUser)
                 Motivo: <?= $ticket['motivo'] ?><br><br>
                 Status: <?= $status ?><br>
                 Data: <?= $ticket['dataCriacao'] ?><br>
+
+                <!-- Formulário para atualizar o status -->
+                <form method="post" action="">
+                    <input type="hidden" name="idTicket" value="<?= $ticket['idTicketAlteracaoDados'] ?>">
+                    <label for="status">Alterar Status:</label>
+                    <select name="status" id="status">
+                        <option value="Pendente" <?= $ticket['status'] == "Pendente" ? 'selected' : ''; ?>>Pendente 🟠</option>
+                        <option value="Resolvido" <?= $ticket['status'] == "Resolvido" ? 'selected' : ''; ?>>Resolvido 🟢</option>
+                        <option value="Recusado" <?= $ticket['status'] == "Recusado" ? 'selected' : ''; ?>>Recusado 🔴</option>
+                    </select>
+                    <button type="submit">Atualizar</button>
+                </form>
+
                 <button title="Cancelar pedido" class="cancelarBtn">❌</button>
             </div><br>
         <?php endforeach; ?>
@@ -82,28 +136,24 @@ function getUserPhoto($con, $idUser)
                 Motivo: <?= $ticket['motivo'] ?><br><br>
                 Status: <?= $status ?><br>
                 Data: <?= $ticket['dataCriacao'] ?><br>
+
+                <!-- Formulário para atualizar o status -->
+                <form method="post" action="">
+                    <input type="hidden" name="idTicket" value="<?= $ticket['idTicketRemocaoConta'] ?>">
+                    <label for="status">Alterar Status:</label>
+                    <select name="status" id="status">
+                        <option value="Pendente" <?= $ticket['status'] == "Pendente" ? 'selected' : ''; ?>>Pendente 🟠</option>
+                        <option value="Resolvido" <?= $ticket['status'] == "Resolvido" ? 'selected' : ''; ?>>Resolvido 🟢</option>
+                        <option value="Recusado" <?= $ticket['status'] == "Recusado" ? 'selected' : ''; ?>>Recusado 🔴</option>
+                    </select>
+                    <button type="submit">Atualizar</button>
+                </form>
+
                 <button title="Cancelar pedido" class="cancelarBtn">❌</button>
             </div><br>
         <?php endforeach; ?>
 
     </div>
-
 </body>
 
 </html>
-
-<?php
-function getStatusText($status)
-{
-    switch ($status) {
-        case "Pendente":
-            return "Pendente 🟠";
-        case "Resolvido":
-            return "Resolvido 🟢";
-        case "Recusado":
-            return "Recusado 🔴";
-        default:
-            return "";
-    }
-}
-?>

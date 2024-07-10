@@ -9,7 +9,7 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 <Body>
 
   <?php if (!isset($_SESSION['idUser']) || $_SESSION['idUser'] == null) { ?>
-    <form action=""><button class="custom-btn" id="instalarApp" title="APP ainda em desenvolvimento">Instale nossa app</button></form><br>
+    <!-- <form action=""><button class="custom-btn" id="instalarApp" title="APP ainda em desenvolvimento">Instale nossa app</button></form><br> -->
   <?php } else { ?>
     <form action="../PHP/criarAnuncio.php"><button class="custom-btn" id="criarAnuncio">Criar anúncio</button></form><br>
   <?php } ?>
@@ -54,10 +54,10 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
 
   <br><br><br>
 
-  <!-- POSSIVEIS PROJETOS: -->
-  <!-- <div class="PesquisaRapida">
-    <!-- <a href=""><img src="../img/1.png"></a> 
-    <a href="#"><img src="../img/2.png"></a>
+  <!-- POSSIVEIS PROJETOS:
+  <div class="PesquisaRapida">
+     <a href=""><img src="../img/1.png"></a> 
+   
     <a href="#"><img src="../img/3.png"></a>
     <a href="#"><img src="../img/4.png"></a>
     <a href="forum.php"><img src="../img/5.png"></a>
@@ -66,10 +66,12 @@ $result = $con->query("SELECT * FROM anuncios WHERE imagem != '$semImagem'  ORDE
   <br><br>
   <h1 class="title" id="destaques">Atalhos</h1><br>
   <div class="PesquisaRapida" id="pesquisa">
-    <a href="#"><img src="../img/telemoveisAte300.jpg"></a>
-    <a href="#"><img src="../img/ComputadoresTorre.png"></a>
-    <a href="#"><img src="../img/ImoveisAte.png"></a>
-    <a href="#"><img src="../img/VeiculosCarros.png"></a>
+    <a href="../Foruns/foruns.php"><img src="../img/5.png"></a>
+    <a href="../Include_once/inserirFiltros.php?pesquisa=&precoMin=&precoMax=300&ordem=4&categoria=2&subCategoria=7&subSubCategoria=3"><img src="../img/telemoveisAte300.jpg"></a>
+    <a href="../Include_once/inserirFiltros.php?pesquisa=&precoMin=&precoMax=&ordem=&categoria=1&subCategoria=1&subSubCategoria=28"><img src="../img/ComputadoresTorre.png"></a>
+    <a href="../Include_once/inserirFiltros.php?pesquisa=&precoMin=&precoMax=150000&ordem=&categoria=6&subCategoria=Subcategoria+n%C3%A3o+encontrada&subSubCategoria=Selecione+subSubCategoria"><img src="../img/ImoveisAte.png"></a>
+    <a href="../Include_once/inserirFiltros.php?pesquisa=&precoMin=&precoMax=&ordem=&categoria=9&subCategoria=28&subSubCategoria=32"><img src="../img/VeiculosCarros.png"></a>
+    <a href="../Include_once/inserirFiltros.php?pesquisa=&precoMin=&precoMax=&ordem=&categoria=7&subCategoria=26&subSubCategoria=30"><img src="../img/2.png"></a>
   </div>
 
 </body>

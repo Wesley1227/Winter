@@ -38,7 +38,7 @@ include_once("../Include_once/Conta/menu.php");
     <div class="menuPerfil">
         <a href="conta.php?idPag=1"><button class="<?php echo $class1 ?>" id="perfilBTN">Mensagens</button></a>
         <a href="conta.php?idPag=2"><button class="<?php echo $class2 ?>" id="perfilBTN">Anúncios</button></a>
-        <a href="conta.php?idPag=3"><button class="<?php echo $class3 ?>" id="perfilBTN">Avaliações</button></a>
+        <!-- <a href="conta.php?idPag=3"><button class="<?php echo $class3 ?>" id="perfilBTN">Avaliações</button></a> -->
         <a href="conta.php?idPag=4"><button class="<?php echo $class4 ?>" id="perfilBTN">Dados</button></a>
     </div>
 <br>
@@ -49,9 +49,9 @@ include_once("../Include_once/Conta/menu.php");
     if ($idPag == 2) {
         include_once('../Include_once/Conta/anuncios.php');
     }
-    if ($idPag == 3) {
-        include_once('../Include_once/Conta/avaliacoes.php');
-    }
+    // if ($idPag == 3) {
+    //     include_once('../Include_once/Conta/avaliacoes.php');
+    // }
     if ($idPag == 4) {
         include_once('../Include_once/Conta/dados.php');
     } ?>

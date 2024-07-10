@@ -1,5 +1,9 @@
 <?php
-include_once('conexao.php');
+include('../login/protect.php');
+include_once '../Include_once/conexao.php';
+$titulo = "Utilizadores";
+$pagina = "Admin - " . $titulo;
+include_once '../Include_once/head.php';
 
 $id = $_GET['id'];
 $query = "SELECT * FROM user WHERE idUser = ?";

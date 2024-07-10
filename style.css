@@ -137,11 +137,16 @@ img#logo {
     font-weight: bold;
 }
 
+.status {
+    font-size: 10px;
+    /* margin-top: 10px; */
+}
+
 
 /* Mobile */
 @media screen and (max-width: 500px) {
     .menu {
-        padding-right: 17px;
+        padding-right: 25px;
     }
 
     .menu>ul {
@@ -150,6 +155,7 @@ img#logo {
 
     .menu a {
         padding: 15px 15px 15px 15px;
+
     }
 
     .menu i {
@@ -357,6 +363,9 @@ html {
 
 .erroMensagem {
     text-align: center;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
 }
 
 /* ////////////////////////////////////////////////////// Página - "INDEX" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -448,7 +457,7 @@ html {
 }
 
 .custom-btn.active {
-    background-color: #242424;
+    background-color: #464646;
 }
 
 .custom-btn:hover {
@@ -563,8 +572,9 @@ form.search-container {
 
 .PesquisaRapida {
     display: grid;
-    width: 70%;
-    height: 25vh;
+    width: auto;
+    max-width: 80%;
+    height: auto;
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
@@ -573,16 +583,16 @@ form.search-container {
     align-content: space-evenly;
     align-items: center;
     overflow: hidden;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     grid-template-rows: auto;
-
+    box-shadow: var(--boxShadow);
 }
 
 .PesquisaRapida img {
     z-index: 3;
     border-radius: 25px;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     transition: all .3s ease-in-out;
 }
 
@@ -624,7 +634,7 @@ form.search-container {
 }
 
 #map {
-    height: 330px;
+    height: 230px;
     width: 100%;
     border-radius: 20px;
     box-shadow: var(--boxShadow);
@@ -819,6 +829,10 @@ datalist.dataList {
     .wui-side-menu {
         width: 180px;
     }
+
+    #map {
+        height: 340px;
+    }
 }
 
 @media only screen and (min-width:600px) {
@@ -970,8 +984,8 @@ datalist.dataList {
 }
 
 .itemInfo h4 {
-    float: left;
-    text-align: right;
+    /* float: left;
+    text-align: right; */
     color: rgb(0, 0, 0);
     margin-bottom: -75px;
     margin-top: -12px;
@@ -1061,9 +1075,9 @@ datalist.dataList {
 
 .colunas img {
     border-radius: 15px;
-    width: 100%; 
-    height: 92%;         
-    object-fit: cover; 
+    width: 100%;
+    height: 92%;
+    object-fit: cover;
 }
 
 
@@ -1267,6 +1281,7 @@ button#editarAnuncio.custom-btn {
 
 /* MOBILE */
 @media screen and (max-width: 900px) {
+
     .anuncio {
         width: 99%;
         display: block;
@@ -1369,8 +1384,6 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
 }
 
 
-
-
 /* ////////////////////////////////////////////////// Página "Conta" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .menuPerfil {
@@ -1379,7 +1392,7 @@ textarea#anuncioDescricao::-webkit-scrollbar-thumb {
     margin-left: auto;
     margin-right: auto;
     justify-content: space-evenly;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 33% 33% 33%;
     gap: 1%;
     margin-bottom: 10px;
 }
@@ -1770,7 +1783,7 @@ input#search-bar.inputDados {
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
-
+    box-shadow: var(--boxShadow);
 }
 
 .circle-chart__circle {
@@ -1925,6 +1938,11 @@ img#fotoChat.miniFotoPerfil:hover {
     font-size: 25px;
     width: 93%;
 }
+#tituloAnuncio h4{  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 #preco {
     float: right;
@@ -2043,6 +2061,67 @@ Form#formMiniCHat {
     background-color: rgb(32, 32, 32);
     width: 26%;
 }
+
+/* Estilo para o modal */
+.modal {
+    display: none;
+    /* Oculta o modal por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo escuro semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* Centraliza verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de enviar */
+#formAvaliacao button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#formAvaliacao button:hover {
+    background-color: #45a049;
+}
+
 
 /* MOBILE */
 @media screen and (max-width: 800px) {
@@ -2176,6 +2255,7 @@ Form#formMiniCHat {
     margin: 0 auto;
     grid-template-columns: 68% 30%;
     gap: 2%;
+    color: black;
 }
 
 .foruns {
@@ -2183,6 +2263,7 @@ Form#formMiniCHat {
     border-radius: 15px;
     box-shadow: var(--boxShadow);
     height: 100%;
+    padding: 10px;
 }
 
 #pesquisa {
@@ -2193,6 +2274,18 @@ Form#formMiniCHat {
     box-shadow: var(--boxShadow);
 }
 
+#pesquisa2 {
+    max-height: 70vh;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: var(--boxShadow);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 #search-bar.pesquisaForum {
     width: 90%;
 }
@@ -2200,6 +2293,99 @@ Form#formMiniCHat {
 #pesquisaForum.custom-btn {
     margin-top: 10px;
     width: 80%;
+}
+
+#listaForuns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #353535;
+    box-shadow: var(--boxShadow);
+    border-radius: 15px;
+    height: 40px;
+    color: white;
+}
+
+#listaForuns:hover {
+    background-color: #4b4b4b;
+}
+
+
+#chat4 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: auto;
+    flex-direction: column-reverse;
+    overflow: auto;
+    display: flex;
+    max-height: 70vh;
+}
+
+.mensagem4 {
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 80px);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none;
+}
+
+#enviar4 {
+    width: 70px;
+    padding: 10px;
+    background-color: #7439c2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#enviar4:hover {
+    background-color: #3d148f;
+}
+
+.mensagem4-container {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    max-width: 600px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.mensagem4-container .fotoPerfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mensagem4-container .usuario4 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.mensagem4-container .texto4 {
+    margin-left: 10px;
+}
+
+.minha-mensagem {
+    background-color: #9e97fd;
+    /* Cor de fundo para mensagens do próprio usuário */
+}
+
+#listaForuns2 {
+
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 700px) {
@@ -2300,6 +2486,7 @@ Form#formMiniCHat {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-shadow: var(--boxShadow);
 }
 
 #configuracoes h1 {
@@ -2428,7 +2615,7 @@ Form#formMiniCHat {
         left: 57%;
     }
 }
+
 .select2-results__option {
     color: black !important;
 }
-

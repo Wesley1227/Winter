@@ -95,16 +95,16 @@ $mysqli->close();
   <?php
   // Inclui o popup de chat se o parâmetro 'chat' estiver presente na URL
   if (isset($_GET['chat']) && $_GET['chat'] == 1) {
-  ?>
+    ?>
     <div id="popupChat" style="display: block;">
       <button id="fecharChat" class="fecharChat">x</button>
-      <?php include_once('../Chat/chat.php'); ?>
+      <?php include_once ('../Chat/chat.php'); ?>
     </div> <!-- POP-UP CHAT novamente -->
   <?php } ?>
 
   <div id="popupChat" style="display: none;">
     <button id="fecharChat" class="fecharChat">x</button>
-    <?php include_once('../Chat/chat.php'); ?>
+    <?php include_once ('../Chat/chat.php'); ?>
   </div> <!-- POP-UP CHAT -->
 
   <div id="popupImagens" style="display: none;">
@@ -114,11 +114,11 @@ $mysqli->close();
 
   <div class="anuncio">
     <div class="colunas" id="imagens">
-      <?php include_once('editarAnuncio.php'); ?>
+      <?php include_once ('editarAnuncio.php'); ?>
       <a href="#" id="linkImagens">
         <img src="../uploads/<?= $result['imagem'] ?>" alt="">
       </a>
-      <?php include_once("../Include_once/iconYT.php"); ?>
+      <?php include_once ("../Include_once/iconYT.php"); ?>
       <div class="informacoes">
         <h1><?php echo $result['preco'] ?>€</h1>
         <div class="notificacao" id="not">Anúncio favoritado!</div>
@@ -140,9 +140,16 @@ $mysqli->close();
       </a><br>
       <?php if (isset($_SESSION['idUser']) && $_SESSION['idUser'] == 1) { ?>
         ID: <?= $result['idUser'] ?>
-      <?php } ?>
+      <?php }
+      if ($resultIdUser['status'] == 1) {
+        $status = "🔴";
+      } else if ($resultIdUser['status'] == 2) {
+        $status = "🟢";
+      } else if ($resultIdUser['status'] == 3) {
+        $status = "🔘";
+      } ?>
 
-      <?= $emoji . $resultIdUser['nome'] . " " . $resultIdUser['apelido'] ?><br><br>
+      <?= $emoji . $resultIdUser['nome'] . " " . $resultIdUser['apelido'] . $status ?><br><br>
 
 
       <div id="map"></div>
@@ -151,11 +158,13 @@ $mysqli->close();
         <?php if (isset($_SESSION['idUser']) && ($_SESSION['idUser'] == $resultIdUser['idUser'] || $_SESSION['idUser'] == 1)) { ?>
           <a href="#" id="editarAnuncioButton"><button class="custom-btn" id="editarAnuncio">Editar</button></a>
           <a href="../Include_once/deleteAnuncio.php?idAnuncio=<?= $result['idAnuncio'] ?>">
-            <button class="custom-btn" id="editarAnuncio" onclick="return confirm('Tem certeza que deseja excluir este anúncio?')">🗑️</button>
+            <button class="custom-btn" id="editarAnuncio"
+              onclick="return confirm('Tem certeza que deseja excluir este anúncio?')">🗑️</button>
           </a>
         <?php } else { ?>
-          <a href="" id="linkChat"><button class="custom-btn" id="editarAnuncio" title="Ainda em desenvolvimento">💭 Mensagem</button></a>
-          <a href="#" id="link"><button class="custom-btn" id="editarAnuncio" onclick="mostrarNotificacao3()">📞</button></a>
+          <a href="" id="linkChat"><button class="custom-btn" id="editarAnuncio">💭 Mensagem</button></a>
+          <a href="#" id="link"><button class="custom-btn" id="editarAnuncio"
+              onclick="mostrarNotificacao3()">📞</button></a>
 
           <div class="notificacao" id="not3">
             📞
@@ -177,11 +186,12 @@ $mysqli->close();
 
             <?= $result['descricao'] ?>
         </textarea>
-    👀<?= $result['visualizacoes'] ?>
+    <h4 style="text-align:center;">Data de criação: <?= $result['dataCriacao'] ?></h4>
   </div>
 
   <?php include_once '../Include_once/footer.php'; ?>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApD0rM22UO1KZK6q_6O6iJuai76mf0svc&callback=initMap"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApD0rM22UO1KZK6q_6O6iJuai76mf0svc&callback=initMap"></script>
 </body>
 
 <!-- JavaScript -->
@@ -213,7 +223,7 @@ $mysqli->close();
       emoji.textContent = "🤍";
       mostrarNotificacao2();
     }
-    window.onload = function() {
+    window.onload = function () {
       initMap();
     }
   }
@@ -226,12 +236,12 @@ $mysqli->close();
   var popupImagens = document.getElementById("popupImagens");
   var fecharImagens = document.getElementById("fecharImagens");
 
-  linkImagens.addEventListener("click", function(event) {
+  linkImagens.addEventListener("click", function (event) {
     event.preventDefault();
     popupImagens.style.display = "block";
   });
 
-  fecharImagens.addEventListener("click", function() {
+  fecharImagens.addEventListener("click", function () {
     popupImagens.style.display = "none";
   });
 </script>
@@ -242,12 +252,12 @@ $mysqli->close();
   var popupChat = document.getElementById("popupChat");
   var fecharChat = document.getElementById("fecharChat");
 
-  linkChat.addEventListener("click", function(event) {
+  linkChat.addEventListener("click", function (event) {
     event.preventDefault();
     popupChat.style.display = "block";
   });
 
-  fecharChat.addEventListener("click", function() {
+  fecharChat.addEventListener("click", function () {
     popupChat.style.display = "none";
   });
 </script>
@@ -257,9 +267,9 @@ $mysqli->close();
   function mostrarNotificacao3() {
     var not3 = document.getElementById("not3");
     not3.style.display = "block";
-    setTimeout(function() {
+    setTimeout(function () {
       not3.style.transform = 'translateX(150%)';
-      setTimeout(function() {
+      setTimeout(function () {
         not3.style.display = 'none';
         not3.style.transform = 'translateX(0%)';
       }, 500);
@@ -299,12 +309,12 @@ $mysqli->close();
   var popupImagens = document.getElementById("popupImagens");
   var fecharImagens = document.getElementById("fecharImagens");
 
-  linkImagens.addEventListener("click", function(event) {
+  linkImagens.addEventListener("click", function (event) {
     event.preventDefault();
     popupImagens.style.display = "block";
   });
 
-  fecharImagens.addEventListener("click", function() {
+  fecharImagens.addEventListener("click", function () {
     popupImagens.style.display = "none";
   });
 </script>
@@ -316,12 +326,12 @@ $mysqli->close();
   var popupChat = document.getElementById("popupChat");
   var fecharChat = document.getElementById("fecharChat");
 
-  linkChat.addEventListener("click", function(event) {
+  linkChat.addEventListener("click", function (event) {
     event.preventDefault();
     popupChat.style.display = "block";
   });
 
-  fecharChat.addEventListener("click", function() {
+  fecharChat.addEventListener("click", function () {
     popupChat.style.display = "none";
   });
 </script>
@@ -351,7 +361,7 @@ $mysqli->close();
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "../Include_once/favoritarAnuncio.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         console.log(xhr.responseText);
       }
@@ -368,7 +378,7 @@ $mysqli->close();
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "../Include_once/desfavoritarAnuncio.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         console.log(xhr.responseText);
       }
@@ -386,9 +396,9 @@ $mysqli->close();
     var not = document.getElementById("not");
     not.style.display = "block";
     favoritarAnuncio();
-    setTimeout(function() {
+    setTimeout(function () {
       not.style.transform = 'translateX(150%) ';
-      setTimeout(function() {
+      setTimeout(function () {
         not.style.display = 'none';
       }, 1000); // Tempo de transição (0.5 segundos)
     }, 3000); // 5 segundos
@@ -400,9 +410,9 @@ $mysqli->close();
     var not2 = document.getElementById("not2");
     not2.style.display = "block";
     desfavoritarAnuncio();
-    setTimeout(function() {
+    setTimeout(function () {
       not2.style.transform = 'translateX(150%) ';
-      setTimeout(function() {
+      setTimeout(function () {
         not2.style.display = 'none';
       }, 1000); // Tempo de transição (0.5 segundos)
     }, 3000); // 5 segundos
@@ -418,9 +428,9 @@ $mysqli->close();
   function mostrarNotificacao3() {
     var not3 = document.getElementById("not3");
     not3.style.display = "block";
-    setTimeout(function() {
+    setTimeout(function () {
       not3.style.transform = 'translateX(150%)';
-      setTimeout(function() {
+      setTimeout(function () {
         not3.style.display = 'none';
         not3.style.transform = 'translateX(0%)';
       }, 500);
@@ -436,12 +446,12 @@ $mysqli->close();
   var editarAnuncioPopup = document.getElementById("editarAnuncioPopup");
   var fecharEdicaoAnuncio = document.getElementById("fecharEdicaoAnuncio");
 
-  editarAnuncioButton.addEventListener("click", function(event) {
+  editarAnuncioButton.addEventListener("click", function (event) {
     event.preventDefault();
     editarAnuncioPopup.style.display = "block";
   });
 
-  fecharEdicaoAnuncio.addEventListener("click", function() {
+  fecharEdicaoAnuncio.addEventListener("click", function () {
     editarAnuncioPopup.style.display = "none";
   });
 </script>

@@ -14,10 +14,14 @@ include_once '../Include_once/head.php';
     <div id="formProdutos">
         <form method="POST" action="../Include_once/inserir.php" enctype="multipart/form-data">
             <div class="formAnuncio">
-                <input type="text" name="titulo" class="tituloAnuncio" id="search-bar" minlength="2" maxlength="40" required placeholder="Título do seu anuncio:"><br>
-                <textarea class="descricao" name="descricao" id="search-bar" placeholder="Descrição:" cols="30" rows="10"></textarea><br>
+                <input type="text" name="titulo" class="tituloAnuncio" id="search-bar" minlength="10" maxlength="40"
+                    required placeholder="Título do seu anuncio:"><br>
 
-                <select name="categoria" id="categoria" onchange="FetchSubCategoria(this.value)" class="dropdown-select">
+                <textarea class="descricao" name="descricao" id="search-bar" placeholder="Descrição:" cols="30"
+                    rows="10"></textarea><br>
+                <br>
+                <select name="categoria" id="categoria" required onchange="FetchSubCategoria(this.value)"
+                    class="dropdown-select">
                     <option value="">Categoria</option>
                     <?php
                     if ($result->num_rows > 0) {
@@ -27,13 +31,14 @@ include_once '../Include_once/head.php';
                     } ?>
                 </select>
 
-                <select name="subCategoria" id="subCategoria" onchange="FetchSubSubCategoria(this.value)" class="dropdown-select">
+                <select name="subCategoria" id="subCategoria" onchange="FetchSubSubCategoria(this.value)"
+                    class="dropdown-select">
                     <option value="">Subcategoria</option>
                 </select>
 
                 <select name="subSubCategoria" id="subSubCategoria" class="dropdown-select">
                     <option value="">Sub-Subcategoria</option>
-                </select><br>
+                </select><br> <br>
 
                 <select name="marca" id="marca" class="dropdown-select">
                     <option value="">Marca</option>
@@ -46,32 +51,35 @@ include_once '../Include_once/head.php';
                     } ?>
                 </select>
 
-                <select name="estadoProduto" class="dropdown-select">
+                <select name="estadoProduto" class="dropdown-select" required>
                     <option value="">Estado do produto</option>
-                    <option value="1">Imaculado</option>
-                    <option value="2">Novo</option>
-                    <option value="3">Semi-novo</option>
-                    <option value="4">Usado</option>
-                    <option value="5">Estragado</option>
+                    <option value="Ativo">Ativo</option>
+                    <option value="Imaculado">Imaculado</option>
+                    <option value="Novo">Novo</option>
+                    <option value="Semi-novo">Semi-novo</option>
+                    <option value="Usado">Usado</option>
+                    <option value="Estragado">Estragado</option>
                 </select>
 
-                <select name="intAnuncio" id="select" class="dropdown-select">
+                <select name="intAnuncio" id="select" class="dropdown-select" required>
                     <option value="">Intenção do anúncio</option>
-                    <option value="opcao1">Vender</option>
-                    <option value="3">Trocar</option>
-                    <option value="4">Doar</option>
-                    <option value="1">Comprar</option>
+                    <option value="Vender">Vender</option>
+                    <option value="Trocar">Trocar</option>
+                    <option value="Doar">Doar</option>
+                    <option value="Comprar">Comprar</option>
+                    <option value="Contratar">Contratar</option>
                 </select><br>
-
-                <div id="opcao1" style="display: none;">
-                    <input type="number" min="0" max="100000" for="preco" name="preco" class="preco" id="search-bar" placeholder="Preço">
+                <br>
+                <div id="opcao1">
+                    <input type="number" min="0" max="10000000" for="preco" required name="preco" class="preco" id="search-bar"
+                        placeholder="Preço">
                 </div><br>
 
                 <?php $idUser = $_SESSION['idUser'];
                 $registros = $con->query("SELECT COUNT(idUser) count FROM anuncios WHERE idUser= $idUser")->fetch()["count"];
                 ?> <br>
 
-                <br><input type="file" name="imagem">
+                <br><input type="file" accept="image/*" name="imagem">
 
                 <?php if ($registros < 15) {
                     $style = "";
@@ -82,7 +90,8 @@ include_once '../Include_once/head.php';
                 ?>
                 <div class="container">
                     <h1>Pesquisar Cidades</h1>
-                    <input id="pac-input" name="localizacao" class="controls" type="text" placeholder="Digite o nome da cidade">
+                    <input id="pac-input" name="localizacao" class="controls" type="text"
+                        placeholder="Digite o nome da cidade" required>
                     <div id="map" style="height: 400px; width: 40%;"></div>
                     <div id="latlng">
                         <p>Latitude: <span id="lat"></span></p>
@@ -93,7 +102,8 @@ include_once '../Include_once/head.php';
                     <input type="hidden" name="longitude" id="longitude">
                 </div>
                 Possui <?php echo $registros ?> anúncios ativos! <br>
-                <button type="submit" style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit" value="upload">Anunciar</button>
+                <button type="submit" style="<?php echo $style ?>" class="custom-btn" id="anunciar" name="submit"
+                    value="upload">Anunciar</button>
             </div>
         </form>
     </div>
@@ -106,7 +116,19 @@ include_once '../Include_once/head.php';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <!-- Script para carregar a API do Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApD0rM22UO1KZK6q_6O6iJuai76mf0svc&libraries=places&callback=initMap" async defer></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApD0rM22UO1KZK6q_6O6iJuai76mf0svc&libraries=places&callback=initMap"
+    async defer></script>
+<!-- Inclua o JavaScript do Select2 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script>
+    // Ativar Select2 nos selects
+    $(document).ready(function () {
+        $('select').select2();
+    });
+</script>
+
+</html>
 <script>
     // Função para inicializar o mapa e o autocomplete
     function initMap() {
@@ -130,7 +152,7 @@ include_once '../Include_once/head.php';
             anchorPoint: new google.maps.Point(0, -29)
         });
 
-        autocomplete.addListener('place_changed', function() {
+        autocomplete.addListener('place_changed', function () {
             infowindow.close();
             marker.setVisible(false);
             var place = autocomplete.getPlace();
@@ -175,16 +197,7 @@ include_once '../Include_once/head.php';
 </script>
 
 <script>
-    // Scrip para mostar preco caso o user escolher a opção "venda".
-    var select = document.getElementById("select");
-    select.addEventListener("change", function() {
-        var opcao = select.value;
-        var opcao1 = document.getElementById("opcao1");
-        opcao1.style.display = "none";
-        if (opcao == "opcao1") {
-            opcao1.style.display = "inline-block";
-        }
-    });
+
 
     // Scrip para mostar subCategorias quando o user escolher a categoria desejada.
     function FetchSubCategoria(id) {
@@ -196,7 +209,7 @@ include_once '../Include_once/head.php';
             data: {
                 idCategoria: id
             },
-            success: function(data) {
+            success: function (data) {
                 $('#subCategoria').html(data);
             }
         })
@@ -210,7 +223,7 @@ include_once '../Include_once/head.php';
             data: {
                 idSubCategoria: id
             },
-            success: function(data) {
+            success: function (data) {
                 $('#subSubCategoria').html(data);
             }
         })
@@ -224,13 +237,13 @@ include_once '../Include_once/head.php';
     var formProdutos = document.getElementById("formProdutos");
     var fechar = document.getElementById("fechar");
 
-    popupProdutos.addEventListener("click", function(event) {
+    popupProdutos.addEventListener("click", function (event) {
         event.preventDefault();
         formProdutos.style.display = "block";
         window.scrollBy(0, 400)
     });
 
-    fechar.addEventListener("click", function() {
+    fechar.addEventListener("click", function () {
         formProdutos.style.display = "none";
     });
 </script>
@@ -240,13 +253,13 @@ include_once '../Include_once/head.php';
     var formEmpregos = document.getElementById("formEmpregos");
     var fecharEmpregos = document.getElementById("fecharEmpregos");
 
-    popupEmpregos.addEventListener("click", function(event) {
+    popupEmpregos.addEventListener("click", function (event) {
         event.preventDefault();
         formEmpregos.style.display = "block";
         window.scrollBy(0, 350)
     });
 
-    fecharEmpregos.addEventListener("click", function() {
+    fecharEmpregos.addEventListener("click", function () {
         formEmpregos.style.display = "none";
     });
 </script>

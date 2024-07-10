@@ -24,7 +24,7 @@ include_once '../Include_once/head.php';
                 <input type="email" name="email" placeholder="Email" required />
                 <div id="erroMensagemEmail" class="erroMensagem"></div>
 
-                <input type="password" id="senha" name="senha" placeholder="Senha" required oninput="verificaPassword()" />
+                <input type="password" minlength="6" id="senha" name="senha" placeholder="Senha" required oninput="verificaPassword()" />
                 <input type="password" id="verificacao" name="verificacao" placeholder="Confirme a senha" required oninput="verificaPassword()" />
                 <div id="erroMensagemSenha" class="erroMensagem"></div>
 
@@ -34,7 +34,7 @@ include_once '../Include_once/head.php';
         </div>
         <div id="fimFormRegisto">
             <input type="checkbox" name="termos" id="termosCondicoes">
-            <label for="termosCondicoes">Concordo com os <a href="#" id="linkTermos">termos e condições.</a></label>
+            <label for="termosCondicoes">Concordo com os <a href="#" style=" font-weight: bold; color:black; font-size:20px;" id="linkTermos">termos e condições.</a></label>
             <div id="termosPopup" style="display: none;">
                 <?php include_once('../Include_once/termosCondicoes.php'); ?>
                 <br>
@@ -44,7 +44,7 @@ include_once '../Include_once/head.php';
             <?php
             if (isset($_SESSION['idUser']) == null) { ?>
                 <button type="submit" id="registrar" onclick="verificarNIF()" disabled>Registar</button>
-                <p>Já tem conta? <a href="#" onclick="abrirModalLogin()"><span>Login</span></a></p>
+                <p>Já tem conta? <a style=" font-weight: bold; color:black; font-size:20px;" href="#" onclick="abrirModalLogin()"><span>Login</span></a></p>
             <?php }
             ?>
 
